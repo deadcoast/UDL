@@ -80,7 +80,6 @@
   - **Property 8: Parameter Highlighting**
   - **Validates: Requirements 2.4**
 
-
 - [ ] 5. Implement code completion provider
   - Create completion items for namespace prefixes (!, %, >, #==)
   - Create completion items for context variables
@@ -158,7 +157,6 @@
 
 - [ ] 8. Checkpoint - Ensure all tests pass
   - Ensure all tests pass, ask the user if questions arise.
-
 
 - [ ] 9. Implement document symbol provider
   - Extract FUNCTION_CALL blocks as Function symbols
@@ -247,7 +245,6 @@
   - **Property 60: Reserved Keyword Protection**
   - **Validates: Requirements 12.4**
 
-
 - [ ] 13. Implement code action provider
   - Create "Add ceremony block template" action for break_gate without ceremony
   - Create "Add ?confirm:\"YES\"" action for break_gate without confirmation
@@ -333,7 +330,6 @@
 
 - [ ] 16. Checkpoint - Ensure all tests pass
   - Ensure all tests pass, ask the user if questions arise.
-
 
 - [ ] 17. Implement formatting provider
   - Implement indentation normalization (4 spaces for nested blocks)
@@ -426,7 +422,6 @@
 - [ ] 19.4 Write property test for force vector display
   - **Property 72: Force Vector Display**
   - **Validates: Requirements 14.4**
-
 
 - [ ] 20. Enhance evolution predictor
   - Extend existing gateEvolution.ts with advanced metrics

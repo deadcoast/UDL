@@ -1,5 +1,6 @@
 from axe_syntax.axe_builder.logger import logger
 
+
 def test_logger_configuration():
     try:
         logger.info("Test logger info message")

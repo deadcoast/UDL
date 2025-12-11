@@ -2,174 +2,178 @@
 
 /* General Styles */
 Screen {
-    background: #2B2D42;
-    color: #EDF2F4;
-    font-size: 14px;
-    font-family: "Fira Code", monospace;
+  background: #2b2d42;
+  color: #edf2f4;
+  font-size: 14px;
+  font-family: "Fira Code", monospace;
 }
 
 /* Header Styling */
 Header {
-    background: #8D99AE;
-    color: #2B2D42;
-    text-align: center;
-    padding: 1;
-    font-weight: bold;
-    border-bottom: 2 solid #EF233C;
+  background: #8d99ae;
+  color: #2b2d42;
+  text-align: center;
+  padding: 1;
+  font-weight: bold;
+  border-bottom: 2 solid #ef233c;
 }
 
 /* Footer Styling */
 Footer {
-    background: #8D99AE;
-    color: #2B2D42;
-    text-align: center;
-    padding: 1;
-    border-top: 2 solid #EF233C;
+  background: #8d99ae;
+  color: #2b2d42;
+  text-align: center;
+  padding: 1;
+  border-top: 2 solid #ef233c;
 }
 
 /* Main Layout Container */
 #main_layout {
-    layout: grid;
-    grid-gap: 1;
-    grid-template-columns: 3fr 2fr;
-    grid-template-rows: auto;
-    padding: 1;
+  layout: grid;
+  grid-gap: 1;
+  grid-template-columns: 3fr 2fr;
+  grid-template-rows: auto;
+  padding: 1;
 }
 
 /* Menu Tree Styling */
 Tree {
-    background: #4D908E;
-    color: #EDF2F4;
-    border: 1 solid #8D99AE;
-    border-radius: 5;
-    padding: 1;
-    overflow: auto;
+  background: #4d908e;
+  color: #edf2f4;
+  border: 1 solid #8d99ae;
+  border-radius: 5;
+  padding: 1;
+  overflow: auto;
 }
 
 Tree > TreeNode {
-    background: #4D908E;
-    color: #EDF2F4;
+  background: #4d908e;
+  color: #edf2f4;
 }
 
 Tree > TreeNode:hover {
-    background: #3B8686;
-    cursor: pointer;
+  background: #3b8686;
+  cursor: pointer;
 }
 
 Tree > TreeNode.selected {
-    background: #EF233C;
-    color: #EDF2F4;
+  background: #ef233c;
+  color: #edf2f4;
 }
 
 /* Input Section Styling */
 #input_section {
-    display: flex;
-    flex-direction: column;
-    gap: 1;
-    padding: 1;
-    background: #8D99AE;
-    border-radius: 5;
+  display: flex;
+  flex-direction: column;
+  gap: 1;
+  padding: 1;
+  background: #8d99ae;
+  border-radius: 5;
 }
 
 Input {
-    background: #EDF2F4;
-    color: #2B2D42;
-    border: none;
-    padding: 0.5;
-    border-radius: 3;
+  background: #edf2f4;
+  color: #2b2d42;
+  border: none;
+  padding: 0.5;
+  border-radius: 3;
 }
 
 Input:focus {
-    border: 1 solid #EF233C;
-    outline: none;
+  border: 1 solid #ef233c;
+  outline: none;
 }
 
 /* Buttons Styling */
 Button {
-    background: #EF233C;
-    color: #EDF2F4;
-    border: none;
-    padding: 0.5;
-    border-radius: 3;
-    text-align: center;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s ease;
+  background: #ef233c;
+  color: #edf2f4;
+  border: none;
+  padding: 0.5;
+  border-radius: 3;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 Button:hover {
-    background: #D90429;
+  background: #d90429;
 }
 
 Button:active {
-    background: #9D0208;
+  background: #9d0208;
 }
 
 /* Status and Error Messages Styling */
 #status {
-    background: #8D99AE;
-    color: #2B2D42;
-    padding: 0.5;
-    border-radius: 3;
-    text-align: center;
-    font-weight: bold;
+  background: #8d99ae;
+  color: #2b2d42;
+  padding: 0.5;
+  border-radius: 3;
+  text-align: center;
+  font-weight: bold;
 }
 
 #error_message {
-    background: #EF233C;
-    color: #EDF2F4;
-    padding: 0.5;
-    border-radius: 3;
-    text-align: center;
-    font-weight: bold;
+  background: #ef233c;
+  color: #edf2f4;
+  padding: 0.5;
+  border-radius: 3;
+  text-align: center;
+  font-weight: bold;
 }
 
 /* Log View Styling */
 DataTable {
-    background: #8D99AE;
-    color: #2B2D42;
-    border: 1 solid #2B2D42;
-    border-radius: 5;
-    padding: 1;
-    overflow: auto;
+  background: #8d99ae;
+  color: #2b2d42;
+  border: 1 solid #2b2d42;
+  border-radius: 5;
+  padding: 1;
+  overflow: auto;
 }
 
 DataTable th {
-    background: #2B2D42;
-    color: #EDF2F4;
-    padding: 0.5;
-    text-align: left;
-    border-bottom: 1 solid #EF233C;
+  background: #2b2d42;
+  color: #edf2f4;
+  padding: 0.5;
+  text-align: left;
+  border-bottom: 1 solid #ef233c;
 }
 
 DataTable td {
-    padding: 0.5;
-    border-bottom: 1 solid #2B2D42;
+  padding: 0.5;
+  border-bottom: 1 solid #2b2d42;
 }
 
 /* Right Container Styling */
 #right_container {
-    display: flex;
-    flex-direction: column;
-    gap: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1;
 }
 
 /* Scrollbar Styling */
-Tree, DataTable {
-    scrollbar-color: #EF233C #2B2D42;
-    scrollbar-width: thin;
+Tree,
+DataTable {
+  scrollbar-color: #ef233c #2b2d42;
+  scrollbar-width: thin;
 }
 
-Tree::-webkit-scrollbar, DataTable::-webkit-scrollbar {
-    width: 8px;
+Tree::-webkit-scrollbar,
+DataTable::-webkit-scrollbar {
+  width: 8px;
 }
 
-Tree::-webkit-scrollbar-track, DataTable::-webkit-scrollbar-track {
-    background: #2B2D42;
+Tree::-webkit-scrollbar-track,
+DataTable::-webkit-scrollbar-track {
+  background: #2b2d42;
 }
 
-Tree::-webkit-scrollbar-thumb, DataTable::-webkit-scrollbar-thumb {
-    background-color: #EF233C;
-    border-radius: 10px;
-    border: 2px solid #2B2D42;
+Tree::-webkit-scrollbar-thumb,
+DataTable::-webkit-scrollbar-thumb {
+  background-color: #ef233c;
+  border-radius: 10px;
+  border: 2px solid #2b2d42;
 }

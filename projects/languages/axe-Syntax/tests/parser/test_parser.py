@@ -12,6 +12,7 @@ def test_parse_multiple_main_menus():
     assert cmd.operation == "+"
     assert cmd.count == 3
 
+
 def test_parse_nested_menus():
     syntax = "[M={2}]:[N+{3}]"
     result = parse_axesyntax(syntax)
@@ -25,6 +26,7 @@ def test_parse_nested_menus():
     assert nested_menu.type == "N"
     assert nested_menu.operation == "+"
     assert nested_menu.count == 3
+
 
 def test_parse_title_subcommand():
     syntax = '[M={1}]:(T="Menu One Title")'

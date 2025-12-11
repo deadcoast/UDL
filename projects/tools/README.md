@@ -37,6 +37,7 @@ Developer tools, CLI utilities, and code generators.
 ## Development
 
 ### Rust Tools (sandbag)
+
 ```bash
 cd projects/tools/sandbag
 cargo build --release
@@ -44,6 +45,7 @@ cargo test
 ```
 
 ### Python Tools (CTX, ctx-card)
+
 ```bash
 cd projects/tools/CTX
 pip install -e ".[dev]"
@@ -53,6 +55,7 @@ pytest
 ## Publishing
 
 Tools are published to their respective package registries:
+
 - Rust tools → crates.io
 - Python tools → PyPI
 - Node tools → npm

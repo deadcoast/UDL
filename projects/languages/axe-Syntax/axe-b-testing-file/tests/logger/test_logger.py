@@ -2,6 +2,7 @@
 
 from axe_builder.logger.logger import logger
 
+
 def test_logger_configuration():
     try:
         logger.info("Test logger info message")

@@ -1,9 +1,11 @@
 # axe_builder/tui/widgets.py
 
-from textual.widgets import Tree
 from typing import List
+
 from axe_builder.models.models import MenuCommand, SubCommand
 from loguru import logger
+from textual.widgets import Tree
+
 
 class MenuTree(Tree):
     def __init__(self, title: str, parsed_commands: List[MenuCommand]):

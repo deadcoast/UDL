@@ -11,6 +11,7 @@ UDL (Universal Development Languages) is a polyglot monorepo containing 30+ inde
 The repo contains three primary categories of projects:
 
 **DSLs and Language Tools:**
+
 - `axe-Syntax/` - Python CLI menu builder using axe:Syntax notation with Textual TUI
 - `CTX/` - CTX-CARD format generator for codebase documentation (Python, AST-based)
 - `gate/` and `gateppattern-1.1/` - LSP-based pattern language implementations (TypeScript)
@@ -19,10 +20,12 @@ The repo contains three primary categories of projects:
 - `DrRx/` - Schema-based DSL with validation
 
 **Godot/Game Development:**
+
 - `black-milk/` - Bitburner-inspired hacking game (GDScript/C#/JS) with custom DSL/VM architecture
 - `StrawberryMause/` - Mouse event recording/playback system with grid-based timeline
 
 **Tools and Extensions:**
+
 - `sandbag/` - Intelligent linter configuration manager (Rust) using Bayesian inference
 - `camo-obsidian/` - Obsidian plugin for camouflaged codeblocks (TypeScript)
 - `ASCII-String-UI-Editor/` - Terminal UI editor and renderer
@@ -118,18 +121,21 @@ cargo bench
 CTX generates prefix-free, token-efficient documentation format for codebases.
 
 **Core Architecture:**
+
 - `core/scanner.py` - File discovery with `.ctxignore` support
 - `core/ast_analyzer.py` - Python AST parsing and symbol extraction
 - `core/call_resolver.py` - Cross-module function call analysis (two-pass)
 - `core/card_renderer.py` - CTX-CARD format generation
 
 **Key Concepts:**
+
 - CTX-CARD tags: `ID`, `AL`, `NM`, `MO`, `SY`, `SG`, `ED`, `IN`, `CN`, `ER`, `IO`, `DT`, `TK`, `PX`, `EX`, `RV`, `Δ`
 - Module/symbol indexing: `#mid`, `#mid.#sid`
 - Edge relationships for imports and calls
 - Property/descriptor detection, DTO detection (@dataclass, pydantic)
 
 **Testing:**
+
 ```bash
 pytest -m unit        # Unit tests only
 pytest -m integration # Integration tests
@@ -141,6 +147,7 @@ pytest -m "not slow"  # Skip slow tests
 Bitburner-inspired hacking game with custom DSL and VM.
 
 **Core Architecture (Godot SRP patterns):**
+
 - `src/core/` - Engine-facing singletons (App, Bus, DI, FS, Log, Time, Persist, Rand)
 - `src/domain/` - Pure game logic, no Godot API (Model, Rules, Effects)
 - `src/dsl/` - Player-facing scripting language (Grammar, Parser, IR, VM, StdLib, Sandbox)
@@ -149,12 +156,14 @@ Bitburner-inspired hacking game with custom DSL and VM.
 - `src/ui/` - ASCII/retro UI (Theme, ViewRouter, Terminal, Editor, Panels)
 
 **Execution Flow:**
+
 ```
 UI.Terminal → DSL.Grammar/Parser → AST → DSL.IR → DSL.VM
   → Adapters.Commands → Systems → Domain.Effects → Bus.emit → UI redraw
 ```
 
 **Key Principles:**
+
 - Domain is pure, deterministic, no Godot API
 - DSL has no side effects until adapters layer
 - Systems are SRP modules with stateless functions
@@ -166,6 +175,7 @@ UI.Terminal → DSL.Grammar/Parser → AST → DSL.IR → DSL.VM
 Intelligent linter configuration management using Bayesian inference.
 
 **Core Architecture:**
+
 - Probabilistic pattern matching for rule extraction
 - Mathematical confidence scoring (Bayesian inference)
 - AST-based config file parsing (preserves structure/comments)
@@ -173,6 +183,7 @@ Intelligent linter configuration management using Bayesian inference.
 - Multi-linter extensibility
 
 **Commands:**
+
 ```bash
 sandbag add MD033              # Add rule by ID
 sandbag scan                   # Scan for suggested suppressions
@@ -185,6 +196,7 @@ sandbag config restore latest  # Restore from backup
 Mouse event recording and playback with mathematical grid system.
 
 **Architecture:**
+
 - Event capture at OS level (macOS: CGEventTap)
 - Grid-based coordinate system with transformations
 - Timeline with 60Hz update frequency
@@ -193,20 +205,22 @@ Mouse event recording and playback with mathematical grid system.
 - BerryTimeline for event visualization
 
 **Key Concepts:**
+
 - Coordinate spaces: pixel → normalized → grid → timeline
 - Event data structure includes position, action, context
 - Atomic timeline operations (add, remove, modify, batch)
 - Performance: cache calculations, batch operations, lookup tables
 
 **Data Format (JSON):**
+
 ```json
 {
   "event": {
     "id": "uuid_v4",
     "time": "ms_from_start",
-    "position": {"pixel": {}, "normalized": {}, "grid": {}},
-    "action": {"type": "click|drag|release", "button": "left|right|middle"},
-    "context": {"window": "id", "application": "name"}
+    "position": { "pixel": {}, "normalized": {}, "grid": {} },
+    "action": { "type": "click|drag|release", "button": "left|right|middle" },
+    "context": { "window": "id", "application": "name" }
   }
 }
 ```
@@ -216,6 +230,7 @@ Mouse event recording and playback with mathematical grid system.
 CLI menu builder using axe:Syntax custom notation.
 
 **Components:**
+
 - `parser/parser.py` - axe:Syntax parser
 - `parser/transformer.py` - AST transformation
 - `models/models.py` - Data models for menus/commands
@@ -224,6 +239,7 @@ CLI menu builder using axe:Syntax custom notation.
 - `logger/logger.py` - Loguru-based logging
 
 **Usage:**
+
 ```bash
 # Build CLI from axe:Syntax
 axe build input.axe
@@ -242,6 +258,7 @@ axe parse-command "command syntax"
 Follow PEP 8 and project-specific `.cursorrules` (JSON format in CTX).
 
 **Key conventions:**
+
 - 4 spaces indentation
 - 88-character line length (Black default) or 120 (some projects)
 - Type hints required
@@ -252,6 +269,7 @@ Follow PEP 8 and project-specific `.cursorrules` (JSON format in CTX).
 ### TypeScript Projects
 
 **Key conventions:**
+
 - 2 or 4 spaces (check project's `.prettierrc` or `package.json`)
 - ESLint + Prettier for consistency
 - Strict TypeScript mode
@@ -261,6 +279,7 @@ Follow PEP 8 and project-specific `.cursorrules` (JSON format in CTX).
 ### Rust Projects (sandbag)
 
 **Key conventions:**
+
 - Standard Rust formatting (`cargo fmt`)
 - Clippy for linting
 - Result/Option for error handling
@@ -270,17 +289,20 @@ Follow PEP 8 and project-specific `.cursorrules` (JSON format in CTX).
 ## Testing Practices
 
 ### Python
+
 - Use `pytest` with markers: `@pytest.mark.unit`, `@pytest.mark.integration`, `@pytest.mark.slow`
 - Aim for 80-90% coverage minimum
 - Mock external dependencies
 - Test pure functions separately from I/O
 
 ### TypeScript
+
 - Use Jest or Vitest depending on project
 - Test UI components with snapshot tests where appropriate
 - Integration tests for LSP servers (gate, f8Syntax)
 
 ### Rust
+
 - Unit tests in same file (`#[cfg(test)] mod tests`)
 - Integration tests in `tests/` directory
 - Benchmarks in `benches/` directory
@@ -298,14 +320,18 @@ When working on a project:
 ## Important Cross-Project Patterns
 
 ### Modular Architecture
+
 All major projects follow SRP (Single Responsibility Principle):
+
 - Core/domain logic separate from UI/adapters
 - Pure functions for testability
 - Event-driven communication (Bus/signals)
 - Dependency injection where applicable
 
 ### Custom DSL Pattern
+
 Multiple projects implement custom DSLs:
+
 - Define grammar (EBNF or similar)
 - Parse to AST
 - Transform to IR (intermediate representation)
@@ -313,7 +339,9 @@ Multiple projects implement custom DSLs:
 - Separate parsing from execution
 
 ### Documentation Generation
+
 CTX-CARD format appears in multiple projects:
+
 - Token-efficient, prefix-free aliases
 - Module and symbol indexing
 - Edge relationships (imports, calls)
@@ -331,6 +359,7 @@ CTX-CARD format appears in multiple projects:
 ## Navigation Tips
 
 Projects are organized alphabetically but fall into conceptual clusters:
+
 - Language tools: axe, gate, f8Syntax, DrRx, 1az, remedy
 - Documentation: CTX, ctx-card, milkDocs
 - Games: black-milk

@@ -57,12 +57,14 @@ UDL/
 ## 🏗️ Technology Stack
 
 ### Languages & Runtimes
+
 - **TypeScript/JavaScript** - Language servers, VSCode extensions, web tools
 - **Python** - CLI tools, AST analysis, code generation
 - **Rust** - High-performance tools, linters
 - **GDScript** - Godot-based applications
 
 ### Monorepo Tools
+
 - **TurboRepo** - Build orchestration and caching
 - **PNPM** - Fast, efficient package management
 - **Cargo Workspaces** - Rust project management
@@ -167,6 +169,7 @@ mkdir -p projects/tools/my-project
 ### Project-Specific Docs
 
 Each project maintains its own README with detailed information:
+
 - Project overview and features
 - Installation and usage
 - API documentation

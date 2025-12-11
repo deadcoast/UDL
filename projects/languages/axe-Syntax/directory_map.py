@@ -1,6 +1,8 @@
-from rich.tree import Tree
-from rich.console import Console
 import os
+
+from rich.console import Console
+from rich.tree import Tree
+
 
 def build_tree(root_path, tree, ignore_dirs=None):
     """
@@ -34,6 +36,7 @@ def build_tree(root_path, tree, ignore_dirs=None):
     except PermissionError:
         # Indicate that access to this directory is denied
         tree.add("[red]Permission Denied[/red]")
+
 
 def export_tree_to_file(root_dir, output_file, ignore_dirs=None):
     """
@@ -72,11 +75,14 @@ def export_tree_to_file(root_dir, output_file, ignore_dirs=None):
 
     print(f"Directory tree has been exported to '{output_file}'.")
 
+
 if __name__ == "__main__":
     # === Configuration ===
 
     # Specify the directory you want to visualize
-    root_directory = "/Users/deadcoast/axe-Syntax"  # <-- Replace with your directory path
+    root_directory = (
+        "/Users/deadcoast/axe-Syntax"  # <-- Replace with your directory path
+    )
 
     # Specify the output file path
     output_text_file = os.path.join(root_directory, "directory_tree.txt")
@@ -93,4 +99,6 @@ if __name__ == "__main__":
     ]
 
     # === Execute ===
-    export_tree_to_file(root_directory, output_text_file, ignore_dirs=directories_to_ignore)
+    export_tree_to_file(
+        root_directory, output_text_file, ignore_dirs=directories_to_ignore
+    )

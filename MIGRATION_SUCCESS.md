@@ -29,6 +29,7 @@ projects/
 ## 🏗️ Infrastructure Created
 
 ### Configuration Files
+
 - ✅ `package.json` - Root workspace with PNPM
 - ✅ `pnpm-workspace.yaml` - PNPM workspace configuration
 - ✅ `turbo.json` - TurboRepo intelligent caching
@@ -38,6 +39,7 @@ projects/
 - ✅ `.gitattributes` - Consistent line endings
 
 ### Documentation
+
 - ✅ `README.md` - Comprehensive root README
 - ✅ `CLAUDE.md` - AI assistant guide
 - ✅ `MONOREPO_ARCHITECTURE.md` - Architecture documentation
@@ -45,6 +47,7 @@ projects/
 - ✅ Category READMEs for all project types
 
 ### CI/CD Workflows
+
 - ✅ `ci-main.yml` - Main CI orchestration with smart change detection
 - ✅ `ci-python.yml` - Python 3.8-3.12 testing
 - ✅ `ci-typescript.yml` - TypeScript/Node 18-20 testing
@@ -54,6 +57,7 @@ projects/
 - ✅ `dependabot.yml` - Automated dependency updates
 
 ### Tooling Scripts
+
 - ✅ `bootstrap.sh` - One-command development setup
 - ✅ `migrate-projects.sh` - Project migration utility
 - ✅ `cleanup-repos.sh` - Repository cleanup utility
@@ -61,6 +65,7 @@ projects/
 ## 🎯 Key Features
 
 ### 1. **Smart CI/CD**
+
 - Only tests changed projects
 - Multi-OS testing (Ubuntu, macOS)
 - Multi-version testing (Python 3.8-3.12, Node 18-20, Rust stable/beta)
@@ -68,18 +73,21 @@ projects/
 - Automated formatting checks
 
 ### 2. **Polyglot Support**
+
 - **Python**: 8+ projects with pytest, black, mypy
 - **TypeScript**: 12+ projects with pnpm, turbo
 - **Rust**: 1 project (sandbag) with cargo workspaces
 - **GDScript**: 1 project (black-milk)
 
 ### 3. **TurboRepo Intelligence**
+
 - Parallel builds across projects
 - Intelligent caching
 - Only rebuild what changed
 - Task pipelines with dependencies
 
 ### 4. **Developer Experience**
+
 ```bash
 # One command to get started
 ./tooling/scripts/bootstrap.sh
@@ -97,6 +105,7 @@ turbo run build --filter=sandbag
 ## 📈 Before & After
 
 ### Before Migration
+
 ```
 ├── 30+ separate repositories
 ├── Scattered tooling configurations
@@ -107,6 +116,7 @@ turbo run build --filter=sandbag
 ```
 
 ### After Migration
+
 ```
 ├── Single unified repository
 ├── Shared tooling and configs
@@ -120,12 +130,14 @@ turbo run build --filter=sandbag
 ## 🚀 Next Steps
 
 ### Immediate (Done ✅)
+
 - [x] All projects migrated
 - [x] CI/CD configured
 - [x] Documentation written
 - [x] Pushed to GitHub
 
 ### Short Term (Optional)
+
 - [ ] Add more category README files (extensions, libraries, experimental)
 - [ ] Create project.json manifests for each project
 - [ ] Set up shared package libraries
@@ -133,6 +145,7 @@ turbo run build --filter=sandbag
 - [ ] Configure branch protection rules
 
 ### Long Term
+
 - [ ] Add automated changelogs
 - [ ] Set up project websites/docs sites
 - [ ] Create starter templates
@@ -154,6 +167,7 @@ All documentation is in the repository:
 ## 🎓 Lessons Learned
 
 ### What Worked Well
+
 1. **Preserving Git History** - Used git mv instead of copying
 2. **Smart Change Detection** - CI only runs for affected projects
 3. **Category Organization** - Clear separation of project types
@@ -161,6 +175,7 @@ All documentation is in the repository:
 5. **Modern Tooling** - TurboRepo + PNPM = fast builds
 
 ### Challenges Overcome
+
 1. Bash array handling with numeric-starting names (1az)
 2. Embedded git repositories (warnings expected, not errors)
 3. CRLF line ending normalization (handled by .gitattributes)
@@ -180,6 +195,7 @@ All documentation is in the repository:
 ## 🌟 Highlights
 
 **Best Practices Implemented:**
+
 - ✅ Conventional commits
 - ✅ Code ownership (CODEOWNERS)
 - ✅ Automated dependency updates (Dependabot)
@@ -190,6 +206,7 @@ All documentation is in the repository:
 - ✅ Parallel execution
 
 **Architecture Patterns:**
+
 - ✅ Monorepo with workspaces
 - ✅ Category-based organization
 - ✅ Independent project evolution
@@ -206,6 +223,7 @@ All documentation is in the repository:
 ## 🙏 Special Thanks
 
 This migration was powered by:
+
 - **TurboRepo** - Build orchestration
 - **PNPM** - Fast package management
 - **GitHub Actions** - CI/CD automation

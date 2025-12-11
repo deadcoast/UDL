@@ -5,9 +5,11 @@ Full-featured applications built with UDL technologies.
 ## Projects
 
 ### **[black-milk](black-milk/)** ⭐
+
 Bitburner-inspired hacking game built with Godot
 
 **Features:**
+
 - Custom DSL/VM for in-game scripting
 - Pure domain logic architecture (SRP)
 - Network simulation with security mechanics
@@ -19,9 +21,11 @@ Bitburner-inspired hacking game built with Godot
 ---
 
 ### **[StrawberryMause](StrawberryMause/)** ⭐
+
 Mouse event recording and playback system with grid-based timeline
 
 **Features:**
+
 - OS-level event capture (macOS CGEventTap)
 - Mathematical grid coordinate system
 - Timeline visualization with 60Hz updates
@@ -33,9 +37,11 @@ Mouse event recording and playback system with grid-based timeline
 ---
 
 ### **[ASCII-String-UI-Editor](ASCII-String-UI-Editor/)**
+
 Terminal UI editor and ASCII string renderer
 
 **Features:**
+
 - ASCII art editing
 - String manipulation
 - Export to various formats
@@ -48,6 +54,7 @@ Terminal UI editor and ASCII string renderer
 Each application has its own development setup. See project-specific READMEs.
 
 ### black-milk (Godot)
+
 ```bash
 # Requires Godot 4.0+
 cd projects/applications/black-milk
@@ -55,6 +62,7 @@ cd projects/applications/black-milk
 ```
 
 ### StrawberryMause (Electron)
+
 ```bash
 cd projects/applications/StrawberryMause
 pnpm install
@@ -62,6 +70,7 @@ pnpm dev
 ```
 
 ### ASCII-String-UI-Editor (Web)
+
 ```bash
 cd projects/applications/ASCII-String-UI-Editor
 pnpm install
@@ -71,6 +80,7 @@ pnpm dev
 ## Architecture Patterns
 
 Applications in this category follow:
+
 - **Clean Architecture** - Separation of concerns
 - **Event-Driven** - Decoupled components
 - **Domain-First** - Business logic separate from UI

@@ -1,12 +1,12 @@
-const vscode = require('vscode');
+const vscode = require("vscode");
 
 function activate(context) {
-    console.log('1AZ Language extension is now active!');
+  console.log("1AZ Language extension is now active!");
 }
 
 function deactivate() {}
 
 module.exports = {
-    activate,
-    deactivate
-}
+  activate,
+  deactivate,
+};

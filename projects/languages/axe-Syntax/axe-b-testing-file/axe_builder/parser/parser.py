@@ -5,11 +5,10 @@ from functools import lru_cache
 from pathlib import Path
 from typing import List, Optional
 
-from lark import Lark, UnexpectedInput, exceptions
-from loguru import logger
-
 from axe_builder.models.models import MenuCommand
 from axe_builder.parser.transformer import AxeSyntaxTransformer
+from lark import Lark, UnexpectedInput, exceptions
+from loguru import logger
 
 
 class AxeSyntaxParser:
@@ -37,17 +36,18 @@ class AxeSyntaxParser:
         grammar_path = Path(__file__).parent / self.grammar_file
         if not grammar_path.exists():
             logger.error(f"Grammar file not found at: {grammar_path}")
-            raise FileNotFoundError(f"Grammar file not found at: {grammar_path}")
+            raise FileNotFoundError(
+                f"Grammar file not found at: {grammar_path}")
 
-        with grammar_path.open(encoding='utf-8') as f:
+        with grammar_path.open(encoding="utf-8") as f:
             axe_syntax_grammar = f.read()
 
         parser = Lark(
             axe_syntax_grammar,
-            start='start',
-            parser='lalr',
+            start="start",
+            parser="lalr",
             propagate_positions=True,
-            maybe_placeholders=False
+            maybe_placeholders=False,
         )
         logger.debug("Lark parser initialized successfully.")
         return parser
@@ -78,7 +78,8 @@ class AxeSyntaxParser:
             logger.info("Parsing completed successfully.")
             return result
         except UnexpectedInput as e:
-            logger.error(f"Syntax Error at line {e.line}, column {e.column}: {e}")
+            logger.error(
+                f"Syntax Error at line {e.line}, column {e.column}: {e}")
             raise ValueError(
                 f"Invalid axe:Syntax input at line {e.line}, column {e.column}: {e}"
             ) from e
@@ -87,7 +88,9 @@ class AxeSyntaxParser:
             raise RuntimeError(f"Error during transformation: {e.orig}") from e
         except Exception as e:
             logger.exception("Unexpected parsing error.")
-            raise RuntimeError(f"An unexpected error occurred during parsing: {e}") from e
+            raise RuntimeError(
+                f"An unexpected error occurred during parsing: {e}"
+            ) from e
 
     def _validate_commands(self, commands: List[MenuCommand]) -> None:
         """
@@ -105,24 +108,38 @@ class AxeSyntaxParser:
                 logger.error(f"Invalid MenuCommand type: {cmd.type}")
                 raise ValueError(f"Invalid MenuCommand type: {cmd.type}")
             if cmd.operation and cmd.operation not in {"+", "="}:
-                logger.error(f"Invalid operation '{cmd.operation}' in MenuCommand type '{cmd.type}'.")
-                raise ValueError(f"Invalid operation '{cmd.operation}' in MenuCommand type '{cmd.type}'.")
+                logger.error(
+                    f"Invalid operation '{cmd.operation}' in MenuCommand type '{cmd.type}'."
+                )
+                raise ValueError(
+                    f"Invalid operation '{cmd.operation}' in MenuCommand type '{cmd.type}'."
+                )
             if cmd.count is not None and cmd.count <= 0:
-                logger.error(f"MenuCommand count must be positive. Got: {cmd.count}")
-                raise ValueError(f"MenuCommand count must be positive. Got: {cmd.count}")
+                logger.error(
+                    f"MenuCommand count must be positive. Got: {cmd.count}")
+                raise ValueError(
+                    f"MenuCommand count must be positive. Got: {cmd.count}"
+                )
             for sub in cmd.subcommands:
                 if not sub.type or sub.type not in {"T", "."}:
                     logger.error(f"Invalid SubCommand type: {sub.type}")
                     raise ValueError(f"Invalid SubCommand type: {sub.type}")
                 if sub.operation and sub.operation not in {"+", "="}:
-                    logger.error(f"Invalid operation '{sub.operation}' in SubCommand type '{sub.type}'.")
-                    raise ValueError(f"Invalid operation '{sub.operation}' in SubCommand type '{sub.type}'.")
+                    logger.error(
+                        f"Invalid operation '{sub.operation}' in SubCommand type '{sub.type}'."
+                    )
+                    raise ValueError(
+                        f"Invalid operation '{sub.operation}' in SubCommand type '{sub.type}'."
+                    )
                 if sub.type == "T" and not sub.value:
                     logger.error("Title SubCommand must have a value.")
                     raise ValueError("Title SubCommand must have a value.")
                 if sub.count is not None and sub.count <= 0:
-                    logger.error(f"SubCommand count must be positive. Got: {sub.count}")
-                    raise ValueError(f"SubCommand count must be positive. Got: {sub.count}")
+                    logger.error(
+                        f"SubCommand count must be positive. Got: {sub.count}")
+                    raise ValueError(
+                        f"SubCommand count must be positive. Got: {sub.count}"
+                    )
         logger.debug("All MenuCommand objects validated successfully.")
 
     async def async_parse(self, syntax_str: str) -> List[MenuCommand]:
@@ -148,7 +165,10 @@ class AxeSyntaxParser:
         logger.debug("Grammar reloaded and parser reinitialized successfully.")
 
     # Singleton parser instance
+
+
 _parser_instance = AxeSyntaxParser()
+
 
 def parse_axesyntax(syntax_str: str) -> List[MenuCommand]:
     """

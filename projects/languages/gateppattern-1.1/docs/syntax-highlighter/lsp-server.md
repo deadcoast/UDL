@@ -20,7 +20,7 @@
 
 ## **Gate Pattern Language Server Protocol (GLSP) v1.0**
 
-*(Gate-Aware, Symbolic, Ritual-Sensitive)*
+_(Gate-Aware, Symbolic, Ritual-Sensitive)_
 
 Below is the full architecture + spec + features + server handlers + capability declarations + data models + message formats + pseudo-implementation.
 
@@ -49,19 +49,19 @@ gate-lsp/
 
 The LSP understands:
 
-* `Gate Pattern v1.0`
-* `Gate Pattern v2.0 metaphysics`
-* `Gate Pattern v3.0 evolution layer`
+- `Gate Pattern v1.0`
+- `Gate Pattern v2.0 metaphysics`
+- `Gate Pattern v3.0 evolution layer`
 
 It produces:
 
-* Semantics
-* Diagnostics
-* IR
-* Traces
-* Evolution predictions
-* Gate break previews
-* Sledge discharge event summaries
+- Semantics
+- Diagnostics
+- IR
+- Traces
+- Evolution predictions
+- Gate break previews
+- Sledge discharge event summaries
 
 ---
 
@@ -81,13 +81,21 @@ Your LSP will declare:
     "semanticTokensProvider": {
       "legend": {
         "tokenTypes": [
-          "namespace", "variable", "operator", "string", "function",
-          "keyword", "comment", "type", "event", "property"
+          "namespace",
+          "variable",
+          "operator",
+          "string",
+          "function",
+          "keyword",
+          "comment",
+          "type",
+          "event",
+          "property",
         ],
-        "tokenModifiers": ["definition", "readonly", "irreversible"]
+        "tokenModifiers": ["definition", "readonly", "irreversible"],
       },
       "range": false,
-      "full": true
+      "full": true,
     },
     "codeActionProvider": true,
     "codeLensProvider": { "resolveProvider": true },
@@ -96,10 +104,10 @@ Your LSP will declare:
         "gate.compileToTrace",
         "gate.renderELattice",
         "gate.evaluateEvolution",
-        "gate.showGateBreakPreview"
-      ]
-    }
-  }
+        "gate.showGateBreakPreview",
+      ],
+    },
+  },
 }
 ```
 
@@ -109,18 +117,18 @@ This gives full LSP features.
 
 # 2. PARSER + IR ENGINE
 
-*(Based on the modules we already built)*
+_(Based on the modules we already built)_
 
 ### 2.1 Parser Responsibilities
 
-* Tokenize
-* Parse `gate` syntax
-* Build AST
-* Detect all symbolic operators
-* Classify narrative blocks
-* Identify ceremonies
-* Extract realms, gates, sledges
-* Detect evolution protocol triggers
+- Tokenize
+- Parse `gate` syntax
+- Build AST
+- Detect all symbolic operators
+- Classify narrative blocks
+- Identify ceremonies
+- Extract realms, gates, sledges
+- Detect evolution protocol triggers
 
 ### 2.2 IR Generator
 
@@ -128,8 +136,16 @@ Uses IR design from Module F2:
 
 ```ts
 interface IRNode {
-  op: "CALL"|"STATE_SET"|"STATE_DELTA"|"SLEDGE_CONSUME"|"GATE_BREAK"|"TITLE_SET"|"ECHO_RECORD"|"EVOLVE";
-  args: Record<string,string>;
+  op:
+    | "CALL"
+    | "STATE_SET"
+    | "STATE_DELTA"
+    | "SLEDGE_CONSUME"
+    | "GATE_BREAK"
+    | "TITLE_SET"
+    | "ECHO_RECORD"
+    | "EVOLVE";
+  args: Record<string, string>;
   realm?: string;
   time?: number;
 }
@@ -141,14 +157,14 @@ interface IRNode {
 
 Hover provides tooltips for:
 
-* Namespaces (`!admin::`)
-* Context vars (`%USER%`)
-* Symbolic ops (`Δ`, `↯`, `ϟ`)
-* Events (`[GATE_BREAK:13=>12]`)
-* Ceremonial blocks
-* Sledge usage
-* Gate statuses
-* Realm interactions
+- Namespaces (`!admin::`)
+- Context vars (`%USER%`)
+- Symbolic ops (`Δ`, `↯`, `ϟ`)
+- Events (`[GATE_BREAK:13=>12]`)
+- Ceremonial blocks
+- Sledge usage
+- Gate statuses
+- Realm interactions
 
 ### 3.1 Examples
 
@@ -235,7 +251,7 @@ Explained as:
 
 # 5. AUTO-TRACE RENDERING
 
-*(This is unique to Gate LSP — nobody else has this.)*
+_(This is unique to Gate LSP — nobody else has this.)_
 
 ### 5.1 Command: `gate.compileToTrace`
 
@@ -328,18 +344,18 @@ Or if you want, we can add WebView-based graph visualizations.
 
 # 8. EVOLUTION PREDICTOR
 
-*(Gate Pattern v3.0 integration)*
+_(Gate Pattern v3.0 integration)_
 
 Command:
 **`gate.evaluateEvolution`**
 
 For a given file, predicts:
 
-* title evolution likelihood
-* symbolic inheritance
-* resonance potential
-* gate fusion risks
-* meta-shifts
+- title evolution likelihood
+- symbolic inheritance
+- resonance potential
+- gate fusion risks
+- meta-shifts
 
 Example output:
 
@@ -410,8 +426,8 @@ import {
   Hover,
   SignatureHelp,
   CompletionItem,
-  SemanticTokens
-} from 'vscode-languageserver/node';
+  SemanticTokens,
+} from "vscode-languageserver/node";
 
 const connection = createConnection(ProposedFeatures.all);
 
@@ -422,7 +438,9 @@ connection.onInitialize(() => ({
     textDocumentSync: documents.syncKind,
     hoverProvider: true,
     completionProvider: { resolveProvider: true },
-    signatureHelpProvider: { triggerCharacters: ["Δ","↯","ϟ","⌘","(",":"] },
+    signatureHelpProvider: {
+      triggerCharacters: ["Δ", "↯", "ϟ", "⌘", "(", ":"],
+    },
     documentSymbolProvider: true,
     semanticTokensProvider: { full: true },
     executeCommandProvider: {
@@ -430,31 +448,34 @@ connection.onInitialize(() => ({
         "gate.compileToTrace",
         "gate.renderELattice",
         "gate.evaluateEvolution",
-        "gate.showGateBreakPreview"
-      ]
-    }
-  }
+        "gate.showGateBreakPreview",
+      ],
+    },
+  },
 }));
 
 // HOVER
-connection.onHover(params => gateHover(params, documents));
+connection.onHover((params) => gateHover(params, documents));
 
 // SIGNATURES
-connection.onSignatureHelp(params => gateSignature(params, documents));
+connection.onSignatureHelp((params) => gateSignature(params, documents));
 
 // COMPLETIONS
-connection.onCompletion(params => gateCompletions(params));
+connection.onCompletion((params) => gateCompletions(params));
 
 // COMMANDS
-connection.onExecuteCommand(params => {
+connection.onExecuteCommand((params) => {
   if (params.command === "gate.compileToTrace") return compileTraces(documents);
-  if (params.command === "gate.renderELattice") return renderELattice(documents);
-  if (params.command === "gate.evaluateEvolution") return evaluateEvolution(documents);
-  if (params.command === "gate.showGateBreakPreview") return gateBreakPreview(documents);
+  if (params.command === "gate.renderELattice")
+    return renderELattice(documents);
+  if (params.command === "gate.evaluateEvolution")
+    return evaluateEvolution(documents);
+  if (params.command === "gate.showGateBreakPreview")
+    return gateBreakPreview(documents);
 });
 
 // DIAGNOSTICS
-documents.onDidChangeContent(change => {
+documents.onDidChangeContent((change) => {
   const diagnostics = gateDiagnostics(change.document);
   connection.sendDiagnostics({ uri: change.document.uri, diagnostics });
 });
@@ -472,18 +493,18 @@ If dropped into a Node project with your parser + IR, it will work.
 
 You now possess:
 
-* A full Gate-aware LSP server specification
-* A real architecture
-* Capability declarations
-* Hover engine
-* Signature engine
-* Completion engine
-* Trace emitter integration
-* Gate break preview engine
-* Evolution predictor
-* Diagnostic engine
-* IR + AST integration
-* Pseudo-implementation ready for coding
+- A full Gate-aware LSP server specification
+- A real architecture
+- Capability declarations
+- Hover engine
+- Signature engine
+- Completion engine
+- Trace emitter integration
+- Gate break preview engine
+- Evolution predictor
+- Diagnostic engine
+- IR + AST integration
+- Pseudo-implementation ready for coding
 
 This can be built EXACTLY as-is — nothing here is “theory.”
 This is a real, runnable LSP design.

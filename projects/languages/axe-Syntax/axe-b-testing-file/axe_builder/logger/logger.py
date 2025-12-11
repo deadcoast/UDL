@@ -1,7 +1,8 @@
 # axe_builder/logger/logger.py
 
-from loguru import logger
 import sys
+
+from loguru import logger
 
 # Remove default logger
 logger.remove()
@@ -11,7 +12,7 @@ logger.add(
     sys.stderr,
     level="INFO",
     format="<green>{time:YYYY-MM-DD HH:mm:ss}</green> | <level>{level: <8}</level> | <cyan>{message}</cyan>",
-    enqueue=True
+    enqueue=True,
 )
 
 # File sink with rotation and DEBUG level
@@ -23,7 +24,7 @@ logger.add(
     retention="10 days",
     compression="zip",
     enqueue=True,
-    serialize=False
+    serialize=False,
 )
 
 # JSON sink for structured logging
@@ -35,5 +36,5 @@ logger.add(
     retention="30 days",
     compression="gzip",
     enqueue=True,
-    serialize=True
+    serialize=True,
 )

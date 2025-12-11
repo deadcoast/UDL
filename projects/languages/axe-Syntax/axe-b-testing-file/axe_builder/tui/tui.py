@@ -3,13 +3,13 @@
 from pathlib import Path
 from typing import List, Optional
 
-from textual.app import App, ComposeResult
-from textual.containers import Container, Grid
-from textual.widgets import Header, Footer, Input, Static, Button, DataTable
-
 from axe_builder.logger.logger import logger
 from axe_builder.models.models import MenuCommand
 from axe_builder.parser.parser import parse_axesyntax
+from textual.app import App, ComposeResult
+from textual.containers import Container, Grid
+from textual.widgets import Button, DataTable, Footer, Header, Input, Static
+
 from .widgets import MenuTree
 
 
@@ -57,7 +57,9 @@ class AxeBuilderTUI(App):
         self.header = Header()
         self.footer = Footer()
         self.menu_tree = MenuTree("Menu Commands", self.parsed_commands)
-        self.input_field = Input(placeholder="Enter axe:Syntax here...", name="syntax_input")
+        self.input_field = Input(
+            placeholder="Enter axe:Syntax here...", name="syntax_input"
+        )
         self.parse_button = Button(label="Parse Syntax", name="parse_button")
         self.export_button = Button(label="Export CLI", name="export_button")
         self.status = Static("Status: Waiting for input...", name="status")
@@ -75,9 +77,9 @@ class AxeBuilderTUI(App):
                 self.status,
                 self.error_message,
                 self.log_view,
-                id="right_container"
+                id="right_container",
             ),
-            self.footer
+            self.footer,
         )
 
         self.view.dock(grid)
@@ -93,7 +95,7 @@ class AxeBuilderTUI(App):
             self.status,
             self.error_message,
             self.log_view,
-            id="right_container"
+            id="right_container",
         )
         yield self.footer
 
@@ -139,8 +141,10 @@ class AxeBuilderTUI(App):
         try:
             logger.info(f"Exporting CLI template to {self.export_path}")
             from axe_builder.exporter.exporter import export_cli_template
+
             export_cli_template(self.parsed_commands, self.export_path)
-            self.status.update(f"Status: CLI template exported to {self.export_path}")
+            self.status.update(
+                f"Status: CLI template exported to {self.export_path}")
             logger.success("CLI template exported successfully")
             await self.display_logs()
         except Exception as e:
@@ -154,7 +158,7 @@ class AxeBuilderTUI(App):
         try:
             log_file = Path("axe_builder.log")
             if log_file.exists():
-                logs = log_file.read_text(encoding='utf-8').splitlines()
+                logs = log_file.read_text(encoding="utf-8").splitlines()
                 recent_logs = logs[-10:]
                 for log_entry in recent_logs:
                     self.log_view.add_row(log_entry)

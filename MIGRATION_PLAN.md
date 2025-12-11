@@ -5,6 +5,7 @@
 ### Repositories Needing Attention
 
 **Uncommitted Changes (14 repos):**
+
 - axe_syntax (2 files)
 - black-milk (4 files)
 - camo-obsidian (1 file)
@@ -23,6 +24,7 @@
 - robo_md (8 files)
 
 **Unpushed Commits (5 repos):**
+
 - canon (1 commit)
 - CLAY (4 commits)
 - DrRx (1 commit)
@@ -31,6 +33,7 @@
 - PACER (1 commit)
 
 **Not Git Repos (5 directories):**
+
 - 1az
 - axe-Syntax
 - gateppattern-1.1
@@ -42,6 +45,7 @@
 ### Recommended: TurboRepo + Git Subtree
 
 **Pros:**
+
 - Preserves full git history for all projects
 - Language-agnostic (supports Python, TypeScript, Rust, GDScript)
 - Intelligent caching and parallel execution
@@ -55,6 +59,7 @@
 ### Phase 0: Preparation (30 minutes)
 
 **Step 0.1: Backup Everything**
+
 ```bash
 cd /Users/deadcoast/github
 tar -czf UDL-backup-$(date +%Y%m%d).tar.gz UDL/
@@ -63,6 +68,7 @@ tar -czf UDL-backup-$(date +%Y%m%d).tar.gz UDL/
 **Step 0.2: Clean Up Uncommitted Changes**
 
 For each repo with uncommitted changes, decide:
+
 - Commit them? (recommended)
 - Stash them?
 - Discard them? (careful!)
@@ -74,6 +80,7 @@ Push all unpushed commits to GitHub.
 **Step 0.4: Initialize Non-Git Directories**
 
 For 1az, axe-Syntax, gateppattern-1.1, mecha_lang:
+
 - Initialize git
 - Add remote
 - Push to GitHub
@@ -81,6 +88,7 @@ For 1az, axe-Syntax, gateppattern-1.1, mecha_lang:
 ### Phase 1: Initialize Monorepo Structure (1 hour)
 
 **Step 1.1: Initialize UDL as Git Repo**
+
 ```bash
 cd /Users/deadcoast/github/UDL
 git init
@@ -88,6 +96,7 @@ git checkout -b main
 ```
 
 **Step 1.2: Create Directory Structure**
+
 ```bash
 mkdir -p .github/workflows
 mkdir -p tooling/{scripts,templates,dev-tools}
@@ -101,6 +110,7 @@ mkdir -p .archive
 **Step 1.3: Create Core Configuration Files**
 
 Create:
+
 - `package.json` (root)
 - `pnpm-workspace.yaml`
 - `turbo.json`
@@ -110,6 +120,7 @@ Create:
 - `README.md`
 
 **Step 1.4: Initial Commit**
+
 ```bash
 git add .
 git commit -m "feat: initialize UDL monorepo structure"
@@ -118,6 +129,7 @@ git commit -m "feat: initialize UDL monorepo structure"
 ### Phase 2: Set Up Package Managers (30 minutes)
 
 **Step 2.1: Set Up PNPM Workspace**
+
 ```bash
 npm install -g pnpm
 pnpm init
@@ -132,6 +144,7 @@ Install poetry or use pip + pyproject.toml
 Configure Cargo.toml workspace section
 
 **Step 2.4: Install TurboRepo**
+
 ```bash
 pnpm add -Dw turbo
 ```
@@ -141,6 +154,7 @@ pnpm add -Dw turbo
 **Strategy A: Preserve History (Recommended but Slower)**
 
 For each project:
+
 ```bash
 # Example: axe-syntax
 git remote add axe-syntax-origin https://github.com/deadcoast/axe-syntax.git
@@ -150,6 +164,7 @@ git subtree add --prefix=projects/tools/axe-syntax axe-syntax-origin main
 **Strategy B: Fresh Start (Faster but Loses History)**
 
 For each project:
+
 ```bash
 # Move directory
 mv axe-Syntax projects/languages/axe-syntax
@@ -187,6 +202,7 @@ Update any internal dependencies.
 Update `turbo.json` with pipeline configuration.
 
 **Step 5.3: Test CI Locally**
+
 ```bash
 turbo run build
 turbo run test
@@ -209,11 +225,13 @@ Already done! ✓
 ### Phase 7: Push to GitHub (15 minutes)
 
 **Step 7.1: Create GitHub Repository**
+
 ```bash
 gh repo create deadcoast/UDL --public --source=. --remote=origin
 ```
 
 **Step 7.2: Push**
+
 ```bash
 git push -u origin main
 ```
@@ -225,6 +243,7 @@ Add deprecation notices to old individual repos.
 ### Phase 8: Validation (30 minutes)
 
 **Step 8.1: Clone Fresh Copy**
+
 ```bash
 cd /tmp
 git clone https://github.com/deadcoast/UDL.git
@@ -232,11 +251,13 @@ cd UDL
 ```
 
 **Step 8.2: Run Bootstrap**
+
 ```bash
 ./tooling/scripts/bootstrap.sh
 ```
 
 **Step 8.3: Test Builds**
+
 ```bash
 turbo run build
 turbo run test
@@ -297,6 +318,7 @@ Then gradually add tooling later.
 If something goes wrong:
 
 **Option 1: Restore from Backup**
+
 ```bash
 cd /Users/deadcoast/github
 rm -rf UDL
@@ -310,6 +332,7 @@ Don't delete old GitHub repos until monorepo is proven stable.
 **Option 3: Git Subtree Split**
 
 Can split projects back out if needed:
+
 ```bash
 git subtree split -P projects/tools/sandbag -b sandbag-split
 ```
@@ -347,17 +370,20 @@ git subtree split -P projects/tools/sandbag -b sandbag-split
 Based on your setup, I recommend:
 
 **Phase 1 (Today - 1 hour):**
+
 1. Commit and push all changes ✓
 2. Back up everything ✓
 3. Minimal monorepo setup
 4. Push to GitHub
 
 **Phase 2 (This Week):**
+
 1. Add TurboRepo
 2. Set up workspaces
 3. Configure CI/CD
 
 **Phase 3 (Next Week):**
+
 1. Add shared packages
 2. Create tooling scripts
 3. Document everything

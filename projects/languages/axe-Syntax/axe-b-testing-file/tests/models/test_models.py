@@ -1,7 +1,8 @@
 # tests/models/test_models.py
 
-from axe_builder.models.models import MenuCommand, SubCommand
 import pytest
+from axe_builder.models.models import MenuCommand, SubCommand
+
 
 def test_menu_command_validation():
     cmd = MenuCommand(type="M", operation="+", count=2)
@@ -11,6 +12,7 @@ def test_menu_command_validation():
 
     with pytest.raises(ValueError):
         MenuCommand(type="X", operation="+", count=2)  # Invalid type
+
 
 def test_sub_command_validation():
     subcmd = SubCommand(type="T", operation="=", value="Title")

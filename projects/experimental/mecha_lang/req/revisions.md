@@ -1,17 +1,19 @@
 # REQUEST
+
 > ANALYZE, FORMULATE, REVIEW, AND BEGIN POPULATING THE MISSING DATA FOR THE MACHINE CREATOR PSEUDO CODE FORMAT
 > TODO: POPULATE AND LINK `{4}:alias_defs` WITH REQUIRED ALIAS THRROUGHOUT THE DOCUMENT. CURRENTLY DUPE MOCK DATA FROM {2}
 > TODO: ENSURE THE STRUCTURE IS FOLLOWED, ENSURE LINKS ARE CONNECTED.
 > NOTES: THIS FORMAT IS CREATED FOR A BROAD SCOPE, SPECIFICALLY FOR THE TASK OF CONTEXT AND COMMUNICATION BETWEEN INTELLIGENCES UTILIZING BALANCE.
 
 ## PRE-PROMPT
+
 - {1}:pesudo_code standards format is designed EXPLICITLY to strike a balance for IDE AGENT CONFIGS:
-    [a] INTERACTIVE IDE AGENT CONFIGS
-      [i] [cursor-ide] (.cursorrules)
-      [ii] [claude-code](.CLAUDE.md)
-      [iii] [codex](AGENTS.md)
-      [iiii] [windsurf](.windsurfrules)
-      [vii] [gemini](GEMINI.md)
+  [a] INTERACTIVE IDE AGENT CONFIGS
+  [i] [cursor-ide] (.cursorrules)
+  [ii] [claude-code](.CLAUDE.md)
+  [iii] [codex](AGENTS.md)
+  [iiii] [windsurf](.windsurfrules)
+  [vii] [gemini](GEMINI.md)
 - {2}:
   - Review, and correct any inconsistentcies or errors. i made this up, so there is going to be imperfections. Im not looking for accuracy, or optimization, im looking for TECHINICALLY INTEGRATED FORMAT COMPLETION, WITH FULL UNDERSTANDING.
 - {3}:
@@ -21,12 +23,12 @@
   - **IT IS NOT DESIGNED TO BE SYNTAX PERFECT, OR FUNCTIONAL, FOR ANYTHING ELSE OTHER THAN OPTIMIZED DELIVERY FOR MACHINE CONSUMPTION.**
   - **IT HAS NO OFFICIAL LANGUAGE, I MARK IT WITH YAML FOR SYNTAX HIGHLIGHTING, BUT OFFICIALY IT WILL BE RECOGNIZED AS `.mech` extension**
 - {4}:balance
-  - [a]:STRAIGHTFORWARD_SIMPLICITY
+  - [a]: STRAIGHTFORWARD_SIMPLICITY
     - [i]: designing a format that is straight forward enough
     - [ii]: follows enough simple patterns that the format requires no explanation
-  - [b]:FORMAT_COMPLEXITY - _Adding to much context will render the format ignored or redundant buy the consuming machine intelligence
+  - [b]:FORMAT_COMPLEXITY - \_Adding to much context will render the format ignored or redundant buy the consuming machine intelligence
     - [i]:if the format is too complex, the ai will have to train it, review it, or learn it in general, rendering it redundant.
-    - [ii]:designed to enhance current workflow and infractructure of leading LLM models like OpenAI ChatGPT 5  or Anthropic Sonnet 4.5 thinking model.
+    - [ii]:designed to enhance current workflow and infractructure of leading LLM models like OpenAI ChatGPT 5 or Anthropic Sonnet 4.5 thinking model.
 
 ---
 
