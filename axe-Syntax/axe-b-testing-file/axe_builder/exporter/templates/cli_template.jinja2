@@ -1,0 +1,70 @@
+# axe_builder/exporter/templates/cli_template.jinja2
+
+# cli_template.py
+import typer
+from loguru import logger
+
+app = typer.Typer()
+
+@app.command(name="{{ menu.type }}{{ menu.count if menu.count else '' }}", help="Generated {{ menu.type }} Menu")
+def {{ menu.type.lower() }}{{ menu.count if menu.count else '' }}(option: str = typer.Option(..., help="Option for {{ menu.type }} Menu", autocompletion=opt_completer)):
+    """
+    {{ menu.type }} Menu Handler
+    """
+    typer.echo(f"Option selected: {option}")
+
+def opt_completer(ctx: typer.Context, incomplete: str):
+    options = ["option1", "option2", "option3"]
+    return [opt for opt in options if opt.startswith(incomplete)]
+
+@app.callback()
+def main(
+    ctx: typer.Context,
+    verbose: bool = typer.Option(False, "--verbose", "-v", help="Enable verbose mode"),
+):
+    """
+    axe:Builder CLI Application
+    """
+    if verbose:
+        logger.add("cli_verbose.log", level="DEBUG")
+        logger.debug("Verbose mode enabled")
+
+{% for menu in menus %}
+@app.command(name="{{ menu.type }}{{ menu.count if menu.count else '' }}", help="Generated {{ menu.type }} Menu")
+def {{ menu.type.lower() }}{{ menu.count if menu.count else '' }}(option: str = typer.Option(..., help="Option for {{ menu.type }} Menu", autocompletion=opt_completer_{{ loop.index }})):
+    """
+    {{ menu.type }} Menu Handler
+    """
+    try:
+        logger.info("Executing {{ menu.type }}{{ menu.count if menu.count else '' }} Menu")
+        typer.echo("This is {{ menu.type }}{{ ' ' + str(menu.count) if menu.count else '' }} Menu")
+    except Exception as e:
+        logger.error(f"Error in {{ menu.type }} Menu: {e}")
+        typer.echo(f"An error occurred: {e}", err=True)
+
+    {% for idx, sub in enumerate(menu.subcommands, start=1) %}
+    @app.command(name="{{ sub.type }}{{ sub.count if sub.count else '' }}_{{ idx }}", help="Generated {{ sub.type }} SubCommand")
+    def {{ sub.type.lower() }}{{ sub.count if sub.count else '' }}_{{ idx }}(input: str = typer.Option(..., help="Input for {{ sub.type }} SubCommand")):
+        """
+        {{ sub.type }} SubCommand Handler
+        """
+        try:
+            logger.info("Executing {{ sub.type }} SubCommand")
+            {% if sub.value %}
+            typer.echo("{{ sub.value }}")
+            {% else %}
+            typer.echo("This is a custom subcommand.")
+            {% endif %}
+        except Exception as e:
+            logger.error(f"Error in {{ sub.type }} SubCommand: {e}")
+            typer.echo(f"An error occurred: {e}", err=True)
+
+    def opt_completer_{{ loop.parent.loop.index }}(ctx: typer.Context, incomplete: str):
+        options = ["option1", "option2", "option3"]
+        return [opt for opt in options if opt.startswith(incomplete)]
+    {% endfor %}
+
+{% endfor %}
+
+if __name__ == "__main__":
+    app()

@@ -1,0 +1,721 @@
+{	
+	patterns = (
+		{
+			# Main Project Plan Block for SDL Build Language Grammar
+			begin = '(\{)';
+			end = '(\})';
+			beginCaptures = { 1 = { name = 'punctuation.section.plan.begin.sdl'; }; };
+			endCaptures = { 1 = { name = 'punctuation.section.plan.end.sdl'; }; };
+			patterns = (
+				{
+					name = 'meta.section.overview.sdl';
+					comment = 'Project Overview for SDL Build Language Grammar';
+					begin = '\b(overview)\s*(=)';
+					end = '(;)';
+					beginCaptures = {
+						1 = { name = 'entity.name.section.overview.sdl'; };
+						2 = { name = 'punctuation.separator.key-value.sdl'; };
+					};
+					endCaptures = { 1 = { name = 'punctuation.terminator.section.sdl'; }; };
+					patterns = (
+						{ include = '#comment' },
+						{ match = '.+', name = 'text.plan.overview.sdl' }
+					);
+				},
+				{
+					name = 'meta.section.objectives.sdl';
+					comment = 'Objectives for the Language Grammar Project';
+					begin = '\b(objectives)\s*(=)';
+					end = '(;)';
+					beginCaptures = {
+						1 = { name = 'entity.name.section.objectives.sdl'; };
+						2 = { name = 'punctuation.separator.key-value.sdl'; };
+					};
+					endCaptures = { 1 = { name = 'punctuation.terminator.section.sdl'; }; };
+					patterns = (
+						{ include = '#comment' },
+						{ match = '.+', name = 'text.plan.objectives.sdl' }
+					);
+				},
+				{
+					name = 'meta.section.grammarComponents.sdl';
+					comment = 'Language Grammar Components and Hierarchy';
+					begin = '\b(grammarComponents)\s*(=)';
+					end = '(;)';
+					beginCaptures = {
+						1 = { name = 'entity.name.section.grammarComponents.sdl'; };
+						2 = { name = 'punctuation.separator.key-value.sdl'; };
+					};
+					endCaptures = { 1 = { name = 'punctuation.terminator.section.sdl'; }; };
+					patterns = (
+						{ include = '#comment' },
+						{
+							# List of primary 1AZ brackets
+							match = '\b(AlphaBracket|BetaBracket|GammaBracket|DeltaBracket|EpsilonBracket)\b';
+							name = 'constant.language.bracket-type.sdl';
+						},
+						{ match = '.+', name = 'text.plan.grammarComponents.sdl' }
+					);
+				},
+				{
+					name = 'meta.section.syntaxRules.sdl';
+					comment = 'Syntax Rules and Command Structures';
+					begin = '\b(syntaxRules)\s*(=)';
+					end = '(;)';
+					beginCaptures = {
+						1 = { name = 'entity.name.section.syntaxRules.sdl'; };
+						2 = { name = 'punctuation.separator.key-value.sdl'; };
+					};
+					endCaptures = { 1 = { name = 'punctuation.terminator.section.sdl'; }; };
+					patterns = (
+						{ include = '#comment' },
+						{
+							# Main commands and controllers
+							match = '\b(1AZ|INIT|param|EXEC|true|false)\b';
+							name = 'constant.language.command.sdl';
+						},
+						{
+							match = '(:|@@|=|,|#|!!EXEC!!|!EXEC!)';
+							name = 'punctuation.separator.command.sdl';
+						},
+						{ match = '.+', name = 'text.plan.syntaxRules.sdl' }
+					);
+				},
+				{
+					name = 'meta.section.executionFlow.sdl';
+					comment = 'Execution Flow and Modifiers';
+					begin = '\b(executionFlow)\s*(=)';
+					end = '(;)';
+					beginCaptures = {
+						1 = { name = 'entity.name.section.executionFlow.sdl'; };
+						2 = { name = 'punctuation.separator.key-value.sdl'; };
+					};
+					endCaptures = { 1 = { name = 'punctuation.terminator.section.sdl'; }; };
+					patterns = (
+						{ include = '#comment' },
+						{
+							# Execution modifiers such as floop, req, and prohib
+							match = '\b(floop|req|prohib)\b';
+							name = 'constant.language.modifier.sdl';
+						},
+						{ match = '.+', name = 'text.plan.executionFlow.sdl' }
+					);
+				},
+				{
+					name = 'meta.section.implementationPlan.sdl';
+					comment = 'Step-by-Step Implementation for Language Grammar';
+					begin = '\b(implementationPlan)\s*(=)';
+					end = '(;)';
+					beginCaptures = {
+						1 = { name = 'entity.name.section.implementationPlan.sdl'; };
+						2 = { name = 'punctuation.separator.key-value.sdl'; };
+					};
+					endCaptures = { 1 = { name = 'punctuation.terminator.section.sdl'; }; };
+					patterns = (
+						{ include = '#comment' },
+						{
+							match = '.+';
+							name = 'text.plan.implementationPlan.sdl';
+						}
+					);
+				},
+				{
+					name = 'meta.section.testingStrategy.sdl';
+					comment = 'Testing and Validation Strategy for the Grammar';
+					begin = '\b(testingStrategy)\s*(=)';
+					end = '(;)';
+					beginCaptures = {
+						1 = { name = 'entity.name.section.testingStrategy.sdl'; };
+						2 = { name = 'punctuation.separator.key-value.sdl'; };
+					};
+					endCaptures = { 1 = { name = 'punctuation.terminator.section.sdl'; }; };
+					patterns = (
+						{ include = '#comment' },
+						{ match = '.+', name = 'text.plan.testingStrategy.sdl' }
+					);
+				},
+				{
+					name = 'meta.section.futureEnhancements.sdl';
+					comment = 'Future Enhancements and Improvements';
+					begin = '\b(futureEnhancements)\s*(=)';
+					end = '(;)';
+					beginCaptures = {
+						1 = { name = 'entity.name.section.futureEnhancements.sdl'; };
+						2 = { name = 'punctuation.separator.key-value.sdl'; };
+					};
+					endCaptures = { 1 = { name = 'punctuation.terminator.section.sdl'; }; };
+					patterns = (
+						{ include = '#comment' },
+						{ match = '.+', name = 'text.plan.futureEnhancements.sdl' }
+					);
+				}
+			);
+		}
+        
+	repository = {
+		comment = {
+			patterns = (
+				{
+					name = 'comment.block.sdl';
+					begin = '/\\*';
+					end = '\\*/';
+				},
+				{
+					name = 'comment.line.double-slash.sdl';
+					match = '//.*$';
+				}
+			);
+		};
+		injections = {
+			name = 'meta.injections.sdl';
+			comment = 'Injection points for additional grammar rules';
+			begin = '\\b(injections)\\s*(=)';
+			end = '(;)';
+			beginCaptures = {
+				1 = { name = 'support.constant.injections.sdl'; };
+				2 = { name = 'punctuation.separator.key-value.sdl'; };
+			};
+			endCaptures = { 1 = { name = 'punctuation.terminator.sdl'; }; };
+			patterns = (
+				{
+					begin = '(\\{)';
+					end = '(\\})';
+					beginCaptures = { 1 = { name = 'punctuation.section.dictionary.begin.sdl'; }; };
+					endCaptures = { 1 = { name = 'punctuation.section.dictionary.end.sdl'; }; };
+					patterns = (
+						{ include = '#comment' },
+						{ match = '.+', name = 'text.injections.sdl' },
+						{ include = '#catch-all' }
+					);
+				}
+			);
+		};
+		patterns = {
+			name = 'meta.array.patterns.sdl';
+			begin = '\\b(patterns)\\s*(=)';
+			end = '(;)';
+			beginCaptures = {
+				1 = { name = 'support.constant.patterns.sdl'; };
+				2 = { name = 'punctuation.separator.key-value.sdl'; };
+			};
+			endCaptures = { 1 = { name = 'punctuation.terminator.sdl'; }; };
+			patterns = (
+				{
+					begin = '(\\()';
+					end = '(\\))';
+					beginCaptures = { 1 = { name = 'punctuation.section.array.begin.sdl'; }; };
+					endCaptures = { 1 = { name = 'punctuation.section.array.end.sdl'; }; };
+					patterns = (
+						{ include = '#comment' },
+						{
+							begin = '(?=[^\\s,])';
+							end = '(,)|(?=\\))';
+							endCaptures = { 1 = { name = 'punctuation.separator.array.sdl'; }; };
+							patterns = (
+								{ include = '#comment' },
+								{ match = '\\s+(?=//|/\\*)'; },
+								{
+									name = 'invalid.illegal.missing-comma.sdl';
+									begin = '[[^\\n]&&\\s](?!\\s*(,|\\)|$)).*';
+									end = '^$not possible$^';
+								},
+								{ include = '#string' }
+							);
+						},
+						{ include = '#catch-all' }
+					);
+				},
+				{ include = '#catch-all' }
+			);
+		};
+		repository = {
+			name = 'meta.repository.sdl';
+			comment = 'Repository of reusable grammar patterns';
+			begin = '\\b(repository)\\s*(=)';
+			end = '(;)';
+			beginCaptures = {
+				1 = { name = 'support.constant.repository.sdl'; };
+				2 = { name = 'punctuation.separator.key-value.sdl'; };
+			};
+			endCaptures = { 1 = { name = 'punctuation.terminator.sdl'; }; };
+			patterns = (
+				{
+					begin = '(\\{)';
+					end = '(\\})';
+					beginCaptures = { 1 = { name = 'punctuation.section.dictionary.begin.sdl'; }; };
+					endCaptures = { 1 = { name = 'punctuation.section.dictionary.end.sdl'; }; };
+					patterns = (
+						{ include = '#comment' },
+						{
+							name = 'meta.value-pair.repository-item.sdl';
+							begin = '(["'']?)([-a-zA-Z0-9._]+)\\1\\s*(=)';
+							end = '(;)';
+							beginCaptures = {
+								2 = { name = 'entity.name.section.repository.sdl'; };
+								3 = { name = 'punctuation.separator.key-value.sdl'; };
+							};
+							endCaptures = { 1 = { name = 'punctuation.terminator.sdl'; }; };
+							patterns = (
+								{ include = '#comment' },
+								{ include = '#rule' },
+								{ include = '#catch-all' }
+							);
+						},
+						{ include = '#string' },
+						{
+							begin = '(=)';
+							end = '(;)';
+							beginCaptures = { 1 = { name = 'punctuation.separator.key-value.sdl'; }; };
+							endCaptures = { 1 = { name = 'punctuation.terminator.sdl'; }; };
+							patterns = ( { include = '#any' } );
+						},
+						{
+							name = 'punctuation.terminator.sdl';
+							match = ';';
+						},
+						{ include = '#catch-all' }
+					);
+				}
+			);
+		};
+		any = {
+			patterns = (
+				{ include = '#comment' },
+				{ include = '#string' },
+				{ include = '#array' },
+				{ include = '#dictionary' },
+				{ include = '#catch-all' }
+			);
+		};
+		array = {
+			begin = '(\\()';
+			end = '(\\))';
+			beginCaptures = { 1 = { name = 'punctuation.section.array.begin.sdl'; }; };
+			endCaptures = { 1 = { name = 'punctuation.section.array.end.sdl'; }; };
+			patterns = (
+				{ include = '#comment' },
+				{
+					begin = '(?=[^\\s,])';
+					end = '(,)|(?=\\))';
+					endCaptures = { 1 = { name = 'punctuation.separator.array.sdl'; }; };
+					patterns = (
+						{ include = '#comment' },
+						{ match = '\\s+(?=//|/\\*)'; },
+						{
+							name = 'invalid.illegal.missing-comma.sdl';
+							begin = '[[^\\n]&&\\s](?!\\s*(,|\\)|$)).*';
+							end = '^$not possible$^';
+						},
+						{ include = '#any' }
+					);
+				},
+				{ include = '#catch-all' }
+			);
+		};
+		catch-all = {
+			patterns = (
+				{ match = '\\s+'; },
+				{
+					name = 'invalid.illegal.unrecognized-character.sdl';
+					match = '.';
+				}
+			);
+		};
+		'comment-keyword' = {
+			begin = '\\b(comment)\\s*(=)';
+			end = '(;)';
+			beginCaptures = {
+				1 = { name = 'support.constant.sdl'; };
+				2 = { name = 'punctuation.separator.key-value.sdl'; };
+			};
+			endCaptures = { 1 = { name = 'punctuation.terminator.sdl'; }; };
+			patterns = (
+				{ include = '#comment' },
+				{
+					name = 'string.quoted.single.sdl';
+					begin = "(')";
+					end = "(')(?!')";
+					applyEndPatternLast = 1;
+					beginCaptures = { 1 = { name = 'punctuation.definition.string.begin.sdl'; }; };
+					endCaptures = { 1 = { name = 'punctuation.definition.string.end.sdl'; }; };
+					contentName = 'comment.block.string.sdl';
+					patterns = (
+						{
+							name = 'constant.character.escape.apostrophe.sdl';
+							match = "''";
+						}
+					);
+				},
+				{
+					name = 'string.quoted.double.sdl';
+					begin = '(")';
+					end = '(")';
+					beginCaptures = { 1 = { name = 'punctuation.definition.string.begin.sdl'; }; };
+					endCaptures = { 1 = { name = 'punctuation.definition.string.end.sdl'; }; };
+					contentName = 'comment.block.string.sdl';
+					patterns = (
+						{
+							name = 'constant.character.escape.sdl';
+							match = '\\[\\"]';
+						}
+					);
+				},
+				{ include = '#catch-all' }
+			);
+		};
+		dictionary = {
+			begin = '(\\{)';
+			end = '(\\})';
+			beginCaptures = { 1 = { name = 'punctuation.section.dictionary.begin.sdl'; }; };
+			endCaptures = { 1 = { name = 'punctuation.section.dictionary.end.sdl'; }; };
+			patterns = (
+				{ include = '#comment' },
+				{ include = '#string' },
+				{
+					begin = '(=)';
+					end = '(;)';
+					beginCaptures = { 1 = { name = 'punctuation.separator.key-value.sdl'; }; };
+					endCaptures = { 1 = { name = 'punctuation.terminator.sdl'; }; };
+					patterns = ( { include = '#any' } );
+				},
+				{
+					name = 'punctuation.terminator.sdl';
+					match = ';';
+				},
+				{ include = '#catch-all' }
+			);
+		};
+		'invalid-keyword' = {
+			patterns = (
+				{
+					name = 'invalid.illegal.constant.misplaced-keyword.sdl';
+					match = '\\b(fileTypes|foldingStartMarker|foldingStopMarker|patterns|match|begin|end|include|scopeName|captures|beginCaptures|endCaptures|firstLineMatch|comment|repository|disabled|contentName|applyEndPatternLast)\\b(?=\\s*=)';
+				},
+				{
+					name = 'invalid.deprecated.constant.sdl';
+					match = '\\b(swallow|mode)\\b(?=\\s*=)';
+				},
+				{
+					name = 'invalid.illegal.constant.outdated.sdl';
+					match = '\\b(foregroundColor|backgroundColor|fontStyle|elementForegroundColor|elementBackgroundColor|elementFontStyle|highlightPairs|smartTypingPairs|increaseIndentPattern)\\b(?=\\s*=)';
+				},
+				{
+					name = 'invalid.illegal.constant.unknown-keyword.sdl';
+					match = '[-a-zA-Z_.]+(?=\\s*=)';
+				}
+			);
+		};
+		regexp = {
+			patterns = (
+				{
+					name = 'string.regexp.oniguruma.single.sdl';
+					begin = "(')";
+					end = "(')(?!')";
+					beginCaptures = { 1 = { name = 'punctuation.definition.string.begin.sdl'; }; };
+					endCaptures = { 1 = { name = 'punctuation.definition.string.end.sdl'; }; };
+					patterns = (
+						{
+							name = 'constant.character.escape.apostrophe.sdl';
+							match = "''";
+						},
+						{ include = 'source.regexp.oniguruma' }
+					);
+				},
+				{
+					name = 'string.regexp.oniguruma.double.sdl';
+					begin = '(")';
+					end = '(")';
+					beginCaptures = { 1 = { name = 'punctuation.definition.string.begin.sdl'; }; };
+					endCaptures = { 1 = { name = 'punctuation.definition.string.end.sdl'; }; };
+					patterns = (
+						{
+							name = 'constant.character.escape.sdl';
+							match = '\\\\|\\"';
+						},
+						{ include = 'source.regexp.oniguruma' }
+					);
+				}
+			);
+		};
+		rule = {
+			name = 'meta.dictionary.rule.sdl';
+			begin = '(\\{)';
+			end = '(\\})';
+			beginCaptures = { 1 = { name = 'punctuation.section.dictionary.begin.sdl'; }; };
+			endCaptures = { 1 = { name = 'punctuation.section.dictionary.end.sdl'; }; };
+			patterns = (
+				{ include = '#comment' },
+				{ include = '#repository' },
+				{ include = '#injections' },
+				{
+					name = 'meta.value-pair.sdl';
+					comment = 'name, contentName';
+					begin = '\\b((contentN|n)ame)\\s*(=)';
+					end = '(;)';
+					beginCaptures = {
+						1 = { name = 'support.constant.sdl'; };
+						3 = { name = 'punctuation.separator.key-value.sdl'; };
+					};
+					endCaptures = { 1 = { name = 'punctuation.terminator.sdl'; }; };
+					patterns = (
+						{ include = '#comment' },
+						{ include = '#scope' },
+						{ include = '#catch-all' }
+					);
+				},
+				{
+					comment = 'begin, end, while, match';
+					begin = '\\b(begin|end|while|match)\\s*(=)';
+					end = '(;)';
+					beginCaptures = {
+						1 = { name = 'support.constant.sdl'; };
+						2 = { name = 'punctuation.separator.key-value.sdl'; };
+					};
+					endCaptures = { 1 = { name = 'punctuation.terminator.sdl'; }; };
+					patterns = (
+						{ include = '#comment' },
+						{ include = '#regexp' },
+						{ include = '#catch-all' }
+					);
+				},
+				{
+					comment = 'include';
+					begin = '\\b(include)\\s*(=)';
+					end = '(;)';
+					beginCaptures = {
+						1 = { name = 'support.constant.sdl'; };
+						2 = { name = 'punctuation.separator.key-value.sdl'; };
+					};
+					endCaptures = { 1 = { name = 'punctuation.terminator.sdl'; }; };
+					patterns = (
+						{ include = '#comment' },
+						{
+							name = 'string.quoted.single.include.sdl';
+							match = '('')(?:((#)[-a-zA-Z0-9._]+)|((\\$)(?:base|self)))?('')';
+							captures = {
+								1 = { name = 'punctuation.definition.string.begin.sdl'; };
+								2 = { name = 'constant.other.reference.repository-item.sdl'; };
+								3 = { name = 'punctuation.definition.constant.sdl'; };
+								4 = { name = 'constant.other.reference.grammar.sdl'; };
+								5 = { name = 'punctuation.definition.constant.sdl'; };
+								6 = { name = 'punctuation.definition.string.end.sdl'; };
+							};
+						},
+						{
+							name = 'string.quoted.double.include.sdl';
+							match = '('')(?:((#)[-a-zA-Z0-9._]+)|((\\$)(?:base|self)))?('')';
+							captures = {
+								1 = { name = 'punctuation.definition.string.begin.sdl'; };
+								2 = { name = 'constant.other.reference.repository-item.sdl'; };
+								3 = { name = 'punctuation.definition.constant.sdl'; };
+								4 = { name = 'constant.other.reference.grammar.sdl'; };
+								5 = { name = 'punctuation.definition.constant.sdl'; };
+								6 = { name = 'punctuation.definition.string.end.sdl'; };
+							};
+						},
+						{ include = '#scope-root' },
+						{ include = '#catch-all' }
+					);
+				},
+				{
+					name = 'meta.dictionary.captures.sdl';
+					comment = 'captures';
+					begin = '\\b((beginC|endC|whileC|c)aptures)\\s*(=)';
+					end = '(;)';
+					beginCaptures = {
+						1 = { name = 'support.constant.sdl'; };
+						3 = { name = 'punctuation.separator.key-value.sdl'; };
+					};
+					endCaptures = { 1 = { name = 'punctuation.terminator.sdl'; }; };
+					patterns = (
+						{
+							begin = '(\\{)';
+							end = '(\\})';
+							beginCaptures = { 1 = { name = 'punctuation.section.dictionary.begin.sdl'; }; };
+							endCaptures = { 1 = { name = 'punctuation.section.dictionary.end.sdl'; }; };
+							patterns = (
+								{ include = '#comment' },
+								{ include = '#string' },
+								{
+									begin = '(=)';
+									end = '(;)';
+									beginCaptures = { 1 = { name = 'punctuation.separator.key-value.sdl'; }; };
+									endCaptures = { 1 = { name = 'punctuation.terminator.sdl'; }; };
+									patterns = (
+										{ include = '#comment' },
+										{
+											begin = '(\\{)';
+											end = '(\\})';
+											beginCaptures = { 1 = { name = 'punctuation.section.dictionary.begin.sdl'; }; };
+											endCaptures = { 1 = { name = 'punctuation.section.dictionary.end.sdl'; }; };
+											patterns = (
+												{ include = '#comment' },
+												{ include = '#comment-keyword' },
+												{
+													name = 'meta.value-pair.sdl';
+													comment = 'name';
+													begin = '\\b(name)\\s*(=)';
+													end = '(;)';
+													beginCaptures = {
+														1 = { name = 'support.constant.sdl'; };
+														2 = { name = 'punctuation.separator.key-value.sdl'; };
+													};
+													endCaptures = { 1 = { name = 'punctuation.terminator.sdl'; }; };
+													patterns = (
+														{ include = '#comment' },
+														{ include = '#scope' },
+														{ include = '#catch-all' }
+													);
+												},
+												{ include = '#patterns' }
+											);
+										},
+										{ include = '#catch-all' }
+									);
+								},
+								{
+									name = 'punctuation.terminator.sdl';
+									match = ';';
+								},
+								{ include = '#catch-all' }
+							);
+						}
+					);
+				},
+				{
+					comment = 'disabled, applyEndPatternLast';
+					match = '\\b(disabled|applyEndPatternLast)\\s*(=)\\s*(?:(0|1)|((")(0|1)("))|((\'\')(0|1)(\'\'))|(:true)|(:false))\\s*(;)';
+					captures = {
+						1 = { name = 'support.constant.sdl'; };
+						2 = { name = 'punctuation.separator.key-value.sdl'; };
+						3 = { name = 'constant.numeric.sdl'; };
+						4 = { name = 'string.quoted.double.sdl'; };
+						5 = { name = 'punctuation.definition.string.begin.sdl'; };
+						6 = { name = 'constant.numeric.sdl'; };
+						7 = { name = 'punctuation.definition.string.end.sdl'; };
+						8 = { name = 'string.quoted.single.sdl'; };
+						9 = { name = 'punctuation.definition.string.begin.sdl'; };
+						10 = { name = 'constant.numeric.sdl'; };
+						11 = { name = 'punctuation.definition.string.end.sdl'; };
+						12 = { name = 'constant.language.boolean.true.sdl'; };
+						13 = { name = 'constant.language.boolean.false.sdl'; };
+						14 = { name = 'punctuation.terminator.sdl'; };
+					};
+				},
+				{ include = '#patterns' },
+				{ include = '#comment-keyword' },
+				{ include = '#invalid-keyword' },
+				{ include = '#string' },
+				{
+					begin = '(=)';
+					end = '(;)';
+					beginCaptures = { 1 = { name = 'punctuation.separator.key-value.sdl'; }; };
+					endCaptures = { 1 = { name = 'punctuation.terminator.sdl'; }; };
+					patterns = ( { include = '#any' } );
+				},
+				{
+					name = 'punctuation.terminator.sdl';
+					match = ';';
+				},
+				{ include = '#catch-all' }
+			);
+		};
+		scope = {
+			patterns = (
+				{
+					name = 'string.quoted.single.scope.sdl';
+					match = "(')([^']*)(')";
+					captures = {
+						1 = { name = 'punctuation.definition.string.begin.sdl'; };
+						2 = {
+							patterns = (
+								{ include = 'text.tm-scope#scope_language' },
+								{ include = 'text.tm-scope#scope_root' }
+							);
+						};
+						3 = { name = 'punctuation.definition.string.end.sdl'; };
+					};
+				},
+				{
+					name = 'string.quoted.double.scope.sdl';
+					match = '(")([^"]*)(")';
+					captures = {
+						1 = { name = 'punctuation.definition.string.begin.sdl'; };
+						2 = {
+							patterns = (
+								{ include = 'text.tm-scope#scope_language' },
+								{ include = 'text.tm-scope#scope_root' }
+							);
+						};
+						3 = { name = 'punctuation.definition.string.end.sdl'; };
+					};
+				}
+			);
+		};
+		'scope-root' = {
+			patterns = (
+				{
+					name = 'string.quoted.single.scope.root.sdl';
+					match = '('')(?:((?:source|text)\\.[^\\s,()&|\\[\\]:"\'{}<>*?=^;#]*)([^'']*)|([^'']*))('')';
+					captures = {
+						1 = { name = 'punctuation.definition.string.begin.sdl'; };
+						2 = { name = 'constant.other.scope.sdl'; };
+						3 = { name = 'invalid.deprecated.scope_not_allowed.sdl'; };
+						4 = { name = 'invalid.deprecated.scope_not_allowed.sdl'; };
+						5 = { name = 'punctuation.definition.string.end.sdl'; };
+					};
+				},
+				{
+					name = 'string.quoted.double.scope.root.sdl';
+					match = '(")(?:((?:source|text)\\.[^\\s,()&|\\[\\]:"\'{}<>*?=^;#]*)([^"]*)|([^"]*))(")';
+					captures = {
+						1 = { name = 'punctuation.definition.string.begin.sdl'; };
+						2 = { name = 'constant.other.scope.sdl'; };
+						3 = { name = 'invalid.deprecated.scope_not_allowed.sdl'; };
+						4 = { name = 'invalid.deprecated.scope_not_allowed.sdl'; };
+						5 = { name = 'punctuation.definition.string.end.sdl'; };
+					};
+				}
+			);
+		};
+		string = {
+			patterns = (
+				{
+					name = 'constant.numeric.sdl';
+					match = '\\b[0-9]+\\b';
+				},
+				{
+					name = 'string.unquoted.sdl';
+					match = '[-a-zA-Z0-9_.]+';
+				},
+				{
+					name = 'string.quoted.single.sdl';
+					begin = "(')";
+					end = "('(?!'))";
+					applyEndPatternLast = 1;
+					beginCaptures = { 1 = { name = 'punctuation.definition.string.begin.sdl'; }; };
+					endCaptures = { 1 = { name = 'punctuation.definition.string.end.sdl'; }; };
+					patterns = (
+						{
+							name = 'constant.character.escape.apostrophe.sdl';
+							match = "''";
+						}
+					);
+				},
+				{
+					name = 'string.quoted.double.sdl';
+					begin = '(")';
+					end = '(")';
+					beginCaptures = { 1 = { name = 'punctuation.definition.string.begin.sdl'; }; };
+					endCaptures = { 1 = { name = 'punctuation.definition.string.end.sdl'; }; };
+					patterns = (
+						{
+							name = 'constant.character.escape.sdl';
+							match = '\\\\[\\"]';
+						}
+					);
+				}
+			);
+		};
+	};
+}

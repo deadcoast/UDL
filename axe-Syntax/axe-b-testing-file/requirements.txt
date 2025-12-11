@@ -1,0 +1,12 @@
+typer
+textual
+lark
+lark-parser
+textual
+loguru
+pydantic
+pytest
+hypothesis
+jinja2
+sphinx
+sphinx-autodoc-typehints

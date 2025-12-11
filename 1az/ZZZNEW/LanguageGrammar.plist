@@ -1,0 +1,59 @@
+{	patterns = (
+		{	name = 'keyword.control.1az';
+			match = '\\b(1AZ|INIT|EXEC)\\b';
+		},
+		{	name = 'keyword.other.1az';
+			match = '\\b(param|true|false)\\b';
+		},
+		{	name = 'support.function.modifier.1az';
+			match = '\\b(req|floop|prohib)\\b';
+		},
+		{	name = 'punctuation.operator.controller.1az';
+			match = '(@@|:)';
+		},
+		{	name = 'punctuation.operator.assignment.1az';
+			match = '=';
+		},
+		{	name = 'punctuation.separator.1az';
+			match = ',';
+		},
+		{	name = 'punctuation.section.brackets.alpha.1az';
+			begin = '<';
+			end = '>';
+		},
+		{	name = 'punctuation.section.brackets.beta.1az';
+			begin = '\\[';
+			end = '\\]';
+		},
+		{	name = 'punctuation.section.brackets.gamma.1az';
+			begin = '\\{';
+			end = '\\}';
+		},
+		{	name = 'punctuation.section.brackets.delta.1az';
+			begin = '\\(';
+			end = '\\)';
+		},
+		{	name = 'meta.bracket.epsilon.1az';
+			match = '(!EXEC!|!!EXEC!!)';
+		},
+		{	name = 'comment.block.docstring.1az';
+			begin = '^\\s*##--#';
+			end = '#--##\\s*$';
+		},
+		{	name = 'comment.line.1az';
+			match = '#.*$';
+		},
+		{	name = 'string.quoted.double.1az';
+			begin = '"';
+			end = '"';
+			patterns = (
+				{	name = 'constant.character.escape.1az';
+					match = '\\\\.';
+				},
+			);
+		},
+		{	name = 'constant.numeric.1az';
+			match = '\\b\\d+\\b';
+		},
+	);
+}

@@ -1,0 +1,92 @@
+{
+    "name": "1AZ Theme",
+    "type": "dark",
+    "colors": {
+        "editor.background": "#3a3d42",
+        "editor.foreground": "#ddfbd2",
+        "editor.selectionBackground": "#3b4454",
+        "editor.lineHighlightBackground": "#3b4454",
+        "editorCursor.foreground": "#ffd23f"
+    },
+    "tokenColors": [
+        {
+            "scope": "keyword.control.1az.header",
+            "settings": {
+                "foreground": "#c47ca7",
+                "fontStyle": "bold"
+            }
+        },
+        {
+            "scope": "keyword.control.1az.block",
+            "settings": {
+                "foreground": "#6b7fd7"
+            }
+        },
+        {
+            "scope": "meta.block.init.1az",
+            "settings": {
+                "foreground": "#56cfe1"
+            }
+        },
+        {
+            "scope": "meta.block.injkt.1az",
+            "settings": {
+                "foreground": "#80ffdb"
+            }
+        },
+        {
+            "scope": "meta.block.param.1az",
+            "settings": {
+                "foreground": "#bcedf6"
+            }
+        },
+        {
+            "scope": "constant.other.1az.prohibited",
+            "settings": {
+                "foreground": "#937cc4",
+                "fontStyle": "bold"
+            }
+        },
+        {
+            "scope": "constant.other.1az.standard",
+            "settings": {
+                "foreground": "#ddfbd2",
+                "fontStyle": "bold"
+            }
+        },
+        {
+            "scope": "string.unquoted.1az.description",
+            "settings": {
+                "foreground": "#bcedf6"
+            }
+        },
+        {
+            "scope": "keyword.control.1az.exec",
+            "settings": {
+                "foreground": "#ffd23f",
+                "fontStyle": "bold"
+            }
+        },
+        {
+            "scope": "meta.block.list.1az",
+            "settings": {
+                "foreground": "#56cfe1",
+                "fontStyle": "italic"
+            }
+        },
+        {
+            "scope": "constant.language.1az.true",
+            "settings": {
+                "foreground": "#80ffdb",
+                "fontStyle": "bold italic"
+            }
+        },
+        {
+            "scope": "comment.line.1az",
+            "settings": {
+                "foreground": "#6b7fd7",
+                "fontStyle": "italic"
+            }
+        }
+    ]
+}

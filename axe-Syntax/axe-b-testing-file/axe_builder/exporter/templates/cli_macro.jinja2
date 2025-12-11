@@ -1,0 +1,27 @@
+{% macro render_subcommand(sub, idx) %}
+@app.command(name="{{ sub.type }}{{ sub.count if sub.count else '' }}_{{ idx }}", help="Generated {{ sub.type }} SubCommand")
+def {{ sub.type.lower() }}{{ sub.count if sub.count else '' }}_{{ idx }}():
+    """
+    {{ sub.type }} SubCommand Handler
+    """
+    {% if sub.value %}
+    typer.echo("{{ sub.value }}")
+    {% else %}
+    typer.echo("This is a custom subcommand.")
+    {% endif %}
+{% endmacro %}
+
+{% for menu in menus %}
+@app.command(name="{{ menu.type }}{{ menu.count if menu.count else '' }}", help="Generated {{ menu.type }} Menu")
+def {{ menu.type.lower() }}{{ menu.count if menu.count else '' }}():
+    """
+    {{ menu.type }} Menu Handler
+    """
+    typer.echo("This is {{ menu.type }}{{ ' ' + str(menu.count) if menu.count else '' }} Menu")
+
+    {% for idx, sub in enumerate(menu.subcommands, start=1) %}
+    {{ render_subcommand(sub, idx) }}
+    {% endfor %}
+
+{% endfor %}
+{% endmacro %}

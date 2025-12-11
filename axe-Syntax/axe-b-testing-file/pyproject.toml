@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "axe_builder"
+version = "0.1.0"
+description = "A CLI Menu Builder using axe:Syntax"
+authors = [
+    { name="Your Name", email="you@example.com" }
+]
+dependencies = [
+    "typer==0.9.0",
+    "lark-parser==1.1.5",
+    "textual==0.2.1",
+    "loguru==0.6.0",
+    "pydantic==1.10.2",
+    "pytest==7.1.2",
+    "hypothesis==6.52.2",
+    "jinja2==3.1.2",
+    "sphinx==4.5.0",
+    "sphinx-autodoc-typehints==1.19.2"
+]
+
+[project.scripts]
+axe-builder = "axe_builder.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["axe_builder"]

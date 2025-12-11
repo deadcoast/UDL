@@ -1,0 +1,29 @@
+< 1 ALPHA ZERO = < 1AZ >
+>
+< 1AZ =
+	[INIT =
+		{param:(term) =	
+			(P.1:NO SNIPPETS,
+			 P.2:NO EXAMPLES,
+			 P.3:NO PLACEHOLDERS,
+			 S.4:FULL CODE COMPLETION,
+			 S.5:BEST IN PRACTISE USES COMPLETE IMPLEMENTATIONS,)
+		}	
+	]	
+>
+< 1AZ =
+	[INIT:{list:(term)} =
+		{PROHIBITED:(P.1, P.2, P.3)}
+		{STANDARDS:(S.4, S.5)}
+	]	
+>
+<1AZ =
+	[INIT:{true =
+		}
+	]	
+	[INJKT:{param:true =
+			(term)}
+		}
+	]
+>
+< 1AZ:!EXEC:{true}! >

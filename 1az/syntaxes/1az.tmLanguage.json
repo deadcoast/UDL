@@ -1,0 +1,153 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "scopeName": "source.1az",
+    "name": "1AZ",
+    "fileTypes": ["1az"],
+    "patterns": [
+        {
+            "include": "#comments"
+        },
+        {
+            "include": "#expression"
+        }
+    ],
+    "repository": {
+        "comments": {
+            "patterns": [
+                {
+                    "name": "comment.line.1az",
+                    "match": "//.*$"
+                },
+                {
+                    "name": "comment.block.1az",
+                    "begin": "/\\*",
+                    "end": "\\*/"
+                }
+            ]
+        },
+        "expression": {
+            "patterns": [
+                {
+                    "name": "keyword.control.1az.header",
+                    "match": "<\\s*1\\s*ALPHA\\s*ZERO\\s*=\\s*<\\s*1AZ\\s*>"
+                },
+                {
+                    "name": "keyword.control.1az.block",
+                    "begin": "<\\s*1AZ\\s*=",
+                    "end": ">",
+                    "patterns": [
+                        {
+                            "include": "#init-block"
+                        },
+                        {
+                            "include": "#injkt-block"
+                        },
+                        {
+                            "include": "#data-block"
+                        }
+                    ]
+                },
+                {
+                    "name": "keyword.control.1az.exec",
+                    "match": "<\\s*1AZ:!EXEC:\\{(?:true|false)\\}!\\s*>"
+                }
+            ]
+        },
+        "init-block": {
+            "name": "meta.block.init.1az",
+            "begin": "\\[INIT\\s*=?",
+            "end": "\\]",
+            "patterns": [
+                {
+                    "include": "#param-block"
+                },
+                {
+                    "include": "#list-block"
+                },
+                {
+                    "include": "#true-block"
+                }
+            ]
+        },
+        "injkt-block": {
+            "name": "meta.block.injkt.1az",
+            "begin": "\\[INJKT\\s*=?",
+            "end": "\\]",
+            "patterns": [
+                {
+                    "include": "#param-block"
+                }
+            ]
+        },
+        "data-block": {
+            "name": "meta.block.data.1az",
+            "begin": "\\[DATA\\s*=?",
+            "end": "\\]",
+            "patterns": [
+                {
+                    "include": "#param-block"
+                }
+            ]
+        },
+        "param-block": {
+            "name": "meta.block.param.1az",
+            "begin": "\\{param:\\s*\\(",
+            "end": "\\)\\s*\\}",
+            "patterns": [
+                {
+                    "match": "(P\\.\\d+):(\\w+(?:\\s+\\w+)*)",
+                    "captures": {
+                        "1": {"name": "constant.other.1az.prohibited"},
+                        "2": {"name": "string.unquoted.1az.description"}
+                    }
+                },
+                {
+                    "match": "(S\\.\\d+):(\\w+(?:\\s+\\w+)*)",
+                    "captures": {
+                        "1": {"name": "constant.other.1az.standard"},
+                        "2": {"name": "string.unquoted.1az.description"}
+                    }
+                }
+            ]
+        },
+        "list-block": {
+            "name": "meta.block.list.1az",
+            "begin": "\\{list:\\s*\\(",
+            "end": "\\)\\s*\\}",
+            "patterns": [
+                {
+                    "include": "#prohibited-block"
+                },
+                {
+                    "include": "#standards-block"
+                }
+            ]
+        },
+        "prohibited-block": {
+            "name": "meta.block.prohibited.1az",
+            "begin": "\\{PROHIBITED:\\s*\\(",
+            "end": "\\)",
+            "patterns": [
+                {
+                    "match": "P\\.\\d+",
+                    "name": "constant.other.1az.prohibited"
+                }
+            ]
+        },
+        "standards-block": {
+            "name": "meta.block.standards.1az",
+            "begin": "\\{STANDARDS:\\s*\\(",
+            "end": "\\)",
+            "patterns": [
+                {
+                    "match": "S\\.\\d+",
+                    "name": "constant.other.1az.standard"
+                }
+            ]
+        },
+        "true-block": {
+            "match": "\\{true\\s*=\\s*\\}",
+            "name": "constant.language.1az.true"
+        }
+    }
+}

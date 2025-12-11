@@ -1,0 +1,99 @@
+axe-Syntax/
+├── .DS_Store
+├── .github/
+│   └── workflows/
+│       └── ci.yml
+├── .idea/ (ignored)
+├── .venv/ (ignored)
+├── README.md
+├── axe_syntax/
+│   ├── .git/ (ignored)
+│   ├── .gitattributes
+│   ├── .gitignore
+│   ├── .idea/ (ignored)
+│   ├── LICENSE
+│   ├── __init__.py
+│   ├── __pycache__/ (ignored)
+│   ├── _static/
+│   │   └── axe_builder/
+│   │       └── tui.css
+│   ├── axe_builder/
+│   │   ├── __init__.py
+│   │   ├── __pycache__/ (ignored)
+│   │   ├── axe_builder.log
+│   │   ├── cli.py
+│   │   ├── config/
+│   │   │   ├── __init__.py
+│   │   │   └── settings.py
+│   │   ├── exporter/
+│   │   │   ├── __init__.py
+│   │   │   ├── exporter.py
+│   │   │   └── templates/
+│   │   │       └── cli_template.jinja2
+│   │   ├── logger/
+│   │   │   ├── __init__.py
+│   │   │   ├── __pycache__/ (ignored)
+│   │   │   └── logger.py
+│   │   ├── models/
+│   │   │   ├── __init__.py
+│   │   │   ├── __pycache__/ (ignored)
+│   │   │   └── models.py
+│   │   ├── parser/
+│   │   │   ├── __init__.py
+│   │   │   ├── __pycache__/ (ignored)
+│   │   │   ├── axe_builder.log
+│   │   │   ├── grammar.lark
+│   │   │   ├── parser.py
+│   │   │   └── transformer.py
+│   │   ├── tui/
+│   │   │   ├── __init__.py
+│   │   │   ├── tui.py
+│   │   │   └── widgets.py
+│   │   └── utils/
+│   │       ├── __init__.py
+│   │       └── utils.py
+│   └── axe_syntax.egg-info/
+│       ├── PKG-INFO
+│       ├── SOURCES.txt
+│       ├── dependency_links.txt
+│       ├── entry_points.txt
+│       ├── requires.txt
+│       └── top_level.txt
+├── directory_map.py
+├── directory_tree.txt
+├── dist/
+│   ├── axe_syntax-0.1.0-py3-none-any.whl
+│   └── axe_syntax-0.1.0.tar.gz
+├── docs/
+│   ├── api.rst
+│   ├── conf.py
+│   ├── index.rst
+│   ├── tutorials.rst
+│   └── usage.rst
+├── examples/
+│   ├── README.md
+│   ├── example_a.axe
+│   └── example_b.axe
+├── pyproject.toml
+├── requirements.txt
+├── setup.py
+└── tests/
+    ├── __init__.py
+    ├── cli/
+    │   ├── __init__.py
+    │   └── test_cli.py
+    ├── exporter/
+    │   ├── __init__.py
+    │   └── test_exporter.py
+    ├── logger/
+    │   ├── __init__.py
+    │   └── test_logger.py
+    ├── models/
+    │   ├── __init__.py
+    │   └── test_models.py
+    ├── parser/
+    │   ├── __init__.py
+    │   └── test_parser.py
+    └── tui/
+        ├── __init__.py
+        └── test_tui.py

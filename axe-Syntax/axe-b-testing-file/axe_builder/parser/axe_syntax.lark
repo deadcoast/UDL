@@ -1,0 +1,47 @@
+# axe_syntax.lark
+# Enhanced Lark grammar for axe:Syntax
+
+# Import common terminals
+%import common.ESCAPED_STRING   // String enclosed in double quotes
+%import common.INT               // Integer number
+%import common.WS                // Whitespace
+%ignore WS                      # Ignore whitespace
+
+# Start symbol of the grammar
+start: command_line
+
+# A command line can consist of one or more commands separated by ":"
+command_line: command (":" command)*
+
+# A command can be either a MenuCommand or a SubCommand
+command: menu_command | sub_command
+
+# Definition of a MenuCommand
+# Example: [M+{3}] or [N={2}]
+menu_command: "[" MENU_TYPE (menu_operator menu_operand)* "]"
+
+# Definition of a SubCommand
+# Examples: (T="Menu Title") or (.)={6}
+sub_command: "(" SUB_TYPE (sub_operator sub_operand)* ")"
+
+# Operators: + (Addition) or = (Assignment)
+menu_operator: "+" | "="
+sub_operator: "+" | "="
+
+# Operand can be a SubCommand, Numeric Variable, or a String Value for menu_command
+menu_operand: sub_command | NUM_VAR | value
+
+# Operand can be Numeric Variable or a String Value for sub_command
+sub_operand: NUM_VAR | value
+
+# MENU_TYPE can be "M" (Main Menu) or "N" (Nested Menu)
+MENU_TYPE: "M" | "N"
+
+# SUB_TYPE can be "T" (Title) or "." (Custom Command)
+SUB_TYPE: "T" | "."
+
+# Numeric Variable enclosed in braces, e.g., {3}
+NUM_VAR: "{" INT "}"
+
+# String Value enclosed in double quotes, e.g., "This is a Title"
+value: ESCAPED_STRING

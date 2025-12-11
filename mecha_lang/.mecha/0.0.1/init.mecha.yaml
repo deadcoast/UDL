@@ -1,0 +1,10 @@
+#!mecha.god:init:
+<!--[load]={.mecha\init.mecha}-->
+<mecha_god>
+  <init>
+    <sys_prompt>
+      {1}:sys_prompt:".mecha/.god.mecha"
+      {2}:persona:".mecha/persona.mecha"
+    </sys_prompt>
+  </init>
+</mecha_god>

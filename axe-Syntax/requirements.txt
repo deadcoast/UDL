@@ -1,0 +1,13 @@
+typer~=0.15.1
+lark-parser~=0.12.0
+lark~=1.2.2
+loguru~=0.7.3
+pydantic~=2.10.5
+pytest~=8.3.4
+hypothesis~=6.124.1
+jinja2~=3.1.5
+sphinx
+sphinx-autodoc-typehints
+axe_syntax~=0.1.0
+textual~=1.0.0
+rich~=13.9.4
