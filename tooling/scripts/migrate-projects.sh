@@ -14,54 +14,6 @@ echo -e "${BLUE}========================================${NC}"
 echo -e "${BLUE}📦 UDL Project Migration${NC}"
 echo -e "${BLUE}========================================${NC}\n"
 
-# Define project categorization
-# Format: "source_dir:target_category"
-
-declare -A PROJECT_MAP=(
-    # Languages
-    ["axe-Syntax"]="languages"
-    ["1az"]="languages"
-    ["gate"]="languages"
-    ["gateppattern-1.1"]="languages"
-    ["f8Syntax"]="languages"
-    ["DrRx"]="languages"
-    ["remedysyntax"]="languages"
-    ["hoc"]="languages"
-
-    # Tools
-    ["CTX"]="tools"
-    ["ctx-card"]="tools"
-    ["sandbag"]="tools"
-    ["axe"]="tools"
-    ["axe_syntax"]="tools"
-    ["JETSON"]="tools"
-    ["BARRELMAN"]="tools"
-    ["robo_md"]="tools"
-    ["FINK"]="tools"
-
-    # Extensions
-    ["camo-obsidian"]="extensions"
-
-    # Applications
-    ["black-milk"]="applications"
-    ["StrawberryMause"]="applications"
-    ["ASCII-String-UI-Editor"]="applications"
-
-    # Libraries
-    ["hunt_ascii"]="libraries"
-    ["ASCII-hunt"]="libraries"
-    ["milkDocs"]="libraries"
-
-    # Experimental
-    ["mecha_lang"]="experimental"
-    ["mecha_development"]="experimental"
-    ["motleyBard"]="experimental"
-    ["canon"]="experimental"
-    ["CLAY"]="experimental"
-    ["PACER"]="experimental"
-    ["udl-directory-template"]="experimental"
-)
-
 # Create target directories if they don't exist
 echo -e "${BLUE}📁 Creating target directories...${NC}"
 for category in languages tools extensions applications libraries experimental; do
@@ -77,8 +29,8 @@ FAILED=0
 
 # Function to move a project
 move_project() {
-    local source=$1
-    local category=$2
+    local source="$1"
+    local category="$2"
     local target="projects/$category/$source"
 
     echo -e "${BLUE}Moving:${NC} $source → $category/"
@@ -114,22 +66,66 @@ move_project() {
     fi
 }
 
-# Migrate all projects
-for project in "${!PROJECT_MAP[@]}"; do
-    category="${PROJECT_MAP[$project]}"
-    move_project "$project" "$category"
-    echo ""
-done
+# Language projects
+move_project "axe-Syntax" "languages"
+move_project "1az" "languages"
+move_project "gate" "languages"
+move_project "gateppattern-1.1" "languages"
+move_project "f8Syntax" "languages"
+move_project "DrRx" "languages"
+move_project "remedysyntax" "languages"
+move_project "hoc" "languages"
+
+# Tool projects
+move_project "CTX" "tools"
+move_project "ctx-card" "tools"
+move_project "sandbag" "tools"
+move_project "axe" "tools"
+move_project "axe_syntax" "tools"
+move_project "JETSON" "tools"
+move_project "BARRELMAN" "tools"
+move_project "robo_md" "tools"
+move_project "FINK" "tools"
+
+# Extension projects
+move_project "camo-obsidian" "extensions"
+
+# Application projects
+move_project "black-milk" "applications"
+move_project "StrawberryMause" "applications"
+move_project "ASCII-String-UI-Editor" "applications"
+
+# Library projects
+move_project "hunt_ascii" "libraries"
+move_project "ASCII-hunt" "libraries"
+move_project "milkDocs" "libraries"
+
+# Experimental projects
+move_project "mecha_lang" "experimental"
+move_project "mecha_development" "experimental"
+move_project "motleyBard" "experimental"
+move_project "canon" "experimental"
+move_project "CLAY" "experimental"
+move_project "PACER" "experimental"
+move_project "udl-directory-template" "experimental"
 
 # Move .depreciated to .archive if it exists
 if [ -d ".depreciated" ]; then
-    echo -e "${BLUE}Moving:${NC} .depreciated → .archive/"
-    mv .depreciated .archive/depreciated
-    echo -e "  ${GREEN}✓${NC} Archived deprecated projects\n"
+    echo -e "\n${BLUE}Moving:${NC} .depreciated → .archive/"
+    mv .depreciated .archive/depreciated 2>/dev/null || echo -e "  ${YELLOW}⚠${NC}  Already moved"
+    echo -e "  ${GREEN}✓${NC} Archived deprecated projects"
+fi
+
+# Also move 4Di and JEFRY if they exist
+if [ -d "4Di" ]; then
+    move_project "4Di" "experimental"
+fi
+if [ -d "JEFRY" ]; then
+    move_project "JEFRY" "experimental"
 fi
 
 # Summary
-echo -e "${BLUE}========================================${NC}"
+echo -e "\n${BLUE}========================================${NC}"
 echo -e "${BLUE}Migration Summary:${NC}"
 echo -e "${GREEN}✓${NC} Moved: $MOVED projects"
 echo -e "${YELLOW}⚠${NC}  Skipped: $SKIPPED projects"
