@@ -17,12 +17,14 @@ This directory contains standalone libraries that can be used independently or a
 Documentation generation and management library for Python projects.
 
 **Features:**
+
 - Automated documentation generation
 - Markdown output
 - API documentation
 - Cross-referencing
 
 **Quick Start:**
+
 ```bash
 cd milkDocs
 pip install -e .
@@ -41,12 +43,14 @@ pip install -e .
 Utilities for ASCII art generation, manipulation, and analysis.
 
 **Features:**
+
 - ASCII art rendering
 - Text-to-ASCII conversion
 - ASCII manipulation tools
 - Pattern matching
 
 **Quick Start:**
+
 ```bash
 cd hunt_ascii
 pip install -e .
@@ -65,12 +69,14 @@ pip install -e .
 Advanced ASCII processing and search functionality.
 
 **Features:**
+
 - ASCII pattern searching
 - Text processing
 - Character analysis
 - Format conversion
 
 **Quick Start:**
+
 ```bash
 cd ASCII-hunt
 pip install -e .
@@ -83,6 +89,7 @@ pip install -e .
 ### Building All Libraries
 
 From the repository root:
+
 ```bash
 # Install all Python libraries
 cd projects/libraries
@@ -103,6 +110,7 @@ done
 ### Using Libraries as Dependencies
 
 #### Python Projects
+
 ```python
 # In your project's requirements.txt or pyproject.toml
 milkDocs @ file:///path/to/UDL/projects/libraries/milkDocs
@@ -110,6 +118,7 @@ hunt_ascii @ file:///path/to/UDL/projects/libraries/hunt_ascii
 ```
 
 #### From Within Monorepo
+
 ```toml
 # pyproject.toml
 [tool.poetry.dependencies]
@@ -148,6 +157,7 @@ touch my_library/__init__.py
 All libraries in this category should follow these standards:
 
 ### Structure
+
 ```
 library-name/
 ├── src/                    # Source code
@@ -166,12 +176,14 @@ library-name/
 ```
 
 ### Testing
+
 - Minimum 80% code coverage
 - Unit tests for all public APIs
 - Integration tests for complex features
 - Example usage in documentation
 
 ### Documentation
+
 - Clear README with examples
 - API documentation (docstrings)
 - Usage examples
@@ -179,6 +191,7 @@ library-name/
 - Changelog
 
 ### Versioning
+
 - Semantic versioning (MAJOR.MINOR.PATCH)
 - Changelog maintained
 - Git tags for releases
@@ -186,15 +199,20 @@ library-name/
 ## Common Patterns
 
 ### ASCII Processing
+
 Libraries dealing with ASCII art, text manipulation, and character-based rendering:
+
 - `hunt_ascii` - ASCII art utilities
 - `ASCII-hunt` - ASCII search and processing
 
 ### Documentation
+
 Libraries for generating and managing documentation:
+
 - `milkDocs` - Documentation generation
 
 ### Utilities
+
 General-purpose utility libraries (future expansion)
 
 ## Testing

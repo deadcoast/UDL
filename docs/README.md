@@ -13,7 +13,9 @@ This directory contains all extended documentation for the UDL (Universal Develo
 ### Core Documentation
 
 #### [MONOREPO-STATUS.md](./MONOREPO-STATUS.md)
+
 **Current state of the monorepo**
+
 - Recent updates and changes
 - Build system status
 - Known issues and limitations
@@ -25,7 +27,9 @@ This directory contains all extended documentation for the UDL (Universal Develo
 ---
 
 #### [MONOREPO_ARCHITECTURE.md](./MONOREPO_ARCHITECTURE.md)
+
 **Architecture design and technical decisions**
+
 - Technology stack
 - Directory structure
 - Workspace configuration
@@ -38,7 +42,9 @@ This directory contains all extended documentation for the UDL (Universal Develo
 ---
 
 #### [MIGRATION_SUCCESS.md](./MIGRATION_SUCCESS.md)
+
 **Migration completion summary**
+
 - What was accomplished
 - Infrastructure created
 - Migration statistics
@@ -50,7 +56,9 @@ This directory contains all extended documentation for the UDL (Universal Develo
 ---
 
 #### [MIGRATION_PLAN.md](./MIGRATION_PLAN.md)
+
 **Original migration strategy**
+
 - Migration phases
 - Tooling choices
 - Risk mitigation
@@ -76,24 +84,28 @@ docs/
 ## Documentation Categories
 
 ### Architecture & Design
+
 - System architecture
 - Design patterns
 - Technical decisions (ADRs)
 - Integration strategies
 
 ### Guides & Tutorials
+
 - Getting started
 - Development workflows
 - Best practices
 - Common patterns
 
 ### Specifications
+
 - Language specifications
 - API specifications
 - Protocol definitions
 - Format specifications
 
 ### Project Documentation
+
 - Individual project docs
 - Cross-project guides
 - Integration examples
@@ -104,7 +116,7 @@ docs/
 
 All documentation uses GitHub-Flavored Markdown:
 
-```markdown
+````markdown
 # Title (H1 - One per document)
 
 ## Section (H2)
@@ -112,18 +124,21 @@ All documentation uses GitHub-Flavored Markdown:
 ### Subsection (H3)
 
 **Bold** for emphasis
-*Italic* for terminology
+_Italic_ for terminology
 `code` for inline code
 
 ```language
 # Code blocks with language tags
 ```
+````
 
 - Bullet lists
+
 1. Numbered lists
 
 [Links](./relative/path.md)
-```
+
+````
 
 ### File Naming
 
@@ -179,7 +194,7 @@ More content...
 **Last Updated:** YYYY-MM-DD
 **Maintained By:** Maintainer name
 **Version:** X.Y.Z
-```
+````
 
 ## Contributing Documentation
 
@@ -191,6 +206,7 @@ More content...
    - specs/ - Technical specifications
 
 2. **Create file:**
+
    ```bash
    cd docs
    touch my-new-doc.md
@@ -285,6 +301,7 @@ npx markdown-it docs/README.md > docs/README.html
 ### Single Source of Truth
 
 Each topic should have one authoritative document:
+
 - No duplicate information
 - Cross-link related topics
 - Update in one place
@@ -292,6 +309,7 @@ Each topic should have one authoritative document:
 ### Layered Information
 
 Organize from high-level to detailed:
+
 1. **Overview** - What and why
 2. **Quickstart** - How to get started
 3. **Reference** - Detailed information
@@ -300,6 +318,7 @@ Organize from high-level to detailed:
 ### Progressive Disclosure
 
 Start simple, add complexity:
+
 - Basic concepts first
 - Advanced topics later
 - Optional details in appendices
@@ -315,12 +334,15 @@ Start simple, add complexity:
 **Status:** Accepted
 
 ## Context
+
 We need to build 33 projects efficiently...
 
 ## Decision
+
 We will use TurboRepo because...
 
 ## Consequences
+
 - Positive: Fast builds, caching
 - Negative: Learning curve
 ```
@@ -334,9 +356,11 @@ We will use TurboRepo because...
 **Status:** Stable
 
 ## Abstract
+
 CTX-CARD is a token-efficient format...
 
 ## Notation
+
 Tags use prefix-free encoding...
 ```
 

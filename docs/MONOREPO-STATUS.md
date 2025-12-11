@@ -23,22 +23,26 @@
 **Issue:** Duplicate package name `"gate-pattern"` in both gate projects
 
 **Fix:** Implemented scoped naming convention:
+
 - `projects/languages/gate/package.json` → `@udl/gate-pattern`
 - `projects/languages/gateppattern-1.1/package.json` → `@udl/gate-pattern-1.1`
 
 #### CI/CD Fixes
 
 **Issue 1:** PNPM version mismatch causing `ERR_PNPM_BAD_PM_VERSION`
+
 - Workflows had generic `version: 8`
 - package.json required exact `pnpm@8.15.1`
 - **Fix:** Updated all workflows to `version: 8.15.1`
 
 **Issue 2:** Git submodule errors (exit code 128)
+
 - Migrated projects contain embedded `.git` directories
 - GitHub Actions tried to initialize non-existent submodules
 - **Fix:** Added `submodules: false` to all checkout@v4 actions
 
 **Files Modified:**
+
 - `.github/workflows/ci-main.yml` (3 checkouts)
 - `.github/workflows/ci-typescript.yml` (1 checkout)
 - `.github/workflows/ci-python.yml` (1 checkout)
@@ -49,6 +53,7 @@
 **Issue:** camo-obsidian missing tsconfig.json, causing build failures
 
 **Fix:** Created tsconfig.json with:
+
 - ES2018 + DOM library support
 - Excluded test files from type checking
 - Disabled strict mode (pre-existing code)
@@ -60,6 +65,7 @@
 **Test Command:** `pnpm run build --filter="./projects/**" --continue`
 
 **Results:**
+
 - ✅ **strawberry-maus** - Builds successfully
 - ✅ **vite-react-typescript-starter** (ASCII-String-UI-Editor) - Builds successfully
 - ⚠️ **camo-obsidian** - Pre-existing TypeScript errors (not blocking)
@@ -71,6 +77,7 @@
 ## 🏗️ Architecture Overview
 
 ### Directory Structure
+
 ```
 UDL/
 ├── .github/workflows/          # CI/CD pipelines
@@ -101,6 +108,7 @@ UDL/
 ### Scoped Naming Convention
 
 All TypeScript packages now use `@udl/` scope for consistency:
+
 - `@udl/gate-pattern` (v1.0.0)
 - `@udl/gate-pattern-1.1` (v1.1.0)
 - Future packages should follow this pattern
@@ -108,6 +116,7 @@ All TypeScript packages now use `@udl/` scope for consistency:
 ## 🚀 CI/CD Pipeline
 
 ### Workflow Architecture
+
 ```
 ci-main.yml (Orchestrator)
 ├── detect-changes (paths-filter)
@@ -122,6 +131,7 @@ ci-main.yml (Orchestrator)
 ### Change Detection
 
 Smart filtering prevents unnecessary builds:
+
 - Python: `**/*.py`, `**/pyproject.toml`, `**/requirements.txt`
 - TypeScript: `**/*.ts`, `**/*.tsx`, `**/*.js`, `**/package.json`, `**/tsconfig.json`
 - Rust: `**/*.rs`, `**/Cargo.toml`
@@ -137,6 +147,7 @@ Smart filtering prevents unnecessary builds:
 ### Current CI Status
 
 All workflows configured and operational. Recent fixes resolved:
+
 - ✅ PNPM version conflicts
 - ✅ Git submodule initialization errors
 - ✅ Package naming collisions
@@ -193,6 +204,7 @@ All workflows configured and operational. Recent fixes resolved:
 ## 🔧 Development Workflow
 
 ### Initial Setup
+
 ```bash
 git clone https://github.com/deadcoast/UDL.git
 cd UDL
@@ -200,6 +212,7 @@ cd UDL
 ```
 
 ### Common Commands
+
 ```bash
 # Install all dependencies
 pnpm install
@@ -218,6 +231,7 @@ pnpm lint
 ```
 
 ### Project-Specific Work
+
 ```bash
 # TypeScript projects
 cd projects/languages/gate
@@ -256,6 +270,7 @@ These are **expected and safe**. Migrated projects retain their .git directories
 ### Projects Without Build Scripts
 
 Some projects don't have automated builds yet:
+
 - Godot projects (black-milk) - built in Godot Editor
 - Some Python projects - simple scripts without build step
 - Some experimental projects - WIP
