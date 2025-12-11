@@ -470,6 +470,7 @@ Many projects contain embedded `.git` directories from the migration. This is ex
 Projects are organized by category in `projects/`:
 
 **By Category:**
+
 - `projects/languages/` - DSL implementations (8 projects)
 - `projects/tools/` - CLI utilities and generators (9 projects)
 - `projects/extensions/` - Editor plugins (1 project)
@@ -478,6 +479,7 @@ Projects are organized by category in `projects/`:
 - `projects/experimental/` - WIP/Research (9 projects)
 
 **By Conceptual Cluster:**
+
 - Language tools: axe, gate, f8Syntax, DrRx, 1az, remedy
 - Documentation: CTX, ctx-card, milkDocs
 - Games: black-milk
@@ -487,6 +489,7 @@ Projects are organized by category in `projects/`:
 
 **Project Structure Pattern:**
 Each project typically contains:
+
 - `README.md` - Project-specific documentation
 - `.cursorrules` or `.cursor/rules/` - AI coding guidelines (if present)
 - Project-specific build configuration (package.json, Cargo.toml, pyproject.toml)
@@ -532,13 +535,15 @@ Legacy/deprecated work is in `.depreciated/` directory.
 ## Monorepo Configuration Files
 
 **Root Level:**
+
 - `package.json` - Root workspace, defines scripts and workspaces
-- `pnpm-workspace.yaml` - PNPM workspace configuration (all projects/*)
+- `pnpm-workspace.yaml` - PNPM workspace configuration (all projects/\*)
 - `turbo.json` - TurboRepo pipeline configuration and caching rules
 - `Cargo.toml` - Rust workspace (currently only sandbag)
 - `pyproject.toml` - Python workspace configuration
 
 **Key Scripts in package.json:**
+
 - `pnpm build` → `turbo run build` (with caching)
 - `pnpm test` → `turbo run test` (depends on build)
 - `pnpm bootstrap` → `./tooling/scripts/bootstrap.sh`
@@ -549,11 +554,13 @@ Legacy/deprecated work is in `.depreciated/` directory.
 The monorepo uses smart change detection:
 
 **.github/workflows/ci-main.yml** - Orchestrator that:
+
 1. Detects which file types changed (Python, TypeScript, Rust, Godot)
 2. Calls language-specific workflows only for changed code
 3. Runs conventional commit checks and formatting
 
 **Language-Specific Workflows:**
+
 - `ci-python.yml` - Runs pytest on Python 3.8-3.12
 - `ci-typescript.yml` - Runs builds/tests on Node 18-20
 - `ci-rust.yml` - Runs cargo test + clippy on stable/beta
