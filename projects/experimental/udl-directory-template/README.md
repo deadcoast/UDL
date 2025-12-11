@@ -60,6 +60,7 @@ udl-directory-template/
 ### README Template
 
 Every project should have a README with:
+
 - Project name and description
 - Status badge (🔬 Experimental, 🚧 Beta, ✅ Stable)
 - Installation instructions
@@ -71,21 +72,26 @@ Every project should have a README with:
 ### Configuration Files
 
 #### .gitignore
+
 Comprehensive ignore rules for:
+
 - Node.js (node_modules, dist)
-- Python (__pycache__, .venv)
+- Python (**pycache**, .venv)
 - Rust (target, Cargo.lock for libraries)
 - IDEs (.vscode, .idea)
 - OS files (.DS_Store, Thumbs.db)
 
 #### .editorconfig
+
 Consistent editor settings:
+
 - UTF-8 encoding
 - LF line endings
 - Trim trailing whitespace
 - Insert final newline
 
 #### TypeScript Projects
+
 ```json
 {
   "name": "@udl/project-name",
@@ -100,6 +106,7 @@ Consistent editor settings:
 ```
 
 #### Python Projects
+
 ```toml
 [project]
 name = "project-name"
@@ -111,6 +118,7 @@ dev = ["pytest", "black", "mypy", "isort"]
 ```
 
 #### Rust Projects
+
 ```toml
 [package]
 name = "project-name"
@@ -123,6 +131,7 @@ edition = "2021"
 ## Directory Structure Guidelines
 
 ### Source Code (src/)
+
 ```
 src/
 ├── index.ts / __init__.py / lib.rs   # Entry point
@@ -133,6 +142,7 @@ src/
 ```
 
 ### Tests (tests/)
+
 ```
 tests/
 ├── unit/                   # Unit tests
@@ -142,6 +152,7 @@ tests/
 ```
 
 ### Documentation (docs/)
+
 ```
 docs/
 ├── README.md              # Documentation index
@@ -169,12 +180,14 @@ When using this template:
 ## Naming Conventions
 
 ### Project Names
+
 - **Languages:** lowercase-with-dashes (e.g., `my-language`)
 - **Tools:** lowercase or PascalCase (e.g., `my-tool` or `MyTool`)
 - **Applications:** PascalCase (e.g., `MyApp`)
 - **Libraries:** lowercase_with_underscores (Python) or lowercase-with-dashes (others)
 
 ### Package Names
+
 - **TypeScript:** `@udl/package-name`
 - **Python:** `package_name` (underscores)
 - **Rust:** `package-name` (dashes)
@@ -182,24 +195,28 @@ When using this template:
 ## Best Practices
 
 ### Version Control
+
 - Start at version 0.1.0
 - Use semantic versioning
 - Tag releases
 - Write changelog
 
 ### Testing
+
 - Write tests from the start
 - Aim for >70% coverage
 - Include integration tests
 - Add CI/CD early
 
 ### Documentation
+
 - Document as you code
 - Provide examples
 - Explain architecture
 - Keep README updated
 
 ### Code Quality
+
 - Use linters
 - Format consistently
 - Type hint (Python/TypeScript)
@@ -214,6 +231,7 @@ When using this template:
 ## Updating the Template
 
 When the template needs updates:
+
 1. Make changes in this directory
 2. Document in this README
 3. Notify in main repo CHANGELOG

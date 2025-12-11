@@ -19,6 +19,7 @@ This directory contains shell scripts that automate common monorepo operations, 
 ```
 
 **What it does:**
+
 1. Checks system requirements
 2. Installs PNPM (if not present)
 3. Installs all Node.js dependencies
@@ -28,12 +29,14 @@ This directory contains shell scripts that automate common monorepo operations, 
 7. Validates the setup
 
 **Requirements:**
+
 - macOS or Linux
 - Node.js >= 18.0.0
 - Python >= 3.8 (for Python projects)
 - Rust >= 1.70 (for Rust projects)
 
 **Options:**
+
 ```bash
 # Skip specific steps
 ./bootstrap.sh --skip-python
@@ -47,6 +50,7 @@ This directory contains shell scripts that automate common monorepo operations, 
 ```
 
 **Troubleshooting:**
+
 ```bash
 # If bootstrap fails, check:
 node --version  # Should be >= 18
@@ -68,6 +72,7 @@ rm -rf node_modules pnpm-lock.yaml
 ```
 
 **What it does:**
+
 1. Creates category directories (if needed)
 2. Moves projects to appropriate categories:
    - `languages/` - DSL implementations
@@ -81,12 +86,14 @@ rm -rf node_modules pnpm-lock.yaml
 5. Validates migration
 
 **Safety Features:**
+
 - Dry run mode (--dry-run)
 - Confirmation prompts
 - Backup recommendations
 - Rollback instructions
 
 **Options:**
+
 ```bash
 # Dry run (show what would happen)
 ./migrate-projects.sh --dry-run
@@ -99,6 +106,7 @@ rm -rf node_modules pnpm-lock.yaml
 ```
 
 **Post-Migration:**
+
 ```bash
 # Verify migration
 git status
@@ -149,12 +157,14 @@ fi
 ### Best Practices
 
 1. **Error Handling**
+
    ```bash
    set -euo pipefail  # Exit on error, undefined vars, pipe failures
    trap cleanup EXIT  # Cleanup on exit
    ```
 
 2. **Logging**
+
    ```bash
    log_info() { echo "[INFO] $*"; }
    log_error() { echo "[ERROR] $*" >&2; }
@@ -162,6 +172,7 @@ fi
    ```
 
 3. **Safety**
+
    ```bash
    # Confirm destructive operations
    read -p "Continue? (y/n) " -n 1 -r
@@ -172,6 +183,7 @@ fi
    ```
 
 4. **Path Handling**
+
    ```bash
    # Use absolute paths
    SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -286,6 +298,7 @@ fi
 ### Steps to Add
 
 1. Create script file
+
    ```bash
    cd tooling/scripts
    touch my-script.sh
@@ -295,6 +308,7 @@ fi
 2. Write script following template
 
 3. Test thoroughly
+
    ```bash
    # Syntax check
    bash -n my-script.sh
@@ -374,6 +388,7 @@ bats tests/bootstrap.bats
 ### Version History
 
 Track major changes:
+
 ```bash
 # Add to script comments
 # Version: 1.1.0
@@ -389,18 +404,21 @@ Track major changes:
 ### Common Issues
 
 **Issue:** Script fails with "command not found"
+
 ```bash
 # Solution: Check PATH and install missing tools
 which pnpm || npm install -g pnpm
 ```
 
 **Issue:** Permission denied
+
 ```bash
 # Solution: Make script executable
 chmod +x tooling/scripts/my-script.sh
 ```
 
 **Issue:** Script works locally but fails in CI
+
 ```bash
 # Solution: Check environment differences
 # - Different shell (bash vs sh)

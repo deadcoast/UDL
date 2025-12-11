@@ -12,6 +12,7 @@ mecha_lang is an experimental language implementation exploring mechanical progr
 ## Concept
 
 Programming as mechanical engineering:
+
 - **Gears** - Functions and transformations
 - **Levers** - Control flow
 - **Springs** - State and memory
@@ -59,6 +60,7 @@ mechanism count_up {
 ## Features (Planned)
 
 ### Mechanical Primitives
+
 - **Gears** - Pure transformations
 - **Levers** - Conditional branching
 - **Springs** - State storage
@@ -66,11 +68,13 @@ mechanism count_up {
 - **Clutches** - Connection control
 
 ### Visual Representation
+
 - Graphical notation for mechanisms
 - Animation of execution
 - Physical simulation of code flow
 
 ### Type System
+
 - Force types (push/pull)
 - Momentum (async operations)
 - Friction (resource limits)
@@ -88,6 +92,7 @@ mechanism count_up {
 ## Example Use Cases
 
 ### State Machine
+
 ```mecha
 mechanism door_controller {
     spring state(initial: "closed")
@@ -101,6 +106,7 @@ mechanism door_controller {
 ```
 
 ### Data Pipeline
+
 ```mecha
 mechanism data_processor {
     pulley input_data

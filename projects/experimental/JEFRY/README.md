@@ -12,6 +12,7 @@ JEFRY (Just Enough FRamework for You) is an experimental utility framework for r
 ## Philosophy
 
 "Just Enough" - Provide exactly what's needed, no more, no less:
+
 - Minimal configuration
 - Quick setup
 - Rapid iteration
@@ -33,16 +34,19 @@ Exploring what "just enough" means in different contexts.
 ## Features (Conceptual)
 
 ### Quick Start
+
 - Zero-config initialization
 - Instant project setup
 - Sensible defaults
 
 ### Modular Tools
+
 - Only load what you need
 - Plug-and-play components
 - Mix and match utilities
 
 ### Development Helpers
+
 - Fast reload
 - Quick testing
 - Minimal ceremony
@@ -67,6 +71,7 @@ jefry dev
 ## Anti-Goals
 
 What JEFRY is NOT:
+
 - A full framework
 - Enterprise-ready
 - Highly configurable

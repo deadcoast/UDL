@@ -17,6 +17,7 @@ This directory contains extensions for various text editors and IDEs, primarily 
 Advanced camouflaged codeblocks plugin for Obsidian. Provides security-focused features for hiding and encrypting code snippets within markdown notes.
 
 **Features:**
+
 - Camouflaged code rendering
 - Security integration
 - Live preview compatibility
@@ -24,6 +25,7 @@ Advanced camouflaged codeblocks plugin for Obsidian. Provides security-focused f
 - Effect handlers for visual transformations
 
 **Quick Start:**
+
 ```bash
 cd camo-obsidian
 pnpm install
@@ -37,6 +39,7 @@ pnpm build
 ### Building All Extensions
 
 From the repository root:
+
 ```bash
 # Build all extension projects
 pnpm run build --filter="./projects/extensions/**"
@@ -62,27 +65,33 @@ pnpm init
 ## Extension Types
 
 ### VSCode Extensions
+
 Extensions for Visual Studio Code and compatible editors (Cursor, VSCodium, etc.).
 
 **Packaging:**
+
 ```bash
 vsce package
 ```
 
 **Publishing:**
+
 ```bash
 vsce publish
 ```
 
 ### Obsidian Plugins
+
 Plugins for the Obsidian note-taking application.
 
 **Structure:**
+
 - `main.js` - Plugin entry point
 - `manifest.json` - Plugin metadata
 - `styles.css` - Custom styles
 
 ### Browser Extensions
+
 (Future) Extensions for web browsers providing language support in online code editors.
 
 ## Common Technologies
@@ -96,6 +105,7 @@ Plugins for the Obsidian note-taking application.
 ## Testing
 
 Extensions should include:
+
 - **Unit tests** - Test individual components
 - **Integration tests** - Test extension activation and features
 - **Manual testing** - Test in target environment

@@ -24,6 +24,7 @@ Shell scripts for common monorepo operations.
 ### Available Scripts
 
 #### bootstrap.sh
+
 **Purpose:** One-command setup for new developers
 
 ```bash
@@ -31,6 +32,7 @@ Shell scripts for common monorepo operations.
 ```
 
 **What it does:**
+
 - Installs PNPM if needed
 - Installs all Node.js dependencies
 - Sets up Python virtual environments
@@ -41,6 +43,7 @@ Shell scripts for common monorepo operations.
 **See:** [scripts/README.md](./scripts/README.md)
 
 #### migrate-projects.sh
+
 **Purpose:** Migrate projects to monorepo structure
 
 ```bash
@@ -48,6 +51,7 @@ Shell scripts for common monorepo operations.
 ```
 
 **What it does:**
+
 - Moves projects to categorized directories
 - Preserves git history
 - Updates configurations
@@ -89,6 +93,7 @@ Custom development tools and CLIs for managing the monorepo.
 ### Planned Tools
 
 #### monorepo-cli
+
 Command-line interface for monorepo management.
 
 ```bash
@@ -101,6 +106,7 @@ udl release --project=sandbag
 ```
 
 #### generators
+
 Code generators for creating boilerplate.
 
 ```bash
@@ -131,11 +137,12 @@ Project templates for creating new UDL projects.
 ### Available Templates
 
 #### udl-directory-template
+
 Standard template for all UDL projects.
 
 Located at: `projects/experimental/udl-directory-template/`
 
-**See:** [templates/README.md](./templates/README.md) *(to be created)*
+**See:** [templates/README.md](./templates/README.md) _(to be created)_
 
 ### Planned Templates
 
@@ -277,6 +284,7 @@ Tooling scripts are used in GitHub Actions:
 ## Future Plans
 
 ### Scripts
+
 - [ ] Dependency update script
 - [ ] Version bump automation
 - [ ] Changelog generation
@@ -284,6 +292,7 @@ Tooling scripts are used in GitHub Actions:
 - [ ] Cleanup/maintenance scripts
 
 ### Dev Tools
+
 - [ ] Complete monorepo CLI
 - [ ] Code generators
 - [ ] Project scaffolding
@@ -291,6 +300,7 @@ Tooling scripts are used in GitHub Actions:
 - [ ] Performance profiler
 
 ### Templates
+
 - [ ] Language-specific templates
 - [ ] Framework-specific templates
 - [ ] Extension templates
