@@ -44,6 +44,61 @@ The repo contains three primary categories of projects:
 - **Rust**: `sandbag`
 - **GDScript**: `black-milk`
 
+## Monorepo Commands
+
+### Root-Level Commands (TurboRepo + PNPM)
+
+```bash
+# Initial setup for new developers
+./tooling/scripts/bootstrap.sh
+
+# Install all dependencies across monorepo
+pnpm install
+
+# Build all projects (with intelligent caching)
+pnpm build
+
+# Build specific project
+turbo run build --filter=sandbag
+turbo run build --filter=@udl/gate-pattern
+
+# Build only changed projects
+turbo run build --filter=[HEAD^1]
+
+# Run tests across all projects
+pnpm test
+
+# Test specific project
+turbo run test --filter=ctx
+
+# Lint and format all projects
+pnpm lint
+pnpm format
+
+# Type check TypeScript projects
+pnpm typecheck
+
+# Clean all build artifacts
+pnpm clean
+
+# Run checks (lint + typecheck)
+pnpm check
+```
+
+### Working with Specific Projects
+
+```bash
+# Navigate to any project
+cd projects/tools/sandbag
+
+# Run project-specific commands directly
+cargo test
+pnpm build
+
+# Or use turbo from root (recommended)
+turbo run test --filter=sandbag
+```
+
 ## Common Development Commands
 
 ### Python Projects (CTX, axe-Syntax, etc.)
@@ -355,24 +410,86 @@ CTX-CARD format appears in multiple projects:
 - Naming grammar with regex patterns
 - Designed for AI consumption
 
+## Monorepo-Specific Patterns
+
+### TurboRepo Task Pipeline
+
+The monorepo uses TurboRepo for intelligent build orchestration:
+
+- **Dependency ordering**: `build` tasks run dependencies first (`dependsOn: ["^build"]`)
+- **Caching**: Build outputs are cached; unchanged projects skip rebuilds
+- **Parallel execution**: Independent tasks run concurrently
+- **Incremental builds**: Only changed projects rebuild
+
+```bash
+# Build with full dependency graph
+turbo run build
+
+# Test (depends on build completing first)
+turbo run test
+
+# Check (runs lint + typecheck in parallel)
+turbo run check
+```
+
+### PNPM Workspace Management
+
+Projects reference each other using workspace protocol:
+
+```json
+{
+  "dependencies": {
+    "@udl/shared-utils": "workspace:*"
+  }
+}
+```
+
+When adding internal dependencies, use `workspace:*` for automatic version resolution.
+
+### Git Submodule Handling
+
+Many projects contain embedded `.git` directories from the migration. This is expected:
+
+- Warnings like `adding embedded git repository: projects/tools/sandbag` are normal
+- CI/CD uses `submodules: false` to prevent initialization issues
+- Don't delete these `.git` directories; they preserve full project history
+
 ## Build/Development Notes
 
+- **Bootstrap first**: Run `./tooling/scripts/bootstrap.sh` for initial setup
+- **Use turbo from root**: Prefer `turbo run build --filter=project` over per-project commands
+- **Check pipeline dependencies**: Some tasks depend on others (test needs build)
 - Most Python projects use virtual environments - always activate before working
-- TypeScript projects may use `pnpm`, `npm`, or `yarn` - check `package-lock.json` or `pnpm-lock.yaml`
+- TypeScript projects use PNPM (required version: 8.15.1)
 - VSCode/Cursor extensions (1az, gate, f8Syntax) require packaging with `vsce` or similar
 - Godot projects require Godot engine installed (black-milk)
 - Some projects are experimental/WIP - check recent commits for active development
 
 ## Navigation Tips
 
-Projects are organized alphabetically but fall into conceptual clusters:
+Projects are organized by category in `projects/`:
 
+**By Category:**
+- `projects/languages/` - DSL implementations (8 projects)
+- `projects/tools/` - CLI utilities and generators (9 projects)
+- `projects/extensions/` - Editor plugins (1 project)
+- `projects/applications/` - Full applications (3 projects)
+- `projects/libraries/` - Reusable libraries (3 projects)
+- `projects/experimental/` - WIP/Research (9 projects)
+
+**By Conceptual Cluster:**
 - Language tools: axe, gate, f8Syntax, DrRx, 1az, remedy
 - Documentation: CTX, ctx-card, milkDocs
 - Games: black-milk
 - Tools: sandbag, BARRELMAN, JETSON
 - UI/UX: StrawberryMause, ASCII-String-UI-Editor, hunt_ascii
 - Obsidian: camo-obsidian
+
+**Project Structure Pattern:**
+Each project typically contains:
+- `README.md` - Project-specific documentation
+- `.cursorrules` or `.cursor/rules/` - AI coding guidelines (if present)
+- Project-specific build configuration (package.json, Cargo.toml, pyproject.toml)
 
 Legacy/deprecated work is in `.depreciated/` directory.
 
@@ -411,3 +528,34 @@ Legacy/deprecated work is in `.depreciated/` directory.
 - Build verification: 2/3 TypeScript projects building successfully
 - Added tsconfig.json for camo-obsidian (projects/extensions/camo-obsidian/tsconfig.json)
 - Build command: `pnpm run build --filter="./projects/**"`
+
+## Monorepo Configuration Files
+
+**Root Level:**
+- `package.json` - Root workspace, defines scripts and workspaces
+- `pnpm-workspace.yaml` - PNPM workspace configuration (all projects/*)
+- `turbo.json` - TurboRepo pipeline configuration and caching rules
+- `Cargo.toml` - Rust workspace (currently only sandbag)
+- `pyproject.toml` - Python workspace configuration
+
+**Key Scripts in package.json:**
+- `pnpm build` → `turbo run build` (with caching)
+- `pnpm test` → `turbo run test` (depends on build)
+- `pnpm bootstrap` → `./tooling/scripts/bootstrap.sh`
+- `pnpm check` → runs lint + typecheck
+
+## CI/CD Integration
+
+The monorepo uses smart change detection:
+
+**.github/workflows/ci-main.yml** - Orchestrator that:
+1. Detects which file types changed (Python, TypeScript, Rust, Godot)
+2. Calls language-specific workflows only for changed code
+3. Runs conventional commit checks and formatting
+
+**Language-Specific Workflows:**
+- `ci-python.yml` - Runs pytest on Python 3.8-3.12
+- `ci-typescript.yml` - Runs builds/tests on Node 18-20
+- `ci-rust.yml` - Runs cargo test + clippy on stable/beta
+
+This means CI only tests what actually changed, significantly reducing build times.
