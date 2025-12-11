@@ -3,7 +3,7 @@
 from typing import List, Optional
 
 from axe_builder.models.models import MenuCommand, SubCommand
-from lark import Transformer, UnexpectedInput, v_args
+from lark import Transformer, v_args
 from loguru import logger
 
 

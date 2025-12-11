@@ -3,7 +3,7 @@
 from pathlib import Path
 from typing import List
 
-from axe_builder.models.models import MenuCommand, SubCommand
+from axe_builder.models.models import MenuCommand
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 from loguru import logger
 
