@@ -164,7 +164,7 @@ Bitburner-inspired hacking game with custom DSL and VM.
 
 **Execution Flow:**
 
-```
+```text
 UI.Terminal → DSL.Grammar/Parser → AST → DSL.IR → DSL.VM
   → Adapters.Commands → Systems → Domain.Effects → Bus.emit → UI redraw
 ```
@@ -379,10 +379,12 @@ Legacy/deprecated work is in `.depreciated/` directory.
 ## Documentation Structure
 
 **Root Level (Essential):**
+
 - `CLAUDE.md` - This file, AI assistant instructions
 - `README.md` - Main repository documentation
 
 **docs/ Directory (Detailed Documentation):**
+
 - `MONOREPO-STATUS.md` - Current status, recent updates, and known issues
 - `MONOREPO_ARCHITECTURE.md` - Architecture design and technical decisions
 - `MIGRATION_SUCCESS.md` - Migration completion summary
@@ -391,17 +393,20 @@ Legacy/deprecated work is in `.depreciated/` directory.
 ## Recent Infrastructure Updates
 
 **Package Naming (December 2025):**
+
 - Resolved package name conflicts by implementing `@udl/` scoped packages
 - `gate` → `@udl/gate-pattern` (v1.0.0)
 - `gateppattern-1.1` → `@udl/gate-pattern-1.1` (v1.1.0)
 - Future TypeScript packages should use `@udl/` scope
 
 **CI/CD Fixes (December 2025):**
+
 - Fixed PNPM version mismatch: all workflows now use exact version `8.15.1`
 - Fixed git submodule errors: added `submodules: false` to all checkout actions
 - All GitHub Actions workflows now operational
 
 **Build System (December 2025):**
+
 - TurboRepo + PNPM workspace fully operational
 - Build verification: 2/3 TypeScript projects building successfully
 - Added tsconfig.json for camo-obsidian (projects/extensions/camo-obsidian/tsconfig.json)

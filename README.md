@@ -184,10 +184,12 @@ mkdir -p projects/tools/my-project
 ## 📚 Documentation
 
 ### Core Documentation
+
 - **[CLAUDE.md](CLAUDE.md)** - Guide for AI-assisted development
 - **[README.md](README.md)** - You are here
 
 ### Extended Documentation (docs/)
+
 - **[MONOREPO-STATUS.md](docs/MONOREPO-STATUS.md)** - Current state and recent updates
 - **[MONOREPO_ARCHITECTURE.md](docs/MONOREPO_ARCHITECTURE.md)** - Architecture design and patterns
 - **[MIGRATION_SUCCESS.md](docs/MIGRATION_SUCCESS.md)** - Migration completion summary
@@ -271,9 +273,9 @@ Check each project's README for its current status.
 
 ## 🔗 Links
 
-- **GitHub**: https://github.com/deadcoast/UDL
+- **GitHub**: <https://github.com/deadcoast/UDL>
 - **Documentation**: [docs/](docs/)
-- **Issues**: https://github.com/deadcoast/UDL/issues
+- **Issues**: <https://github.com/deadcoast/UDL/issues>
 
 ## 🌟 Highlights
 
@@ -289,6 +291,7 @@ Check each project's README for its current status.
 ## 📈 Recent Updates
 
 ### December 11, 2025
+
 - ✅ Fixed package naming conflicts (gate projects now use @udl scope)
 - ✅ Resolved CI/CD issues (PNPM version mismatch, git submodule errors)
 - ✅ Added tsconfig.json for camo-obsidian

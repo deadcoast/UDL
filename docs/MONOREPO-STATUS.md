@@ -7,6 +7,7 @@
 ## 📊 Current State
 
 ### Infrastructure
+
 - ✅ 33 projects migrated and organized
 - ✅ TurboRepo + PNPM build system operational
 - ✅ GitHub Actions CI/CD fully configured
@@ -18,12 +19,15 @@
 ### Recent Updates (December 11, 2025)
 
 #### Package Naming Resolution
+
 **Issue:** Duplicate package name `"gate-pattern"` in both gate projects
+
 **Fix:** Implemented scoped naming convention:
 - `projects/languages/gate/package.json` → `@udl/gate-pattern`
 - `projects/languages/gateppattern-1.1/package.json` → `@udl/gate-pattern-1.1`
 
 #### CI/CD Fixes
+
 **Issue 1:** PNPM version mismatch causing `ERR_PNPM_BAD_PM_VERSION`
 - Workflows had generic `version: 8`
 - package.json required exact `pnpm@8.15.1`
@@ -41,7 +45,9 @@
 - `.github/workflows/ci-rust.yml` (2 checkouts)
 
 #### TypeScript Configuration
+
 **Issue:** camo-obsidian missing tsconfig.json, causing build failures
+
 **Fix:** Created tsconfig.json with:
 - ES2018 + DOM library support
 - Excluded test files from type checking
@@ -86,12 +92,14 @@ UDL/
 ```
 
 ### Package Managers
+
 - **TypeScript/JavaScript:** PNPM 8.15.1 with workspaces
 - **Python:** pip with pyproject.toml
 - **Rust:** Cargo workspaces
 - **Build Orchestration:** TurboRepo 1.13.4
 
 ### Scoped Naming Convention
+
 All TypeScript packages now use `@udl/` scope for consistency:
 - `@udl/gate-pattern` (v1.0.0)
 - `@udl/gate-pattern-1.1` (v1.1.0)
@@ -112,6 +120,7 @@ ci-main.yml (Orchestrator)
 ```
 
 ### Change Detection
+
 Smart filtering prevents unnecessary builds:
 - Python: `**/*.py`, `**/pyproject.toml`, `**/requirements.txt`
 - TypeScript: `**/*.ts`, `**/*.tsx`, `**/*.js`, `**/package.json`, `**/tsconfig.json`
@@ -119,12 +128,14 @@ Smart filtering prevents unnecessary builds:
 - Godot: `**/*.gd`, `**/*.tscn`, `**/*.tres`
 
 ### Multi-Version Testing
+
 - **Python:** 3.8, 3.9, 3.10, 3.11, 3.12
 - **Node.js:** 18, 20
 - **Rust:** stable, beta
 - **OS:** Ubuntu, macOS
 
 ### Current CI Status
+
 All workflows configured and operational. Recent fixes resolved:
 - ✅ PNPM version conflicts
 - ✅ Git submodule initialization errors
@@ -133,6 +144,7 @@ All workflows configured and operational. Recent fixes resolved:
 ## 📦 Projects by Category
 
 ### Languages (8 projects)
+
 - axe-Syntax - Python CLI menu builder
 - 1az - VSCode extension for .1az
 - gate - Pattern language with LSP (v1.0)
@@ -143,6 +155,7 @@ All workflows configured and operational. Recent fixes resolved:
 - remedysyntax - Syntax tooling
 
 ### Tools (9 projects)
+
 - CTX - Codebase documentation generator
 - sandbag - Rust linter configuration manager
 - ctx-card - AST-based documentation
@@ -154,18 +167,22 @@ All workflows configured and operational. Recent fixes resolved:
 - ASCII-hunt - (Description TBD)
 
 ### Extensions (1 project)
+
 - camo-obsidian - Obsidian camouflaged codeblocks
 
 ### Applications (3 projects)
+
 - black-milk - Hacking game with custom DSL/VM
 - StrawberryMause - Mouse event recording/playback
 - ASCII-String-UI-Editor - Terminal UI editor
 
 ### Libraries (3 projects)
+
 - milkDocs - Documentation library
 - (2 others TBD)
 
 ### Experimental (9 projects)
+
 - CLAY - (Description TBD)
 - PACER - (Description TBD)
 - canon - (Description TBD)
@@ -222,18 +239,22 @@ cargo test
 ## 📋 Known Issues & Limitations
 
 ### Current Issues
+
 1. **camo-obsidian TypeScript errors** - Pre-existing, not blocking
    - Missing @codemirror dependencies
    - Legacy code without strict typing
    - Builds with esbuild despite tsc errors
 
 ### Submodule Warnings (Expected)
-```
+
+```text
 warning: adding embedded git repository: projects/tools/sandbag
 ```
+
 These are **expected and safe**. Migrated projects retain their .git directories for history preservation. The `submodules: false` flag in CI prevents initialization issues.
 
 ### Projects Without Build Scripts
+
 Some projects don't have automated builds yet:
 - Godot projects (black-milk) - built in Godot Editor
 - Some Python projects - simple scripts without build step
@@ -242,18 +263,21 @@ Some projects don't have automated builds yet:
 ## 🎯 Next Steps
 
 ### Immediate Priorities
+
 - [ ] Fix remaining TypeScript errors in camo-obsidian
 - [ ] Add descriptions for undocumented projects
 - [ ] Create project.json manifests for all projects
 - [ ] Add README files to experimental projects
 
 ### Infrastructure Improvements
+
 - [ ] Set up shared TypeScript libraries
 - [ ] Create Python shared package
 - [ ] Add project templates
 - [ ] Configure release automation
 
 ### Documentation
+
 - [ ] Add CONTRIBUTING.md
 - [ ] Create project-specific guides
 - [ ] Add architecture diagrams
@@ -262,6 +286,7 @@ Some projects don't have automated builds yet:
 ## 📊 Statistics
 
 **Repository Metrics:**
+
 - Total Projects: 33
 - Total Languages: 4 (Python, TypeScript, Rust, GDScript)
 - Lines of Configuration: ~1,200
@@ -270,6 +295,7 @@ Some projects don't have automated builds yet:
 - Documentation Files: 8+
 
 **CI/CD Metrics:**
+
 - Total Workflow Jobs: 12+
 - OS Combinations: 6+ (Ubuntu, macOS × versions)
 - Language Version Matrix: 15+ combinations
@@ -278,6 +304,7 @@ Some projects don't have automated builds yet:
 ## 🔗 Quick Reference
 
 ### Important Files
+
 - `package.json` - Root workspace configuration
 - `pnpm-workspace.yaml` - PNPM workspace projects
 - `turbo.json` - Build pipeline configuration
@@ -285,15 +312,17 @@ Some projects don't have automated builds yet:
 - `CLAUDE.md` - AI assistant instructions
 
 ### Key Commits
+
 - `c71d944` - Initial monorepo structure
 - `47cb043` - Fix package naming conflicts
 - `223ed7d` - Fix CI/CD pnpm version and submodules
 - `3f7d745` - Latest (includes all fixes)
 
 ### Links
-[UDL repository](https://github.com/deadcoast/UDL)
-[UDL repository](https://github.com/deadcoast/UDL/actions)
-[UDL repository](https://github.com/deadcoast/UDL/issues)
+
+- [UDL repository](https://github.com/deadcoast/UDL)
+- [Actions](https://github.com/deadcoast/UDL/actions)
+- [Issues](https://github.com/deadcoast/UDL/issues)
 
 ---
 
