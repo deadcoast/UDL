@@ -56,14 +56,14 @@ ascii-box-editor/
 
 ## API Endpoints
 
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/` | GET | Serve main HTML page |
-| `/api/presets` | GET | Get list of available presets |
-| `/api/preset/<name>` | GET | Get specific preset charset |
-| `/api/parse` | POST | Parse charset from code string |
-| `/api/render` | POST | Render box patterns from charset |
-| `/api/export/<format>` | POST | Export as Python/JavaScript |
+| Endpoint               | Method | Description                      |
+| ---------------------- | ------ | -------------------------------- |
+| `/`                    | GET    | Serve main HTML page             |
+| `/api/presets`         | GET    | Get list of available presets    |
+| `/api/preset/<name>`   | GET    | Get specific preset charset      |
+| `/api/parse`           | POST   | Parse charset from code string   |
+| `/api/render`          | POST   | Render box patterns from charset |
+| `/api/export/<format>` | POST   | Export as Python/JavaScript      |
 
 ## Usage
 
@@ -94,6 +94,7 @@ ascii-box-editor/
 ## Pattern Demos
 
 The editor renders 5 patterns demonstrating:
+
 - 2×2 Grid with all junctions
 - 3×3 Grid with multiple crosses
 - Simple rectangular frame

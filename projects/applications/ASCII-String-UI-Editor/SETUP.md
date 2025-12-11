@@ -79,6 +79,7 @@ ascii-box-editor/
 ### 3. Preview Patterns (5 Demos)
 
 Each character set renders 5 patterns:
+
 1. **2×2 Grid** - Demonstrates all junction types
 2. **3×3 Grid** - Shows multiple crosses
 3. **Simple Frame** - Basic rectangular box
@@ -98,6 +99,7 @@ Each character set renders 5 patterns:
 Get list of available presets.
 
 **Response:**
+
 ```json
 {
   "presets": ["SINGLE_LINE", "DOUBLE_LINE", ...]
@@ -109,6 +111,7 @@ Get list of available presets.
 Get specific preset with formatted code.
 
 **Response:**
+
 ```json
 {
   "charset": { "top_left": "┌", ... },
@@ -124,6 +127,7 @@ Get specific preset with formatted code.
 Parse character set from code string.
 
 **Request:**
+
 ```json
 {
   "code": "{ \"top_left\": \"┌\", ... }"
@@ -131,6 +135,7 @@ Parse character set from code string.
 ```
 
 **Response:**
+
 ```json
 {
   "charset": { "top_left": "┌", ... },
@@ -143,6 +148,7 @@ Parse character set from code string.
 Render box patterns from character set.
 
 **Request:**
+
 ```json
 {
   "charset": { "top_left": "┌", ... }
@@ -150,6 +156,7 @@ Render box patterns from character set.
 ```
 
 **Response:**
+
 ```json
 {
   "patterns": [
@@ -169,6 +176,7 @@ Export character set as Python or JavaScript.
 **Formats:** `python` or `javascript`
 
 **Request:**
+
 ```json
 {
   "charset": { "top_left": "┌", ... }
@@ -176,6 +184,7 @@ Export character set as Python or JavaScript.
 ```
 
 **Response:**
+
 ```json
 {
   "code": "{\n    \"top_left\": \"┌\",\n    ...\n}",
@@ -232,6 +241,7 @@ gunicorn -w 4 -b 0.0.0.0:8000 app:app
 ### Option 2: Docker
 
 Create `Dockerfile`:
+
 ```dockerfile
 FROM python:3.11-slim
 WORKDIR /app
@@ -243,6 +253,7 @@ CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:5000", "app:app"]
 ```
 
 Build and run:
+
 ```bash
 docker build -t ascii-box-editor .
 docker run -p 5000:5000 ascii-box-editor
@@ -251,6 +262,7 @@ docker run -p 5000:5000 ascii-box-editor
 ### Option 3: systemd Service
 
 Create `/etc/systemd/system/ascii-box-editor.service`:
+
 ```ini
 [Unit]
 Description=ASCII Box Character Editor
@@ -267,6 +279,7 @@ WantedBy=multi-user.target
 ```
 
 Enable and start:
+
 ```bash
 sudo systemctl enable ascii-box-editor
 sudo systemctl start ascii-box-editor
@@ -318,6 +331,7 @@ python3.11 app.py
 ### Adding New Presets
 
 Edit `utils/presets.py`:
+
 ```python
 MY_CUSTOM = {
     "top_left": "╭",
@@ -334,6 +348,7 @@ PRESETS = {
 ### Creating New Patterns
 
 Edit `utils/renderer.py`:
+
 ```python
 def render_my_pattern(charset: dict) -> str:
     c = charset
@@ -350,6 +365,7 @@ def render_my_pattern(charset: dict) -> str:
 ### Customizing Styling
 
 Edit `static/css/style.css` to change:
+
 - Color scheme (`:root` variables)
 - Layout (grid sizing)
 - Typography (fonts, sizes)
@@ -357,11 +373,11 @@ Edit `static/css/style.css` to change:
 ## Browser Compatibility
 
 | Browser | Version | Support |
-|---------|---------|---------|
-| Chrome | 90+ | ✓ Full |
-| Firefox | 88+ | ✓ Full |
-| Safari | 14+ | ✓ Full |
-| Edge | 90+ | ✓ Full |
+| ------- | ------- | ------- |
+| Chrome  | 90+     | ✓ Full  |
+| Firefox | 88+     | ✓ Full  |
+| Safari  | 14+     | ✓ Full  |
+| Edge    | 90+     | ✓ Full  |
 
 ## Performance Notes
 
@@ -377,6 +393,7 @@ MIT License - Free to use, modify, and distribute.
 ## Support
 
 For issues or questions:
+
 1. Check this documentation
 2. Review browser console for errors
 3. Verify all dependencies are installed

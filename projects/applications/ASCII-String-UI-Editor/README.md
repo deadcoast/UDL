@@ -100,23 +100,23 @@ The editor uses a simple JSON format:
 
 ## Available Presets
 
-| Preset | Description | Example |
-|--------|-------------|---------|
-| Single Line | Light single-line borders | `┌─┐` |
-| Double Line | Double-line borders | `╔═╗` |
-| Heavy Line | Bold thick borders | `┏━┓` |
-| Rounded Corners | Smooth rounded corners | `╭─╮` |
-| Mixed Double/Single | Double horizontal, single vertical | `╒═╕` |
-| ASCII Basic | Classic +/-/\| style | `+--+` |
+| Preset              | Description                        | Example |
+| ------------------- | ---------------------------------- | ------- |
+| Single Line         | Light single-line borders          | `┌─┐`   |
+| Double Line         | Double-line borders                | `╔═╗`   |
+| Heavy Line          | Bold thick borders                 | `┏━┓`   |
+| Rounded Corners     | Smooth rounded corners             | `╭─╮`   |
+| Mixed Double/Single | Double horizontal, single vertical | `╒═╕`   |
+| ASCII Basic         | Classic +/-/\| style               | `+--+`  |
 
 ## Character Categories
 
-| Category | Count | Characters Included |
-|----------|-------|---------------------|
-| Corners | 16 | Light, double, heavy, and rounded corners |
-| Lines | 6 | Horizontal and vertical lines in various styles |
-| T-Junctions | 8 | All directional T-junction types |
-| Crosses | 4 | Cross junction styles |
+| Category    | Count | Characters Included                             |
+| ----------- | ----- | ----------------------------------------------- |
+| Corners     | 16    | Light, double, heavy, and rounded corners       |
+| Lines       | 6     | Horizontal and vertical lines in various styles |
+| T-Junctions | 8     | All directional T-junction types                |
+| Crosses     | 4     | Cross junction styles                           |
 
 ## Tech Stack
 

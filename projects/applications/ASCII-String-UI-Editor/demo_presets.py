@@ -17,9 +17,9 @@ def demo_all_presets():
     print()
 
     for preset_name, charset in PRESETS.items():
-        print(f"\n{'='*80}")
+        print(f"\n{'=' * 80}")
         print(f"PRESET: {preset_name}")
-        print(f"{'='*80}\n")
+        print(f"{'=' * 80}\n")
 
         print("Character Set:")
         for key, value in charset.items():
@@ -32,7 +32,7 @@ def demo_all_presets():
 
         for i, pattern in enumerate(patterns, 1):
             print(f"\n{i}. {pattern['title']}")
-            print(pattern['content'])
+            print(pattern["content"])
 
         print()
 
@@ -47,19 +47,19 @@ def demo_single_preset(preset_name):
 
     charset = PRESETS[preset_name]
 
-    print(f"\n{'='*80}")
+    print(f"\n{'=' * 80}")
     print(f"PRESET: {preset_name}")
-    print(f"{'='*80}\n")
+    print(f"{'=' * 80}\n")
 
     patterns = generate_all_patterns(charset)
 
     for pattern in patterns:
         print(f"{pattern['title']}:")
-        print(pattern['content'])
+        print(pattern["content"])
         print()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     import sys
 
     if len(sys.argv) > 1:

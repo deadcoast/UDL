@@ -3,6 +3,7 @@
 ## Core Features
 
 ### Monaco Editor Integration
+
 - Professional code editor with syntax highlighting
 - Dark theme that matches the application design
 - Auto-save with 500ms debounce
@@ -10,6 +11,7 @@
 - Code validation and error highlighting
 
 ### Character Set Management
+
 - **6 Built-in Presets**
   - Single Line (light Unicode borders)
   - Double Line (heavy double borders)
@@ -19,6 +21,7 @@
   - ASCII Basic (maximum compatibility)
 
 ### Live Preview System
+
 - Real-time rendering of 5 demonstration patterns:
   1. 2×2 Grid (shows all junction types)
   2. 3×3 Grid (multiple cross junctions)
@@ -29,6 +32,7 @@
 - Copy individual or all patterns
 
 ### Export Functionality
+
 - Export as Python dictionary
 - Export as JavaScript object
 - One-click copy to clipboard
@@ -39,6 +43,7 @@
 ## v2.0 Features: Character Palette
 
 ### Category Organization
+
 - **8 Categories** with 100+ characters total:
   - Corners (16 chars) - All corner styles
   - Lines (10 chars) - Horizontal, vertical, dashed
@@ -50,6 +55,7 @@
   - Miscellaneous (15+ chars) - Utility characters
 
 ### Character Cards
+
 - Large, clickable cards (70px × 70px)
 - Character symbol at 24px size
 - Descriptive label underneath
@@ -59,6 +65,7 @@
 - Tooltip with full name and Unicode code
 
 ### Palette Controls
+
 - Category dropdown selector
 - "Show All" button to view all categories at once
 - Section headers when viewing all
@@ -69,6 +76,7 @@
 ## v2.1 Features: Quality of Life Enhancements
 
 ### Editor Controls
+
 - **Clear Button** - One-click clear with confirmation dialog
 - **Undo Button** - Quick undo with icon (Ctrl+Z also works)
 - **Redo Button** - Quick redo with icon (Ctrl+Y also works)
@@ -76,6 +84,7 @@
 - Visual feedback on all actions
 
 ### Character Search
+
 - **Search Toggle** - Opens/closes search box
 - **Live Search** - Results update as you type
 - **Search by Name** - Find characters by label (e.g., "corner", "heavy")
@@ -86,6 +95,7 @@
 - **No Results Message** - Helpful feedback when nothing matches
 
 ### Keyboard Shortcuts
+
 - **?** - Show keyboard shortcuts panel
 - **Ctrl+Shift+K** - Clear editor (with confirmation)
 - **Ctrl+F** - Focus character search
@@ -95,6 +105,7 @@
 - Close button on panel
 
 ### Quick Actions
+
 - **Copy All Patterns** - Icon button in preview header
 - **Show All Categories** - Display everything at once
 - **One-click operations** - Minimal steps for common tasks
@@ -104,6 +115,7 @@
 ## Modern UI Design
 
 ### Color Scheme
+
 - Deep black background (#0f0f0f)
 - Secondary dark (#1a1a1a)
 - Tertiary accent (#242424)
@@ -112,6 +124,7 @@
 - Error red (#ef4444)
 
 ### Visual Effects
+
 - **Gradient header** - Smooth background gradient
 - **Button animations** - Lift effect on hover
 - **Glow effects** - Status indicators glow when active
@@ -120,6 +133,7 @@
 - **Smooth transitions** - All state changes animated
 
 ### Typography
+
 - System font stack for native feel
 - Consolas/Monaco for monospace content
 - Clear visual hierarchy
@@ -127,6 +141,7 @@
 - Proper line spacing (150% body, 120% headings)
 
 ### Icons
+
 - SVG icons throughout
 - Consistent 14-16px sizing
 - Inline with text for better alignment
@@ -137,6 +152,7 @@
 ## User Experience
 
 ### Workflow Optimization
+
 1. **Quick Start** - Select preset, see preview immediately
 2. **Browse & Copy** - Click category, click character, paste
 3. **Search & Find** - Type character name, see results instantly
@@ -144,6 +160,7 @@
 5. **Export & Use** - One-click copy formatted code
 
 ### Feedback Systems
+
 - **Copy Feedback** - "Copied: [char]" message in footer
 - **Button States** - "✓ Copied!" temporarily shown
 - **Status Indicator** - Green/red dot shows parse state
@@ -151,6 +168,7 @@
 - **Hover Tooltips** - Helpful hints on all controls
 
 ### Accessibility
+
 - High contrast ratios throughout
 - Clear focus indicators
 - Keyboard navigation support
@@ -158,6 +176,7 @@
 - Screen reader friendly labels
 
 ### Responsive Design
+
 - Works on desktop and mobile
 - Touch-friendly button sizes
 - Adaptive grid layouts
@@ -169,6 +188,7 @@
 ## Technical Features
 
 ### Performance
+
 - Debounced auto-save (500ms)
 - Efficient DOM updates
 - Minimal reflows
@@ -176,6 +196,7 @@
 - Optimized animations with GPU acceleration
 
 ### Browser Support
+
 - Chrome 90+
 - Firefox 88+
 - Safari 14+
@@ -183,6 +204,7 @@
 - Requires Clipboard API for copy functionality
 
 ### Architecture
+
 - Clean separation of concerns
 - Modular JavaScript functions
 - CSS custom properties for theming
@@ -205,6 +227,7 @@
 ## Feature Summary
 
 ### Total Features: 50+
+
 - ✓ 6 built-in presets
 - ✓ 100+ copyable characters
 - ✓ 8 organized categories
@@ -231,9 +254,11 @@
 ## What Makes It Special
 
 ### Single Purpose, Done Well
+
 Every feature focuses on **editing ASCII box-drawing characters** in the most streamlined, straightforward, aesthetic, and easy way possible.
 
 ### User-Centered Design
+
 - Minimal clicks to accomplish tasks
 - Obvious affordances (buttons look clickable)
 - Immediate feedback on all actions
@@ -241,6 +266,7 @@ Every feature focuses on **editing ASCII box-drawing characters** in the most st
 - Discoverable (search, show all, shortcuts panel)
 
 ### Professional Polish
+
 - Consistent design language
 - Attention to micro-interactions
 - Smooth, purposeful animations
@@ -252,6 +278,7 @@ Every feature focuses on **editing ASCII box-drawing characters** in the most st
 ## Future Enhancement Ideas
 
 Potential additions (not yet implemented):
+
 - Save custom presets to browser storage
 - Recent characters quick access
 - Favorite/bookmark characters

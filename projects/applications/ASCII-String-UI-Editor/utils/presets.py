@@ -93,6 +93,7 @@ PRESETS = {
     "ASCII_BASIC": ASCII_BASIC,
 }
 
+
 def format_charset_python(charset: dict) -> str:
     """Format charset as Python dict string"""
     lines = ["{"]
@@ -100,6 +101,7 @@ def format_charset_python(charset: dict) -> str:
         lines.append(f'    "{key}": "{value}",')
     lines.append("}")
     return "\n".join(lines)
+
 
 def format_charset_javascript(charset: dict) -> str:
     """Format charset as JavaScript object string"""
