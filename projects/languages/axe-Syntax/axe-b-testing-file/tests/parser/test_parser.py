@@ -1,6 +1,5 @@
 # tests/parser/test_parser.py
 
-import pytest
 from axe_builder.models.models import MenuCommand, SubCommand
 from axe_builder.parser.parser import parse_axesyntax
 

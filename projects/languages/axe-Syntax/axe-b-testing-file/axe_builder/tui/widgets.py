@@ -2,7 +2,7 @@
 
 from typing import List
 
-from axe_builder.models.models import MenuCommand, SubCommand
+from axe_builder.models.models import MenuCommand
 from loguru import logger
 from textual.widgets import Tree
 

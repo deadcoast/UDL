@@ -1,4 +1,3 @@
-import os
 from pathlib import Path
 
 # Define the project structure with directories and files
