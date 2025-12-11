@@ -1,7 +1,7 @@
 # UDL Monorepo - Current Status
 
 **Last Updated:** December 11, 2025
-**Repository:** https://github.com/deadcoast/UDL
+[UDL repository](https://github.com/deadcoast/UDL)
 **Status:** ✅ Production Ready
 
 ## 📊 Current State
@@ -291,9 +291,9 @@ Some projects don't have automated builds yet:
 - `3f7d745` - Latest (includes all fixes)
 
 ### Links
-- **Repository:** https://github.com/deadcoast/UDL
-- **Actions:** https://github.com/deadcoast/UDL/actions
-- **Issues:** https://github.com/deadcoast/UDL/issues
+[UDL repository](https://github.com/deadcoast/UDL)
+[UDL repository](https://github.com/deadcoast/UDL/actions)
+[UDL repository](https://github.com/deadcoast/UDL/issues)
 
 ---
 
