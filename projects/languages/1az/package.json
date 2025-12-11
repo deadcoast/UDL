@@ -46,12 +46,12 @@
       "@types/vscode": "^1.85.0",
       "@types/glob": "^8.1.0",
       "@types/mocha": "^10.0.6",
-      "@types/node": "20.x",
+      "@types/node": "25.x",
       "@typescript-eslint/eslint-plugin": "^6.13.1",
       "@typescript-eslint/parser": "^6.13.1",
       "eslint": "^8.54.0",
       "glob": "^10.3.10",
-      "mocha": "^10.2.0",
+      "mocha": "^11.7.5",
       "typescript": "^5.3.2",
       "@vscode/test-electron": "^2.3.8"
   }
