@@ -108,7 +108,7 @@ def parse_axesyntax(syntax_str: str):
         logger.bind(syntax=syntax_str).exception("Unexpected parsing error")
         raise RuntimeError(f"An unexpected error occurred during parsing: {e}")
 ''',
-            "axe_syntax.lark": '''# axe_syntax.lark
+            "axe_syntax.lark": """# axe_syntax.lark
 # Lark grammar for axe:Syntax
 
 %import common.ESCAPED_STRING
@@ -137,8 +137,8 @@ SUB_TYPE: "T" | "."
 NUM_VAR: "{" NUMBER "}"
 
 value: ESCAPED_STRING
-''',
-            "transformer.py": '''from lark import Transformer
+""",
+            "transformer.py": """from lark import Transformer
 from typing import List, Optional
 from axe_builder.models.models import MenuCommand, SubCommand
 from loguru import logger
@@ -213,11 +213,11 @@ class AxeSyntaxTransformer(Transformer):
 
     def value(self, token):
         return token.value.strip('"')
-''',
+""",
         },
         "models/": {
             "__init__.py": "",
-            "models.py": '''from pydantic import BaseModel, Field, validator
+            "models.py": """from pydantic import BaseModel, Field, validator
 from typing import List, Optional
 
 class SubCommand(BaseModel):
@@ -255,11 +255,11 @@ class MenuCommand(BaseModel):
         if v is not None and v <= 0:
             raise ValueError("Count must be a positive integer")
         return v
-''',
+""",
         },
         "tui/": {
             "__init__.py": "",
-            "tui.py": '''from textual.app import App, ComposeResult
+            "tui.py": """from textual.app import App, ComposeResult
 from textual.widgets import Header, Footer, ListView, ListItem, Static, Input
 from axe_builder.parser.parser import parse_axesyntax
 from axe_builder.models.models import MenuCommand, SubCommand
@@ -318,8 +318,8 @@ class AxeBuilderTUI(App):
 def launch_tui(syntax: str):
     app = AxeBuilderTUI(syntax=syntax)
     app.run()
-''',
-            "widgets.py": '''from textual.widgets import TreeControl, TreeNode
+""",
+            "widgets.py": """from textual.widgets import TreeControl, TreeNode
 from textual.app import ComposeResult
 from typing import List
 from axe_builder.models.models import MenuCommand, SubCommand
@@ -342,7 +342,7 @@ class MenuTree(TreeControl):
     def update_menu_commands(self, new_commands: List[MenuCommand]):
         self.parsed_commands = new_commands
         self.populate_tree()
-''',
+""",
         },
         "exporter/": {
             "__init__.py": "",
@@ -443,7 +443,7 @@ if __name__ == "__main__":
         },
         "logger/": {
             "__init__.py": "",
-            "logger.py": '''from loguru import logger
+            "logger.py": """from loguru import logger
 import sys
 
 # Remove default logger
@@ -480,7 +480,7 @@ logger.add(
     enqueue=True,
     serialize=True
 )
-''',
+""",
         },
         "utils/": {
             "__init__.py": "",
@@ -503,21 +503,21 @@ def validate_syntax(syntax: str) -> bool:
         },
         "config/": {
             "__init__.py": "",
-            "settings.py": '''# settings.py
+            "settings.py": """# settings.py
 # Configuration settings for axe:Builder
 
 DEFAULT_OUTPUT_PATH = "cli_template.py"
 LOG_FILE = "axe_builder.log"
 JSON_LOG_FILE = "axe_builder.json"
 VERBOSE_MODE = False
-''',
+""",
         },
     },
     "tests/": {
         "__init__.py": "",
         "parser/": {
             "__init__.py": "",
-            "test_parser.py": '''import pytest
+            "test_parser.py": """import pytest
 from axe_builder.parser.parser import parse_axesyntax
 from axe_builder.models.models import MenuCommand, SubCommand
 
@@ -556,11 +556,11 @@ def test_parse_title_subcommand():
     assert isinstance(title_cmd, SubCommand)
     assert title_cmd.type == "T"
     assert title_cmd.value == "Menu One Title"
-'''
+""",
         },
         "exporter/": {
             "__init__.py": "",
-            "test_exporter.py": '''from unittest.mock import mock_open, patch
+            "test_exporter.py": """from unittest.mock import mock_open, patch
 from axe_builder.exporter.exporter import export_cli_template
 from axe_builder.models.models import MenuCommand, SubCommand
 
@@ -580,11 +580,11 @@ def test_export_cli_template():
         m.assert_called_once_with("dummy_output.py", "w")
         handle = m()
         handle.write.assert_called()  # Further assertions can be added
-'''
+""",
         },
         "cli/": {
             "__init__.py": "",
-            "test_cli.py": '''from typer.testing import CliRunner
+            "test_cli.py": """from typer.testing import CliRunner
 from axe_builder.cli import app
 
 runner = CliRunner()
@@ -607,20 +607,20 @@ def test_tui_command():
     result = runner.invoke(app, ["tui", syntax])
     # TUI launches an interactive interface; basic test to check exit code
     assert result.exit_code == 0
-'''
+""",
         },
         "tui/": {
             "__init__.py": "",
-            "test_tui.py": '''# Placeholder for TUI tests
+            "test_tui.py": """# Placeholder for TUI tests
 # Testing TUI applications can be complex and may require specialized tools or manual testing
 def test_tui_launch():
     # Example placeholder test
     assert True
-'''
+""",
         },
         "logger/": {
             "__init__.py": "",
-            "test_logger.py": '''from axe_builder.logger.logger import logger
+            "test_logger.py": """from axe_builder.logger.logger import logger
 
 def test_logger_configuration():
     try:
@@ -630,11 +630,11 @@ def test_logger_configuration():
         assert True
     except Exception:
         assert False
-'''
+""",
         },
         "models/": {
             "__init__.py": "",
-            "test_models.py": '''from axe_builder.models.models import MenuCommand, SubCommand
+            "test_models.py": """from axe_builder.models.models import MenuCommand, SubCommand
 import pytest
 
 def test_menu_command_validation():
@@ -654,13 +654,13 @@ def test_sub_command_validation():
 
     with pytest.raises(ValueError):
         SubCommand(type="Y", operation="=", value="Invalid")  # Invalid type
-'''
+""",
         },
     },
     "examples/": {
         "example_a.axe": "[M={2}]:[N+{3}]",
         "example_b.axe": "[M={1}]:[N+(.)={6}]",
-        "README.md": '''# axe:Builder Examples
+        "README.md": """# axe:Builder Examples
 
 This directory contains example `axe:Syntax` files demonstrating how to define CLI menus using `axe:Builder`.
 
@@ -675,10 +675,10 @@ This directory contains example `axe:Syntax` files demonstrating how to define C
 ```plaintext
 [M={1}]:[N+(.)={6}]
 ```
-'''
+""",
     },
     "docs/": {
-        "conf.py": '''# conf.py
+        "conf.py": """# conf.py
 # Configuration file for the Sphinx documentation builder.
 
 import os
@@ -701,8 +701,8 @@ exclude_patterns = []
 
 html_theme = 'furo'
 html_static_path = ['_static']
-''',
-        "index.rst": '''.. axe:Builder documentation master file, created by
+""",
+        "index.rst": """.. axe:Builder documentation master file, created by
    sphinx-quickstart on Tue Sep 28 10:00:00 2021.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
@@ -724,8 +724,8 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-''',
-        "usage.rst": '''Usage
+""",
+        "usage.rst": """Usage
 =====
 
 ## Installation
@@ -771,8 +771,8 @@ Use the `parse-command` to parse and display the structured commands.
     axe-builder parse-command "[M={2}]:[N+{3}]"
 
 This will output the JSON representation of the parsed commands.
-''',
-        "api.rst": '''API Reference
+""",
+        "api.rst": """API Reference
 =============
 
 .. automodule:: axe_builder.cli
@@ -804,8 +804,8 @@ This will output the JSON representation of the parsed commands.
     :members:
     :undoc-members:
     :show-inheritance:
-''',
-        "tutorials.rst": '''Tutorials
+""",
+        "tutorials.rst": """Tutorials
 ==========
 
 ## Creating a Simple CLI Menu
@@ -851,11 +851,11 @@ This will output the JSON representation of the parsed commands.
        python enhanced_cli.py M1
        python enhanced_cli.py N1_1
        python enhanced_cli.py N1_2
-   '''
+   """,
     },
     "_static/": {
         "axe_builder/": {
-            "tui.css": '''/* tui.css */
+            "tui.css": """/* tui.css */
 /* Custom CSS for Textual TUI */
 
 Header {
@@ -893,13 +893,12 @@ Static#parse-button {
     color: green;
     bold: true;
 }
-'''
+"""
         }
     },
-
-".github/": {
-    "workflows/": {
-        "ci.yml": '''name: CI
+    ".github/": {
+        "workflows/": {
+            "ci.yml": """name: CI
 
 on:
   push:
@@ -940,10 +939,10 @@ jobs:
       with:
         name: documentation
         path: docs/_build/html
-'''
-    }
-},
-"requirements.txt": '''typer==0.9.0
+"""
+        }
+    },
+    "requirements.txt": """typer==0.9.0
 lark-parser==1.1.5
 textual==0.2.1
 loguru==0.6.0
@@ -953,8 +952,8 @@ hypothesis==6.52.2
 jinja2==3.1.2
 sphinx==4.5.0
 sphinx-autodoc-typehints==1.19.2
-''',
-"pyproject.toml": '''[build-system]
+""",
+    "pyproject.toml": """[build-system]
 requires = ["setuptools>=42", "wheel"]
 build-backend = "setuptools.build_meta"
 
@@ -983,8 +982,8 @@ axe-builder = "axe_builder.cli:app"
 
 [tool.setuptools.packages.find]
 where = ["axe_builder"]
-''',
-"README.md": '''# axe:Builder
+""",
+    "README.md": """# axe:Builder
 
 **axe:Builder** is a Python-based CLI menu builder that utilizes a custom notation called **axe:Syntax** to define and generate hierarchical CLI menus.
 
@@ -1033,8 +1032,8 @@ Contributions are welcome! Please read the [contributing guidelines](CONTRIBUTIN
 ## License
 
 This project is licensed under the MIT License.
-''',
-"setup.py": '''from setuptools import setup, find_packages
+""",
+    "setup.py": """from setuptools import setup, find_packages
 
 setup(
     name="axe_builder",
@@ -1069,8 +1068,9 @@ setup(
         "Operating System :: OS Independent",
     ],
 )
-''',
+""",
 }
+
 
 def create_structure(base_path: Path, structure: dict):
     for name, content in structure.items():
@@ -1099,5 +1099,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-

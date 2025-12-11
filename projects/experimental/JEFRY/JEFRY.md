@@ -6,7 +6,7 @@ JEFRY:`JSON Entropic Format Response Yardstick` is a compression format that tra
 
 ## Why JEFRY?
 
-> *Jeffrey is the quiet chap down the road*: He keeps to himself, goes on his walks, and he knows the neighbourhood like the back of his hand.
+> _Jeffrey is the quiet chap down the road_: He keeps to himself, goes on his walks, and he knows the neighbourhood like the back of his hand.
 
 ### The Problem without JEFRY
 
@@ -214,7 +214,7 @@ eslint src/ --format json | node json-to-JEFREY.js - | ai-reviewer --format=JEFR
 
 ### Token Efficiency
 
-| Metric               | Traditional JSON      | JEFREY                  | Improvement       |
+| Metric               | Traditional JSON      | JEFREY                | Improvement       |
 | -------------------- | --------------------- | --------------------- | ----------------- |
 | **Average Tokens**   | 219 per error         | 5 per error           | **44x reduction** |
 | **API Costs**        | $2.19 per 1000 errors | $0.05 per 1000 errors | **98% savings**   |
@@ -224,7 +224,7 @@ eslint src/ --format json | node json-to-JEFREY.js - | ai-reviewer --format=JEFR
 ### Pattern Recognition
 
 - **Error Clustering**: Instantly visible in JEFREY format
-- **Root Cause Analysis**: Patterns emerge immediately  
+- **Root Cause Analysis**: Patterns emerge immediately
 - **Fix Strategy**: Direct actionable instructions
 - **Batch Processing**: Handle thousands of errors efficiently
 
@@ -235,8 +235,8 @@ eslint src/ --format json | node json-to-JEFREY.js - | ai-reviewer --format=JEFR
 ```javascript
 // Extend the converter for custom rules
 const CUSTOM_TYPE_MAP = {
-  'my-custom-rule': 'X',  // Custom type
-  'security/no-secrets': 'H',  // High priority
+  "my-custom-rule": "X", // Custom type
+  "security/no-secrets": "H", // High priority
 };
 ```
 
@@ -258,7 +258,7 @@ cat *.JEFREY | sort | uniq -c | sort -nr
   run: |
     eslint . --format json --output-file eslint.json || true
     node json-to-JEFREY.js eslint.json eslint.JEFREY
-    
+
 - name: AI Code Review
   run: |
     ai-reviewer --input eslint.JEFREY --format JEFREY

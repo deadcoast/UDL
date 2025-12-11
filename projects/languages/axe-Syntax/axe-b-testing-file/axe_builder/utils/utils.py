@@ -2,7 +2,9 @@
 
 from pathlib import Path
 from typing import Optional
+
 from axe_builder.logger.logger import logger
+
 
 def read_file(file_path: str) -> str:
     """
@@ -16,12 +18,13 @@ def read_file(file_path: str) -> str:
     """
     try:
         path = Path(file_path)
-        content = path.read_text(encoding='utf-8')
+        content = path.read_text(encoding="utf-8")
         logger.debug(f"Read content from {file_path}")
         return content
     except Exception as e:
         logger.error(f"Failed to read file {file_path}: {e}")
         raise
+
 
 def write_file(file_path: str, content: str) -> None:
     """
@@ -33,11 +36,12 @@ def write_file(file_path: str, content: str) -> None:
     """
     try:
         path = Path(file_path)
-        path.write_text(content, encoding='utf-8')
+        path.write_text(content, encoding="utf-8")
         logger.debug(f"Wrote content to {file_path}")
     except Exception as e:
         logger.error(f"Failed to write file {file_path}: {e}")
         raise
+
 
 def validate_syntax(syntax: str) -> bool:
     """

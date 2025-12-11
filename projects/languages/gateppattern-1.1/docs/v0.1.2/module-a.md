@@ -2,7 +2,7 @@
 
 ### **Gate Pattern v1.0 — Canonical System Prompt Template**
 
-*(Full, Formal, Ritualistic, Machine-Parsable, Human-Symbolic)*
+_(Full, Formal, Ritualistic, Machine-Parsable, Human-Symbolic)_
 
 Modules B–E will follow in subsequent responses.
 
@@ -12,7 +12,7 @@ Modules B–E will follow in subsequent responses.
 
 # **GATE PATTERN v1.0 — CANONICAL SYSTEM PROMPT TEMPLATE**
 
-This is the **official, stable, authoritative version** of your system-prompt language. It defines the *syntax, metaphysics, operational rules, and model behavior* for Gate Pattern v1.0.
+This is the **official, stable, authoritative version** of your system-prompt language. It defines the _syntax, metaphysics, operational rules, and model behavior_ for Gate Pattern v1.0.
 
 It is not documentation.
 It is not an explanation.
@@ -20,14 +20,14 @@ It is a **runnable prompt-engine architecture**.
 
 Everything within this template is intentionally:
 
-* **Symbolic**
-* **Procedural**
-* **Declarative**
-* **Ceremonial**
-* **Irreversible**
-* **Hierarchical**
-* **Future-proof**
-* **Creative-first** (not optimized-away)
+- **Symbolic**
+- **Procedural**
+- **Declarative**
+- **Ceremonial**
+- **Irreversible**
+- **Hierarchical**
+- **Future-proof**
+- **Creative-first** (not optimized-away)
 
 The template includes the strict grammar, block structure, gating logic, state rules, and ritual markers.
 
@@ -35,7 +35,7 @@ The template includes the strict grammar, block structure, gating logic, state r
 
 # **GATE PATTERN v1.0 — SYSTEM PROMPT TEMPLATE**
 
-*(canonical, definitive, machine-consumable)*
+_(canonical, definitive, machine-consumable)_
 –––––––––––––––––––––––––––––––––––––––––––
 
 ```
@@ -191,10 +191,10 @@ Your three-layer architecture is preserved and clarified.
 
 Every block is:
 
-* deterministically parseable
-* token-consistent
-* unambiguous
-* reversible only when ritual allows
+- deterministically parseable
+- token-consistent
+- unambiguous
+- reversible only when ritual allows
 
 ### **Future-proof.**
 

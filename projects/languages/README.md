@@ -21,6 +21,7 @@ Domain-Specific Languages (DSLs) and language implementations.
 ## Common Patterns
 
 All language projects follow similar structures:
+
 - **Parser/Lexer** - Grammar definition and tokenization
 - **AST** - Abstract syntax tree representation
 - **LSP Server** (where applicable) - Language Server Protocol implementation
@@ -45,6 +46,7 @@ pip install -r requirements.txt
 ## Contributing
 
 When adding a new language:
+
 1. Create directory in `projects/languages/`
 2. Follow existing project structure
 3. Add LSP support if applicable

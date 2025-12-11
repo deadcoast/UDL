@@ -4,40 +4,18 @@
 
 ### F8 Syntax How it Works
 
-- **F8 Syntax** - A customizable, self contained and simple bracket based syntax.
-    - F8 runs primarely on the organizational structure of the **F8ZeroBracket System**.
-    - The **F8ZeroBracket System** is a bracket based syntax that runs on TAB spacing.
-        - **PleaseNote:** `F8BS` is a common acronym used in this documentation for the **F8ZeroBracket System**.
-    - F8 Enforses a Two Tier vertical heirarchy in its 5 tier organization system.
-`        - What this means is, the first two brackets require a reachable vertical connection through the code blocks structure.`
-        - **AlphaBracket** - The First tier functions.
-            - The AlphaBracket is the main control point of each and every code block.
-            - This tier helps structure and modularize the code, ensuring the entire code file is structured and modularized.
-            - *The Vertical heirarchy is enforcedin this tier.*
-        - **Initializers** - The Second tier functions.
-            - The initializers control the validation and requirements of the code block.
-                - They from the main F8 AlphaBracket.
-            - *The Vertical heirarchy is enforcedin this tier.*
-        - **Paramaters** - The third tier functions.
-            - The Paramaters inherit from the Initializers, this tier handles definining the functions the Variables will operate on.
-            - *The Vertical heirarchy is NOT enforcedin this tier.*
-        - **Variables** - The fourth tier functions.
-            - The Variables inherit from the Paramater's, this tier handles the specifics and definitions.
-            - *The Vertical heirarchy is NOT enforced in this tier.*
-        - **Execute** - The fifth tier functions.
-        - The fifth tier is the execution code block.
-            - This tier controls customizations and batch handing of your projects code, it helps customize exactly how and what is executed.
-        - *The Vertical heirarchy is NOT enforced in this tier.*
+- **F8 Syntax** - A customizable, self contained and simple bracket based syntax. - F8 runs primarely on the organizational structure of the **F8ZeroBracket System**. - The **F8ZeroBracket System** is a bracket based syntax that runs on TAB spacing. - **PleaseNote:** `F8BS` is a common acronym used in this documentation for the **F8ZeroBracket System**. - F8 Enforses a Two Tier vertical heirarchy in its 5 tier organization system.
+  `        - What this means is, the first two brackets require a reachable vertical connection through the code blocks structure.` - **AlphaBracket** - The First tier functions. - The AlphaBracket is the main control point of each and every code block. - This tier helps structure and modularize the code, ensuring the entire code file is structured and modularized. - _The Vertical heirarchy is enforcedin this tier._ - **Initializers** - The Second tier functions. - The initializers control the validation and requirements of the code block. - They from the main F8 AlphaBracket. - _The Vertical heirarchy is enforcedin this tier._ - **Paramaters** - The third tier functions. - The Paramaters inherit from the Initializers, this tier handles definining the functions the Variables will operate on. - _The Vertical heirarchy is NOT enforcedin this tier._ - **Variables** - The fourth tier functions. - The Variables inherit from the Paramater's, this tier handles the specifics and definitions. - _The Vertical heirarchy is NOT enforced in this tier._ - **Execute** - The fifth tier functions. - The fifth tier is the execution code block. - This tier controls customizations and batch handing of your projects code, it helps customize exactly how and what is executed. - _The Vertical heirarchy is NOT enforced in this tier._
 
 ## Future Implementations
 
 - **Future Implementations**
-    - Offer a lint or built-in check that warns if indentation rules are violated—this saves frustration.
-    - Offer a built-in check that warns if the F8BS is not used correctly—this saves frustration.
-    - Providing a linter and parser to enforce F8 Syntax.
-    - Allowing advanced users an opt-out or “lax” mode—only to dismiss the Vertical Two Tier Heirarchal Enforcement.
-    - `strict mode` and `debug mode` that refuses to continue on syntax error.
-        - This way, advanced users can force early failures to track down issues quickly, without having to implement the "req" Paramater.
+  - Offer a lint or built-in check that warns if indentation rules are violated—this saves frustration.
+  - Offer a built-in check that warns if the F8BS is not used correctly—this saves frustration.
+  - Providing a linter and parser to enforce F8 Syntax.
+  - Allowing advanced users an opt-out or “lax” mode—only to dismiss the Vertical Two Tier Heirarchal Enforcement.
+  - `strict mode` and `debug mode` that refuses to continue on syntax error.
+    - This way, advanced users can force early failures to track down issues quickly, without having to implement the "req" Paramater.
 
 ### Tab Based
 
@@ -54,9 +32,8 @@
 ## F8ZeroBracket System
 
 - **F8ZeroBracket System** is a system of brackets that are used to encase the code block.
-
-    - The F8BS is used to create a strict and rigid enviornment when running the code.
-    - Below you will find the F8BS and its components, with their rules and examples.
+  - The F8BS is used to create a strict and rigid enviornment when running the code.
+  - Below you will find the F8BS and its components, with their rules and examples.
 
 ### AlphaBracket
 
@@ -78,7 +55,7 @@
 ### GammeBracket
 
 `{`: Opening Gamma Bracket
-`}`:  Closing Gamma Bracket
+`}`: Closing Gamma Bracket
 
 - Encases **Paramaters**
 - Gamma Bracket may be closed without OR without Vertical Alignment
@@ -109,13 +86,13 @@
 - Used to encase **Variables**
 
 - **Variable Rules**
-    - Variables must be:
-        - encased in DeltaBrackets.
-        - assigned to:
-            - a Paramater.
-            - a Command.
-            - a Function.
-            - a F8B.
+  - Variables must be:
+    - encased in DeltaBrackets.
+    - assigned to:
+      - a Paramater.
+      - a Command.
+      - a Function.
+      - a F8B.
 
 - DeltaBracket may close without aligning vertically OR align vertically
 
@@ -125,12 +102,12 @@
 `!!`: Opening and Closing Copmpound EpsilonBracket for Complete Exectuion Statement (CES)
 
 - **EpsilonBracket Rules**
-    - EpsilonBracket must be:
-    - Assigned to the `EXEC` Sequence.
-        - Encased in a:
-            - DeltaBracket.
-            - AlphaBracket.
-    - Must encapsulate all modifiers, variables and paramaters in its line.
+  - EpsilonBracket must be:
+  - Assigned to the `EXEC` Sequence.
+    - Encased in a:
+      - DeltaBracket.
+      - AlphaBracket.
+  - Must encapsulate all modifiers, variables and paramaters in its line.
 
 ## Controllers
 
@@ -139,52 +116,52 @@
 - Used to **Chain** Bridge Commands Together
 
 - **Chain Controller Rules**
-    - Can only be used after the Bridge Controller `:` gas been called on the same line.
-    - Must be encapsulated by one of the F8BS.
+  - Can only be used after the Bridge Controller `:` gas been called on the same line.
+  - Must be encapsulated by one of the F8BS.
 
 `:`: Brige Commands Together
 
 - **Bridge Controller Rules**
-    - Always used after F8 is defined at the top of code block, to bridge the rest of the F8BS.
-    - Used to **Bridge** Commands, Paramaters, and Variables Together.
-    - Cannot be used more than once per line.
-        - UNLESS followed by a Chain Sequencer `@@`.
+  - Always used after F8 is defined at the top of code block, to bridge the rest of the F8BS.
+  - Used to **Bridge** Commands, Paramaters, and Variables Together.
+  - Cannot be used more than once per line.
+    - UNLESS followed by a Chain Sequencer `@@`.
 
 `=`: Assignment Marker
 
 - **Assignment Marker Rules**
-    - Cannot be followed by any opening bracket.
-    - Almost always followed by a new line.
-    - May be followed only by a closing bracket of DeltaBracket.
+  - Cannot be followed by any opening bracket.
+  - Almost always followed by a new line.
+  - May be followed only by a closing bracket of DeltaBracket.
 
 `,`: Passes multiple variables in a string **or** a list.
 
 - **Comma Rules**
-    - Cannot be followed by any opening bracket.
-    - Almost always followed by a new line.
-    - May be followed only by a closing bracket of DeltaBracket.
+  - Cannot be followed by any opening bracket.
+  - Almost always followed by a new line.
+  - May be followed only by a closing bracket of DeltaBracket.
 
 ### Docstring
 
 `#`: Global Documenting Character
 
 - **Docstring Rules**
-    - Documenting Character for single file documentation.
-    - The Single Docstring Characters can be placed Anywhere in the code block.
+  - Documenting Character for single file documentation.
+  - The Single Docstring Characters can be placed Anywhere in the code block.
 
 `##--#`: Docstring Opening Sequence
 
 - **Docstring Opening Sequence Rules**
-    - Docstring Sequences are used when a more verbose code tagging is needed.
-    - Used to open a docstring sequence.
-    - Open Docstring sequences can ONLY be placed Directly Above an AlphaBracket.
+  - Docstring Sequences are used when a more verbose code tagging is needed.
+  - Used to open a docstring sequence.
+  - Open Docstring sequences can ONLY be placed Directly Above an AlphaBracket.
 
 `#--##`: Docstring Closing Sequence
 
 - **Docstring Closing Sequence Rules**
-    - Docstring Closing Sequence.
-    - Used to Close the Docstring Sequence.
-    - Closing Docstring sequences can ONLY be placed Directly Above an AlphaBracket.
+  - Docstring Closing Sequence.
+  - Used to Close the Docstring Sequence.
+  - Closing Docstring sequences can ONLY be placed Directly Above an AlphaBracket.
 
 ```f8
 ##--#
@@ -197,71 +174,71 @@
 `F8`: Main Command Call
 
 - **Main Command Call Rules**
-    - Main Command Call.
-    - Must be placed after an opening Alpha Bracket.
-    - Must be ALL CAPS.
-    - Utilizes AlphaBracket.
+  - Main Command Call.
+  - Must be placed after an opening Alpha Bracket.
+  - Must be ALL CAPS.
+  - Utilizes AlphaBracket.
 
 `INIT`: Initiate Command Call for Paramaters
 
 - **Initiate Command Call for Paramaters Rules**
-    - Initiate Command Call for Paramaters.
-    - Must be ALL CAPS.
-    - Utilizes BetaBracket.
+  - Initiate Command Call for Paramaters.
+  - Must be ALL CAPS.
+  - Utilizes BetaBracket.
 
 `param`: Initiate Command Call for Variables
 
 - **Initiate Command Call for Variables Rules**
-    - Initiate Command Call for Variables.
-    - Must be all lowercase.
-    - Utilizes GammaBracket.
+  - Initiate Command Call for Variables.
+  - Must be all lowercase.
+  - Utilizes GammaBracket.
 
 `true`: Return `EXEC`
 
 - **True Return `EXEC` Rules**
-    - Confirms the Return `EXEC`.
-    - Utilizes GammaBracket OR EpsilonBracket.
-    - Must be lowercase.
+  - Confirms the Return `EXEC`.
+  - Utilizes GammaBracket OR EpsilonBracket.
+  - Must be lowercase.
 
 `false`: Passes the Return `EXEC`
 
 - **False Return `EXEC` Rules**
-    - Passes the Return `EXEC`.
-    - Utilizes GammaBracket OR EpsilonBracket.
-    - Must be lowercase.
+  - Passes the Return `EXEC`.
+  - Utilizes GammaBracket OR EpsilonBracket.
+  - Must be lowercase.
 
 ### EXEC Sequence
 
 #### Universal EXEC Rules
 
 - **Universal EXEC Rules**
-    - All `EXEC` functions must start a new AlphaBracket directly after and attached to the closing AlphaBracket.
-    - The `EXEC` functions must have their own open and closed EpsilonBracket.
-    - The `EXEC` function must encase all modifiers and paramaters in its EpsilonBracket and AlphaBracket at the end of the code block.
+  - All `EXEC` functions must start a new AlphaBracket directly after and attached to the closing AlphaBracket.
+  - The `EXEC` functions must have their own open and closed EpsilonBracket.
+  - The `EXEC` function must encase all modifiers and paramaters in its EpsilonBracket and AlphaBracket at the end of the code block.
 
 #### EXEC and the EpsilonBracket
 
 - **EXEC and the EpsilonBracket Rules**
-    - Call the EpsilonBracket with `!EXEC!` in any code block to assign it to that specific block.
-    - The EpsilonBracket allows you to add Modifiers with `:` OR, for advanced cases, call the Modifier Chain with `@@`.
-    - If the modifier chain is envoked, that Command, Variable or function must be encased in its ZeroBracket.
-    - If modifiers or paramaters are used, they must be encased in the `EXEC` function EpsilonBracket.
+  - Call the EpsilonBracket with `!EXEC!` in any code block to assign it to that specific block.
+  - The EpsilonBracket allows you to add Modifiers with `:` OR, for advanced cases, call the Modifier Chain with `@@`.
+  - If the modifier chain is envoked, that Command, Variable or function must be encased in its ZeroBracket.
+  - If modifiers or paramaters are used, they must be encased in the `EXEC` function EpsilonBracket.
 
 #### Compound EpsilonBracket
 
 - **Compound EpsilonBracket Rules**
-    - Compound EpsilonBracket call will execute a CES.
-    - This will circumvent Function calling and confusion in type imports.
+  - Compound EpsilonBracket call will execute a CES.
+  - This will circumvent Function calling and confusion in type imports.
 - Complete Exectuion Statement.
-    - Omit EXEC calls in code blocks untill the end of your code file, calling it with Compound EpsilonBracket call function with `!!EXEC!!`.
+  - Omit EXEC calls in code blocks untill the end of your code file, calling it with Compound EpsilonBracket call function with `!!EXEC!!`.
 
 #### EXEC Formats
 
 `EXEC`
 
 - **EXEC Rules**
-    - Execute Code Sequence
-    - Utilizes `!EpsilonBracket!`, `{`GammaBracket`}`  Bridge Controller`:`, Chain Controller`@@`.
+  - Execute Code Sequence
+  - Utilizes `!EpsilonBracket!`, `{`GammaBracket`}` Bridge Controller`:`, Chain Controller`@@`.
 
 #### Usage Examples
 
@@ -278,12 +255,11 @@
 `!!EXEC!!` - Complete Execution Statement for the entire code structure, can only be placed at the bottom of the code file.
 
 - **Complete Example with AlphaBracket**.
-
-    - Below we cover stacking Paramater Definitions and the default !EXEC! command.
+  - Below we cover stacking Paramater Definitions and the default !EXEC! command.
 
 ```f8
 < F8:
-    [INIT = 
+    [INIT =
 		{prohibited =
 			(placeholderOne,
 			placeholderTwo,
@@ -306,15 +282,15 @@
 - Paramater modifier for looping code blocks with EXEC, Commands, Paramaters and Variables with F8ZeroBrackets.
 - Requiresa numberic value, if specifying target functions, use `floop = (variable):(numeric_value)`.
 - Loop command, takes numerical variations.
-    - Used to run multiple iterations or loop the code block.
+  - Used to run multiple iterations or loop the code block.
 - If used after `@@` Chain, requires `{`GammaBracket`}`.
 
 `req`
 
 - F8BS: `{`GammaBracket`}`
 - Used to Specify the lines, F8B, or functions when entire code block Execution is not desired.
-    - To specify variable requirements, use `req:(variable)`.
-    - If used after `@@` Chain, requires `{`GammaBracket`}`.
+  - To specify variable requirements, use `req:(variable)`.
+  - If used after `@@` Chain, requires `{`GammaBracket`}`.
 
 `prohib`
 
@@ -322,7 +298,7 @@
 - Requirement, unskippable. Forces the code to run this variable, if not found, code exits.
 - Used to reinforce restrictive commands, variables, initiations or paramaters.
 - Can be used as a cancel command or with variables in a f`loop`.
-    - If used after `@@` Chain, requires `{`GammaBracket`}`.
+  - If used after `@@` Chain, requires `{`GammaBracket`}`.
 
 ## Code Examples
 
@@ -332,7 +308,7 @@
 
 ```f8
 < F8:
-    [INIT = 
+    [INIT =
 		{prohibited =
 			placeHolderOne,
 			placeHolderTwo,
@@ -362,7 +338,7 @@
 			(Example_placeholder4
             Example_laceholder5)
 		}
-	]	
+	]
 >< !EXEC! > # This will execute all identifiers in the code block.
 
 ##--#
@@ -370,14 +346,14 @@
 # Example of the correct Syntax for Nested Gamma and Delta Brackets that are not Vertically Aligned
 #--##
 < F8:
-	[INIT = 
+	[INIT =
 		{list =
 			(Placeholder1, Placeholder2, Placeholder3):(Example_placxeholder1, Examle_placeholder_2)
         }
-	]	
+	]
 >< !EXEC:prohib = {list}! > # This will execute the code block with the prohibited paramaters, excluding the listed variables.
 < F8:
-	[INIT = 
+	[INIT =
 	    {prohib =
 	        (Placeholder1,
 		 Placeholder2,
@@ -385,7 +361,7 @@
 		 Placeholder4,
 	         Placeholder5,
 	         Placeholder6,)
-	    {param = 
+	    {param =
 		 (ExampleParam1,
 		 (ExampleParam2,
 		(ExampleParam3,
@@ -409,7 +385,7 @@
 #--##
 < F8:
     [INIT =
-        {req = 
+        {req =
             (config = "Please provide the advanced YAML config for the script")} # Here we force the config to load, and nest the Gammabracket.
 	]
 >< !EXEC:{req} @@ {floop:(1) = (config)}! > # Alternatively, you can nest the req GammaBracket with the floop modifier. {req = @@ {floop:(1) = (config)}}

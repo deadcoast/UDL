@@ -1,8 +1,9 @@
 # tests/parser/test_parser.py
 
 import pytest
-from axe_builder.parser.parser import parse_axesyntax
 from axe_builder.models.models import MenuCommand, SubCommand
+from axe_builder.parser.parser import parse_axesyntax
+
 
 def test_parse_multiple_main_menus():
     syntax = "[M+{3}]"
@@ -13,6 +14,7 @@ def test_parse_multiple_main_menus():
     assert cmd.type == "M"
     assert cmd.operation == "+"
     assert cmd.count == 3
+
 
 def test_parse_nested_menus():
     syntax = "[M={2}]:[N+{3}]"
@@ -28,6 +30,7 @@ def test_parse_nested_menus():
     assert nested_menu.operation == "+"
     assert nested_menu.count == 3
 
+
 def test_parse_title_subcommand():
     syntax = '[M={1}]:(T="Menu One Title")'
     result = parse_axesyntax(syntax)
@@ -39,6 +42,7 @@ def test_parse_title_subcommand():
     assert isinstance(title_cmd, SubCommand)
     assert title_cmd.type == "T"
     assert title_cmd.value == "Menu One Title"
+
 
 def test_parse_custom_subcommand_with_count():
     syntax = "[N+(.)={6}]"

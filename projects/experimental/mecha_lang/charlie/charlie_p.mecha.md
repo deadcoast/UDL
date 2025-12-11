@@ -126,10 +126,11 @@
 ## ALIAS AND CROSS-REFERENCE
 
 lbsCore Domain Aliases (from {2}):lbs
+
 - `mech_god` ← machine_of_creation
 - `bal` ← balance
 - `miml` ← minimal
-- `feat` ← feature  
+- `feat` ← feature
 - `lbs` ← weight
 - `++` ← positive
 - `--` ← negative
@@ -137,12 +138,14 @@ lbsCore Domain Aliases (from {2}):lbs
 - `ttl` ← total
 
 lbsStructural Notation Aliases:lbs
+
 - `{n}` = block identifier (top-level section)
 - `[n]` = property identifier (numbered)
 - `[a],[b],[c]...` = category identifiers (lettered)
 - `[i],[ii],[iii],[iv]...` = item identifiers (roman numerals)
 
 lbsPattern Aliases:lbs
+
 - `(a:x)` = inline alias definition marker
 - `->` = link/reference operator
 - `=` = assignment operator

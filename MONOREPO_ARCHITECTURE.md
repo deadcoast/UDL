@@ -113,17 +113,20 @@ UDL/
 ### Monorepo Orchestration
 
 **Option 1: TurboRepo (Recommended)**
+
 - Best for polyglot repos
 - Intelligent caching and parallelization
 - Language-agnostic
 - Incremental builds
 
 **Option 2: Nx**
+
 - More features but more complex
 - Strong TypeScript integration
 - Better for large-scale
 
 **Option 3: Custom (Lightweight)**
+
 - Bash scripts + Make
 - No external dependencies
 - Full control
@@ -228,6 +231,7 @@ git subtree add --prefix=projects/languages/axe-syntax \
 ```
 
 **Alternative: Git Submodules** (less recommended)
+
 - Keeps repos separate
 - More complex workflow
 - Good for truly independent evolution
@@ -447,6 +451,7 @@ udl release
 ### Hybrid: Monorepo + External Packages
 
 Keep some projects as independent repos:
+
 - Published packages (sandbag, ctx)
 - Large applications (black-milk)
 
@@ -455,6 +460,7 @@ Link them as git submodules or workspace packages.
 ### Meta-Repo
 
 Instead of true monorepo, create a meta-repo with:
+
 - Submodules for each project
 - Shared scripts and CI
 - Less invasive, easier to back out

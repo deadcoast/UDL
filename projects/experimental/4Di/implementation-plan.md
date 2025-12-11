@@ -2,7 +2,7 @@
 
 **Status:** Planning • v1.0
 **Scope:** Build and validate the **ER‑Moat** foundation (provenance‑weighted, entropy‑constrained, distribution‑robust training) with **CuBFF** as an integrity probe.
-**Pre‑reads:** 4DI MOC/spec; *Curse of Recursion*; MAD; MMD & DRO; KLIEP/uLSIF; C2PA & watermarking; dedup pipelines; CuBFF/BFF sources.
+**Pre‑reads:** 4DI MOC/spec; _Curse of Recursion_; MAD; MMD & DRO; KLIEP/uLSIF; C2PA & watermarking; dedup pipelines; CuBFF/BFF sources.
 
 ---
 
@@ -26,14 +26,14 @@
 
 **Deliverables**
 
-* **P1.1**: Ingestion service enforcing **C2PA** parse/verify; fallbacks log missing metadata.
-* **P1.2**: **Watermark hypothesis test** (Kirchenbauer et al.) with p‑values per sample. **Decision rule**: reject content if (p \le \alpha_{\mathrm{wm}}).
-* **P1.3**: Auxiliary detectors (**DetectGPT**, **GLTR**) produce a **synthetic posterior** (q_{\text{syn}}(x)\in[0,1]) used only for weighting/routing, not hard labels.
-* **P1.4**: Datasheet template (Gebru et al.) for every corpus shard.
+- **P1.1**: Ingestion service enforcing **C2PA** parse/verify; fallbacks log missing metadata.
+- **P1.2**: **Watermark hypothesis test** (Kirchenbauer et al.) with p‑values per sample. **Decision rule**: reject content if (p \le \alpha\_{\mathrm{wm}}).
+- **P1.3**: Auxiliary detectors (**DetectGPT**, **GLTR**) produce a **synthetic posterior** (q\_{\text{syn}}(x)\in[0,1]) used only for weighting/routing, not hard labels.
+- **P1.4**: Datasheet template (Gebru et al.) for every corpus shard.
 
 **Acceptance**
 
-* **AUC / power** on watermark+detector blends ≥ target; **FPR** bounded by (\alpha_{\mathrm{wm}}) on human‑only eval. (Power analysis in §3.1.)
+- **AUC / power** on watermark+detector blends ≥ target; **FPR** bounded by (\alpha\_{\mathrm{wm}}) on human‑only eval. (Power analysis in §3.1.)
 
 ---
 
@@ -41,12 +41,12 @@
 
 **Deliverables**
 
-* **D2.1**: Exact‑substring dedup + **SimHash/MinHash** near‑dup (Jaccard/cosine) with cluster metadata.
-* **D2.2**: **Soft‑dedup weights** (d(x)\in[0,1]) to reduce, not eliminate, cluster members to preserve tail coverage.
+- **D2.1**: Exact‑substring dedup + **SimHash/MinHash** near‑dup (Jaccard/cosine) with cluster metadata.
+- **D2.2**: **Soft‑dedup weights** (d(x)\in[0,1]) to reduce, not eliminate, cluster members to preserve tail coverage.
 
 **Acceptance**
 
-* **Regurgitation rate** (nearest‑neighbor string match on held‑out prompts) reduced ≥10× vs. no‑dedup baseline; **type/token diversity** ↑; **Zipf tail** slope stable.
+- **Regurgitation rate** (nearest‑neighbor string match on held‑out prompts) reduced ≥10× vs. no‑dedup baseline; **type/token diversity** ↑; **Zipf tail** slope stable.
 
 ---
 
@@ -54,20 +54,20 @@
 
 **Deliverables**
 
-* **S3.1**: **KLIEP/uLSIF** density‑ratio estimation to compute (w(x)=p_{\text{human}}(x)/p_{\text{mix}}(x)).
-* **S3.2**: Importance‑weighted objective
+- **S3.1**: **KLIEP/uLSIF** density‑ratio estimation to compute (w(x)=p*{\text{human}}(x)/p*{\text{mix}}(x)).
+- **S3.2**: Importance‑weighted objective
   [
-  \mathcal L_{\text{IW}}(\theta)=\mathbb E_{x\sim D}\big[w(x),d(x),(-\log p_\theta(x))\big].
+  \mathcal L*{\text{IW}}(\theta)=\mathbb E*{x\sim D}\big[w(x),d(x),(-\log p_\theta(x))\big].
   ]
-* **S3.3**: **MMD** constraint and **entropy floor** (held‑out human dev). Penalize if (\mathrm{MMD}^2!>\tau) or (H(p_\theta)!<H_{\min}).
-* **S3.4**: **DRO** (variance‑regularized / (f)-divergence ball) to protect tails:
+- **S3.3**: **MMD** constraint and **entropy floor** (held‑out human dev). Penalize if (\mathrm{MMD}^2!>\tau) or (H(p*\theta)!<H*{\min}).
+- **S3.4**: **DRO** (variance‑regularized / (f)-divergence ball) to protect tails:
   [
-  \min_\theta\ \sup_{Q:,D_f(Q|\hat P)\le \rho}\ \mathbb E_Q[-\log p_\theta(X)].
+  \min*\theta\ \sup*{Q:,D*f(Q|\hat P)\le \rho}\ \mathbb E_Q[-\log p*\theta(X)].
   ]
 
 **Acceptance**
 
-* **Two‑sample test** (permutation‑MMD) non‑reject at level (\alpha_{\text{mmd}}) vs. human reference; **entropy** ≥ (H_{\min}); **DRO radius** calibrated (see §3.3) so rare‑token recall does not regress.
+- **Two‑sample test** (permutation‑MMD) non‑reject at level (\alpha*{\text{mmd}}) vs. human reference; **entropy** ≥ (H*{\min}); **DRO radius** calibrated (see §3.3) so rare‑token recall does not regress.
 
 ---
 
@@ -75,12 +75,12 @@
 
 **Deliverables**
 
-* **C4.1**: Automated **CuBFF** runs (BFF variants) produce tapes; compute **LZ compression** and **high‑order entropy** curves; maintain archives.
-* **C4.2**: **Alarm tests**: when compressibility spikes (replicator takeover), confirm ER‑Moat’s **entropy/MMD sentinels** fire within (k) batches.
+- **C4.1**: Automated **CuBFF** runs (BFF variants) produce tapes; compute **LZ compression** and **high‑order entropy** curves; maintain archives.
+- **C4.2**: **Alarm tests**: when compressibility spikes (replicator takeover), confirm ER‑Moat’s **entropy/MMD sentinels** fire within (k) batches.
 
 **Acceptance**
 
-* Deterministic alarms on positive controls (CuBFF replicators); **no alarms** on human‑only dev.
+- Deterministic alarms on positive controls (CuBFF replicators); **no alarms** on human‑only dev.
 
 ---
 
@@ -88,13 +88,13 @@
 
 **Deliverables**
 
-* **A5.1**: Data unioning policy: never remove (H) (human reference); record generation (t) for all data.
-* **A5.2**: Mixing controller limits **effective synthetic mass** via (w(x)) and quarantine routes.
-* **A5.3**: Round‑to‑round dashboard: plot test error vs. (t); verify **bounded** behavior.
+- **A5.1**: Data unioning policy: never remove (H) (human reference); record generation (t) for all data.
+- **A5.2**: Mixing controller limits **effective synthetic mass** via (w(x)) and quarantine routes.
+- **A5.3**: Round‑to‑round dashboard: plot test error vs. (t); verify **bounded** behavior.
 
 **Acceptance**
 
-* **Bounded test error** across ≥3 retrain rounds under accumulation; **no monotone entropy decline** on human dev.
+- **Bounded test error** across ≥3 retrain rounds under accumulation; **no monotone entropy decline** on human dev.
 
 ---
 
@@ -102,32 +102,32 @@
 
 ### M1 • Ingestion & Provenance (WS‑1)
 
-* [ ] C2PA verify/record in metadata store.
-* [ ] Watermark detector with calibrated (\alpha_{\mathrm{wm}}).
-* [ ] DetectGPT + GLTR scoring; calibration curves.
-* [ ] Datasheets generated per shard.
+- [ ] C2PA verify/record in metadata store.
+- [ ] Watermark detector with calibrated (\alpha\_{\mathrm{wm}}).
+- [ ] DetectGPT + GLTR scoring; calibration curves.
+- [ ] Datasheets generated per shard.
 
 ### M2 • Dedup (WS‑2)
 
-* [ ] Exact + SimHash/MinHash pipelines; cluster logs.
-* [ ] Soft‑dedup weighting function (d(x)).
+- [ ] Exact + SimHash/MinHash pipelines; cluster logs.
+- [ ] Soft‑dedup weighting function (d(x)).
 
 ### M3 • ER‑Moat Objective (WS‑3)
 
-* [ ] KLIEP/uLSIF (w(x)) estimation with CV.
-* [ ] Add MMD penalty; permutation testing harness.
-* [ ] Entropy floor (H_{\min}) estimator on human dev.
-* [ ] DRO solver with (f)-divergence ball.
+- [ ] KLIEP/uLSIF (w(x)) estimation with CV.
+- [ ] Add MMD penalty; permutation testing harness.
+- [ ] Entropy floor (H\_{\min}) estimator on human dev.
+- [ ] DRO solver with (f)-divergence ball.
 
 ### M4 • CuBFF Probes (WS‑4)
 
-* [ ] CuBFF runner; entropy/compressibility metrics.
-* [ ] Alarm wiring into training sentinels.
+- [ ] CuBFF runner; entropy/compressibility metrics.
+- [ ] Alarm wiring into training sentinels.
 
 ### M5 • Accumulation & Rounds (WS‑5)
 
-* [ ] Data‑of‑data ledger; union policy.
-* [ ] Round‑over‑round evaluation dashboard.
+- [ ] Data‑of‑data ledger; union policy.
+- [ ] Round‑over‑round evaluation dashboard.
 
 ---
 
@@ -135,15 +135,15 @@
 
 ### 3.1 Watermark Hypothesis Test (Kirchenbauer et al.)
 
-Let (T(x)) be the test statistic (green‑list token bias); define decision rule: **reject** (H_0) (“no watermark”) if (T(x)\ge t_\alpha), where (t_\alpha) is the ((1-\alpha_{\mathrm{wm}})) quantile under the null. **Power target** (\beta) sets **minimum sample length** (n) via standard test‑power analysis for biased token selections—choose (n) so power (1-\beta) at the observed effect size.
+Let (T(x)) be the test statistic (green‑list token bias); define decision rule: **reject** (H*0) (“no watermark”) if (T(x)\ge t*\alpha), where (t*\alpha) is the ((1-\alpha*{\mathrm{wm}})) quantile under the null. **Power target** (\beta) sets **minimum sample length** (n) via standard test‑power analysis for biased token selections—choose (n) so power (1-\beta) at the observed effect size.
 
 ### 3.2 Tail‑Coverage Target (Good–Turing)
 
-On each window of size (M), estimate **missing mass** (\hat p_0 \approx n_1/M) with (n_1) singletons. Enforce (\hat p_0 \le \delta) by ensuring **effective real tokens** (M_{\text{real}}=(1-\alpha_s)M \ge n_1/\delta). This sets a **design upper bound** on synthetic fraction (\alpha_s).
+On each window of size (M), estimate **missing mass** (\hat p*0 \approx n_1/M) with (n_1) singletons. Enforce (\hat p_0 \le \delta) by ensuring **effective real tokens** (M*{\text{real}}=(1-\alpha_s)M \ge n_1/\delta). This sets a **design upper bound** on synthetic fraction (\alpha_s).
 
 ### 3.3 MMD Constraint & Thresholding
 
-Compute (\mathrm{MMD}^2) with an RBF kernel on features (\phi(x)). **Threshold (\tau)** via a permutation test: repeatedly shuffle labels between (P_{\text{train}}) and (P_{\text{human}}), compute the null distribution of (\mathrm{MMD}^2), and set (\tau) at the ((1-\alpha_{\text{mmd}})) quantile.
+Compute (\mathrm{MMD}^2) with an RBF kernel on features (\phi(x)). **Threshold (\tau)** via a permutation test: repeatedly shuffle labels between (P*{\text{train}}) and (P*{\text{human}}), compute the null distribution of (\mathrm{MMD}^2), and set (\tau) at the ((1-\alpha\_{\text{mmd}})) quantile.
 
 ### 3.4 DRO Radius Calibration
 
@@ -151,7 +151,7 @@ For an (f)-divergence ball around (\hat P) of size (\rho), choose (\rho) using *
 
 ### 3.5 Entropy Floor
 
-Estimate (H(p_\theta)) on **human‑only dev** via token‑level cross‑entropy; enforce (H(p_\theta)\ge H_{\min}), with (H_{\min}) set to the **lower (95%)** bound of entropy observed on historical (trusted) checkpoints to avoid drift toward low‑entropy equilibria.
+Estimate (H(p*\theta)) on **human‑only dev** via token‑level cross‑entropy; enforce (H(p*\theta)\ge H*{\min}), with (H*{\min}) set to the **lower (95%)** bound of entropy observed on historical (trusted) checkpoints to avoid drift toward low‑entropy equilibria.
 
 ---
 
@@ -159,48 +159,48 @@ Estimate (H(p_\theta)) on **human‑only dev** via token‑level cross‑entropy
 
 **Datasets**
 
-* **Human reference (H):** curated, documented with **Datasheets**; provenance recorded (C2PA when available).
-* **Mix (D):** post‑filter/post‑dedup pool with per‑sample (q_{\text{syn}}(x)), (d(x)), and provenance fields.
+- **Human reference (H):** curated, documented with **Datasheets**; provenance recorded (C2PA when available).
+- **Mix (D):** post‑filter/post‑dedup pool with per‑sample (q\_{\text{syn}}(x)), (d(x)), and provenance fields.
 
 **Arms**
 
-* **Baseline:** standard ERM on (D) without safeguards.
-* **ER‑Moat:** ( \mathcal L_{\text{IW}} + \lambda_{\text{mmd}}\mathrm{MMD}^2 + \mu[H_{\min}-H]_+^2 + \text{DRO} ).
+- **Baseline:** standard ERM on (D) without safeguards.
+- **ER‑Moat:** ( \mathcal L*{\text{IW}} + \lambda*{\text{mmd}}\mathrm{MMD}^2 + \mu[H_{\min}-H]\_+^2 + \text{DRO} ).
 
 **Primary Metrics**
 
-* **Held‑out perplexity** on human dev; **entropy** (must not decline).
-* **MMD** to human reference (non‑reject at (\alpha_{\text{mmd}})).
-* **Tail coverage** (\hat p_0); **rare‑token recall** measured on a stratified rare‑bin set.
-* **Regurgitation** rate (nearest‑neighbor exact match) after prompts.
+- **Held‑out perplexity** on human dev; **entropy** (must not decline).
+- **MMD** to human reference (non‑reject at (\alpha\_{\text{mmd}})).
+- **Tail coverage** (\hat p_0); **rare‑token recall** measured on a stratified rare‑bin set.
+- **Regurgitation** rate (nearest‑neighbor exact match) after prompts.
 
 **Secondary Metrics**
 
-* **Watermark/Detector FPR/FNR** on labeled suites.
-* **Zipf tail slope** stability.
+- **Watermark/Detector FPR/FNR** on labeled suites.
+- **Zipf tail slope** stability.
 
 **Stopping Rules**
 
-* Halt if entropy drop beyond tolerance; if MMD rejects or (\hat p_0) exceeds (\delta); or if regurgitation increases.
+- Halt if entropy drop beyond tolerance; if MMD rejects or (\hat p_0) exceeds (\delta); or if regurgitation increases.
 
 ---
 
 ## 5) Risk Register & Mitigations
 
-* **R‑1 False positives in synthetic detection.** *Mitigation:* combine **watermark** (hypothesis test) + **DetectGPT/GLTR**, fuse via calibrated posteriors; gate hard decisions by provenance.
-* **R‑2 Over‑pruning rare legitimate content via dedup.** *Mitigation:* prefer **soft‑dedup**; monitor (\hat p_0) and rare‑token recall; restore cluster exemplars if tail deteriorates.
-* **R‑3 Over‑constraint (MMD/DRO) causing underfit.** *Mitigation:* CV over (\lambda_{\text{mmd}},\rho); ensure non‑rejection with adequate power.
-* **R‑4 Recursive replacement in later rounds.** *Mitigation:* strict **accumulation protocol**; never remove (H); cap effective synthetic mass via (w(x)).
+- **R‑1 False positives in synthetic detection.** _Mitigation:_ combine **watermark** (hypothesis test) + **DetectGPT/GLTR**, fuse via calibrated posteriors; gate hard decisions by provenance.
+- **R‑2 Over‑pruning rare legitimate content via dedup.** _Mitigation:_ prefer **soft‑dedup**; monitor (\hat p_0) and rare‑token recall; restore cluster exemplars if tail deteriorates.
+- **R‑3 Over‑constraint (MMD/DRO) causing underfit.** _Mitigation:_ CV over (\lambda\_{\text{mmd}},\rho); ensure non‑rejection with adequate power.
+- **R‑4 Recursive replacement in later rounds.** _Mitigation:_ strict **accumulation protocol**; never remove (H); cap effective synthetic mass via (w(x)).
 
 ---
 
 ## 6) Engineering Blueprint (Minimal Viable Stack)
 
-* **Data Ledger:** immutable store of ({)hash, source URL/ID, C2PA manifest, detection scores (q_{\text{syn}}), dedup cluster ID/weight (d(x)), timestamps(}). (C2PA + Datasheets.)
-* **Dedup Service:** ExactSubstr + SimHash/MinHash with cluster reports; thresholds in config.
-* **Training Orchestrator:** hooks for KLIEP/uLSIF (w(x)); MMD penalty and permutation tester; DRO solver; entropy monitor.
-* **CuBFF Runner:** scheduled soups; outputs tapes + entropy/compressibility; feeds sentinel tests.
-* **Dashboards:** entropy trend, MMD p‑values, (\hat p_0), regurgitation, watermark FPR/FNR, and round‑over‑round error (accumulation proof).
+- **Data Ledger:** immutable store of ({)hash, source URL/ID, C2PA manifest, detection scores (q\_{\text{syn}}), dedup cluster ID/weight (d(x)), timestamps(}). (C2PA + Datasheets.)
+- **Dedup Service:** ExactSubstr + SimHash/MinHash with cluster reports; thresholds in config.
+- **Training Orchestrator:** hooks for KLIEP/uLSIF (w(x)); MMD penalty and permutation tester; DRO solver; entropy monitor.
+- **CuBFF Runner:** scheduled soups; outputs tapes + entropy/compressibility; feeds sentinel tests.
+- **Dashboards:** entropy trend, MMD p‑values, (\hat p_0), regurgitation, watermark FPR/FNR, and round‑over‑round error (accumulation proof).
 
 ---
 
@@ -212,53 +212,53 @@ Estimate (H(p_\theta)) on **human‑only dev** via token‑level cross‑entropy
 4. **Week 4‑6:** WS‑4 CuBFF probes + sentinel wiring.
 5. **Week 6‑8:** WS‑5 accumulation rounds; A/B + ablations; dashboards; exit review.
 
-*(Calendar bounds are placeholders for ordering; acceptance criteria remain mathematical/statistical as above.)*
+_(Calendar bounds are placeholders for ordering; acceptance criteria remain mathematical/statistical as above.)_
 
 ---
 
 ## 8) Governance & Documentation
 
-* **Datasheets for every shard** (motivation, composition, collection, preprocessing, curation RACI).
-* **Provenance policy**: when C2PA missing, record best‑effort origin; quarantine on detector triggers; manual review pathways.
-* **Evaluation cards**: report entropy, MMD, (\hat p_0), regurgitation, and accumulation plots per release.
+- **Datasheets for every shard** (motivation, composition, collection, preprocessing, curation RACI).
+- **Provenance policy**: when C2PA missing, record best‑effort origin; quarantine on detector triggers; manual review pathways.
+- **Evaluation cards**: report entropy, MMD, (\hat p_0), regurgitation, and accumulation plots per release.
 
 ---
 
 ## 9) Direct Ties to Your 4 Directives
 
-* **D1 (Provenance)** → WS‑1, §3.1, §8.
-* **D2 (Entropy/Diversity)** → WS‑3, §3.2, §3.3, §3.5.
-* **D3 (Rare‑Mode/Dedup)** → WS‑2, §2 acceptance, §4 metrics.
-* **D4 (Self‑Replication Governance)** → WS‑4 CuBFF alarms.
+- **D1 (Provenance)** → WS‑1, §3.1, §8.
+- **D2 (Entropy/Diversity)** → WS‑3, §3.2, §3.3, §3.5.
+- **D3 (Rare‑Mode/Dedup)** → WS‑2, §2 acceptance, §4 metrics.
+- **D4 (Self‑Replication Governance)** → WS‑4 CuBFF alarms.
 
 ---
 
 ## 10) References (anchor points used in this plan)
 
-* **Model Collapse / Recursion:** Shumailov et al., 2023.
-* **MAD / Accumulation avoids collapse:** Gerstgrasser et al., 2024.
-* **MMD (kernel two‑sample):** Gretton et al., 2012.
-* **DRO (f‑divergence):** Namkoong & Duchi, 2016.
-* **Density‑ratio (KLIEP/uLSIF):** Sugiyama et al., 2007–2008.
-* **Entropy & Zipf:** Shannon (1948); Piantadosi (2014 review).
-* **Dedup improves LMs / SimHash/MinHash:** Lee et al.; Charikar (2002); Broder (1997).
-* **Watermarking / GLTR / DetectGPT:** Kirchenbauer et al., 2023; Gehrmann et al., 2019; Mitchell et al., 2023.
-* **C2PA & Datasheets:** Coalition for Content Provenance & Authenticity; Gebru et al., 2018.
-* **CuBFF / BFF entropy transitions:** Agüera y Arcas et al., 2024; CuBFF repo.
+- **Model Collapse / Recursion:** Shumailov et al., 2023.
+- **MAD / Accumulation avoids collapse:** Gerstgrasser et al., 2024.
+- **MMD (kernel two‑sample):** Gretton et al., 2012.
+- **DRO (f‑divergence):** Namkoong & Duchi, 2016.
+- **Density‑ratio (KLIEP/uLSIF):** Sugiyama et al., 2007–2008.
+- **Entropy & Zipf:** Shannon (1948); Piantadosi (2014 review).
+- **Dedup improves LMs / SimHash/MinHash:** Lee et al.; Charikar (2002); Broder (1997).
+- **Watermarking / GLTR / DetectGPT:** Kirchenbauer et al., 2023; Gehrmann et al., 2019; Mitchell et al., 2023.
+- **C2PA & Datasheets:** Coalition for Content Provenance & Authenticity; Gebru et al., 2018.
+- **CuBFF / BFF entropy transitions:** Agüera y Arcas et al., 2024; CuBFF repo.
 
 ---
 
 ### What this delivers now
 
-* A **concrete, testable plan** tied to your directives and to the literature (no assumptions, no examples).
-* **Mathematical gates** (watermark (p)-tests, Good–Turing, MMD permutation tests, DRO radius, entropy floors).
-* A **deployment sequence** that proves the **no‑collapse regime** (accumulation + safeguards), with **CuBFF** validating integrity.
+- A **concrete, testable plan** tied to your directives and to the literature (no assumptions, no examples).
+- **Mathematical gates** (watermark (p)-tests, Good–Turing, MMD permutation tests, DRO radius, entropy floors).
+- A **deployment sequence** that proves the **no‑collapse regime** (accumulation + safeguards), with **CuBFF** validating integrity.
 
 If you want, I can split this into:
 
-* `/plans/phase1-implementation.md` (this document)
-* `/specs/er-moat.md` (losses, penalties, hyper‑parameters and estimators)
-* `/ops/runbooks/ingestion-provenance.md`, `/ops/runbooks/dedup.md`
-* `/eval/cards/template.md` (entropy/MMD/tail coverage/regurgitation)
+- `/plans/phase1-implementation.md` (this document)
+- `/specs/er-moat.md` (losses, penalties, hyper‑parameters and estimators)
+- `/ops/runbooks/ingestion-provenance.md`, `/ops/runbooks/dedup.md`
+- `/eval/cards/template.md` (entropy/MMD/tail coverage/regurgitation)
 
 …ready to drop into your repo.

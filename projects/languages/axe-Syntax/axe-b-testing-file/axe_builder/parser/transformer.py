@@ -1,13 +1,15 @@
 # axe_builder/parser/transformer.py
 
-from lark import Transformer, v_args, UnexpectedInput
 from typing import List, Optional
+
 from axe_builder.models.models import MenuCommand, SubCommand
+from lark import Transformer, UnexpectedInput, v_args
 from loguru import logger
 
 
 class TransformationError(Exception):
     """Custom exception for transformation errors."""
+
     pass
 
 
@@ -45,7 +47,9 @@ class AxeSyntaxTransformer(Transformer):
         """
         Transforms the menu_command rule into a MenuCommand object.
         """
-        logger.debug(f"Transforming menu_command: type={menu_type}, operations={operations}")
+        logger.debug(
+            f"Transforming menu_command: type={menu_type}, operations={operations}"
+        )
         operation = None
         count = None
         subcommands: List[SubCommand] = []
@@ -57,39 +61,51 @@ class AxeSyntaxTransformer(Transformer):
             if op == "+":
                 if isinstance(operand, int):
                     if count is not None:
-                        logger.error("Multiple counts specified for a single menu_command.")
+                        logger.error(
+                            "Multiple counts specified for a single menu_command."
+                        )
                         raise TransformationError("Multiple counts specified.")
                     count = operand
                 elif isinstance(operand, SubCommand):
                     subcommands.append(operand)
                 else:
-                    logger.error(f"Invalid operand type for '+' operator: {type(operand)}")
-                    raise TransformationError(f"Invalid operand type for '+' operator: {type(operand)}")
+                    logger.error(
+                        f"Invalid operand type for '+' operator: {type(operand)}"
+                    )
+                    raise TransformationError(
+                        f"Invalid operand type for '+' operator: {type(operand)}"
+                    )
             elif op == "=":
                 if isinstance(operand, int):
                     if count is not None:
-                        logger.error("Multiple counts specified for a single menu_command.")
+                        logger.error(
+                            "Multiple counts specified for a single menu_command."
+                        )
                         raise TransformationError("Multiple counts specified.")
                     count = operand
                 elif isinstance(operand, SubCommand):
                     subcommands.append(operand)
                 else:
-                    logger.error(f"Invalid operand type for '=' operator: {type(operand)}")
-                    raise TransformationError(f"Invalid operand type for '=' operator: {type(operand)}")
+                    logger.error(
+                        f"Invalid operand type for '=' operator: {type(operand)}"
+                    )
+                    raise TransformationError(
+                        f"Invalid operand type for '=' operator: {type(operand)}"
+                    )
             else:
                 logger.error(f"Unsupported operator: {op}")
                 raise TransformationError(f"Unsupported operator: {op}")
             idx += 2
 
         if count is None and any(sub.type == "T" for sub in subcommands):
-            logger.error("MenuCommand with title subcommand must have a count.")
-            raise TransformationError("MenuCommand with title subcommand must have a count.")
+            logger.error(
+                "MenuCommand with title subcommand must have a count.")
+            raise TransformationError(
+                "MenuCommand with title subcommand must have a count."
+            )
 
         menu_command = MenuCommand(
-            type=menu_type,
-            operation=operation,
-            count=count,
-            subcommands=subcommands
+            type=menu_type, operation=operation, count=count, subcommands=subcommands
         )
         logger.debug(f"Created MenuCommand: {menu_command}")
         return menu_command
@@ -98,7 +114,9 @@ class AxeSyntaxTransformer(Transformer):
         """
         Transforms the sub_command rule into a SubCommand object.
         """
-        logger.debug(f"Transforming sub_command: type={sub_type}, operations={operations}")
+        logger.debug(
+            f"Transforming sub_command: type={sub_type}, operations={operations}"
+        )
         operation = None
         value = None
         count = None
@@ -110,13 +128,19 @@ class AxeSyntaxTransformer(Transformer):
             if op == "=":
                 if sub_type == "T":
                     if not isinstance(operand, str):
-                        logger.error("Title SubCommand must have a string value.")
-                        raise TransformationError("Title SubCommand must have a string value.")
+                        logger.error(
+                            "Title SubCommand must have a string value.")
+                        raise TransformationError(
+                            "Title SubCommand must have a string value."
+                        )
                     value = operand
                 elif sub_type == ".":
                     if not isinstance(operand, int):
-                        logger.error("Custom SubCommand must have an integer count.")
-                        raise TransformationError("Custom SubCommand must have an integer count.")
+                        logger.error(
+                            "Custom SubCommand must have an integer count.")
+                        raise TransformationError(
+                            "Custom SubCommand must have an integer count."
+                        )
                     count = operand
                 operation = op
             elif op == "+":
@@ -124,7 +148,8 @@ class AxeSyntaxTransformer(Transformer):
                 # Future extensions for '+' operator can be handled here
             else:
                 logger.error(f"Unsupported operator in sub_command: {op}")
-                raise TransformationError(f"Unsupported operator in sub_command: {op}")
+                raise TransformationError(
+                    f"Unsupported operator in sub_command: {op}")
             idx += 2
 
         if sub_type == "T" and not value:
@@ -136,10 +161,7 @@ class AxeSyntaxTransformer(Transformer):
             raise TransformationError("Custom SubCommand must have a count.")
 
         sub_command = SubCommand(
-            type=sub_type,
-            operation=operation,
-            value=value,
-            count=count
+            type=sub_type, operation=operation, value=value, count=count
         )
         logger.debug(f"Created SubCommand: {sub_command}")
         return sub_command
@@ -194,5 +216,7 @@ class AxeSyntaxTransformer(Transformer):
         """
         Handles any unprocessed rules.
         """
-        logger.warning(f"Unhandled rule: {data} with children: {children} at line {meta.line}, column {meta.column}")
+        logger.warning(
+            f"Unhandled rule: {data} with children: {children} at line {meta.line}, column {meta.column}"
+        )
         return children

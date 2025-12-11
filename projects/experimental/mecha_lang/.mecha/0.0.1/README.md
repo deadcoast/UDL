@@ -11,7 +11,7 @@ The `machine_of_creation`(MOC) format inspired by Maps of Content and Zattelkast
 ```
 |  {3}human-readable
 |   ^           v
-|  {1}mecha_god{4}balance+ -> {5} output 
+|  {1}mecha_god{4}balance+ -> {5} output
 |   v           ^
 |  {2}machine-parseable
 ```
@@ -33,8 +33,9 @@ The `machine_of_creation`(MOC) format inspired by Maps of Content and Zattelkast
 ```
 
 .mechaKey Patterns:.mecha
+
 - `{n}:` → Top-level blocks
-- `[n]:` → Numbered properties  
+- `[n]:` → Numbered properties
 - `[a],[b],[c]...` → Lettered categories
 - `[i],[ii],[iii]...` → Roman numeral items
 - `(a:alias)` → Inline alias definition
@@ -63,7 +64,7 @@ The `machine_of_creation`(MOC) format inspired by Maps of Content and Zattelkast
 ## Featurelist
 
 | Machine Intelligence   | Human Intelligence   |
-|------------------------|----------------------|
+| ---------------------- | -------------------- |
 | + Hierarchical parsing | + Visual hierarchy   |
 | + Linked references    | + Semantic naming    |
 | + Alias resolution     | + Inline definitions |
@@ -74,14 +75,16 @@ The `machine_of_creation`(MOC) format inspired by Maps of Content and Zattelkast
 ## Use Cases
 
 .mechaIDE Agent Configurations:.mecha
+
 - `.cursorrules` (Cursor IDE)
 - `.CLAUDE.md` (Claude Code)
 - `AGENTS.md` (Codex)
 - `.windsurfrules` (Windsurf)
 
 .mechaAI Chat Platforms:.mecha
+
 - ChatGPT → `AGENTS.md`
-- Claude → `CLAUDE.md`  
+- Claude → `CLAUDE.md`
 - Gemini → `GEMINI.md`
 
 ---
@@ -116,4 +119,7 @@ STRAIGHTFORWARD + LIGHTWEIGHT = EFFECTIVE
 ---
 
 .mechaSpec:.mecha `.god.mecha` | .mechaExtension:.mecha `.mecha` | .mechaHighlight:.mecha `yaml`
+
+```
+
 ```

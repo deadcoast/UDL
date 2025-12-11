@@ -1,17 +1,16 @@
 # axe_builder/cli.py
 
 import sys
-from pathlib import Path
 from enum import Enum
+from pathlib import Path
 from typing import Optional
 
 import typer
-from typer import Context
-
 from axe_builder.exporter.exporter import export_cli_template
 from axe_builder.logger.logger import logger
 from axe_builder.parser.parser import AxeSyntaxParser
 from axe_builder.tui.tui import launch_tui
+from typer import Context
 
 app = typer.Typer(help="axe:Builder - A CLI Menu Builder using axe:Syntax")
 
@@ -136,8 +135,13 @@ def build_command(
             syntax = file.read_text(encoding="utf-8").strip()
             logger.debug(f"Read syntax from file: {file}")
         if output.exists() and not overwrite:
-            logger.error(f"Output file {output} already exists. Use --overwrite to overwrite.")
-            typer.echo(f"Error: Output file {output} already exists. Use --overwrite to overwrite.", err=True)
+            logger.error(
+                f"Output file {output} already exists. Use --overwrite to overwrite."
+            )
+            typer.echo(
+                f"Error: Output file {output} already exists. Use --overwrite to overwrite.",
+                err=True,
+            )
             raise typer.Exit(code=1)
         logger.info("Building CLI template from syntax")
         parser = AxeSyntaxParser()

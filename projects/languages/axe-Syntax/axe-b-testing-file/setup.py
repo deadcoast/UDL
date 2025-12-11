@@ -1,4 +1,4 @@
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
 
 setup(
     name="axe_builder",
@@ -14,7 +14,7 @@ setup(
         "hypothesis==6.52.2",
         "jinja2==3.1.2",
         "sphinx==4.5.0",
-        "sphinx-autodoc-typehints==1.19.2"
+        "sphinx-autodoc-typehints==1.19.2",
     ],
     entry_points={
         "console_scripts": [

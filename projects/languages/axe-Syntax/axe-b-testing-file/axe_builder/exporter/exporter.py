@@ -1,10 +1,12 @@
 # axe_builder/exporter/exporter.py
 
-from jinja2 import Environment, FileSystemLoader, select_autoescape
 from pathlib import Path
 from typing import List
+
 from axe_builder.models.models import MenuCommand, SubCommand
+from jinja2 import Environment, FileSystemLoader, select_autoescape
 from loguru import logger
+
 
 def export_cli_template(menus: List[MenuCommand], output_path: str):
     """
@@ -21,7 +23,7 @@ def export_cli_template(menus: List[MenuCommand], output_path: str):
         template_dir = Path(__file__).parent / "templates"
         env = Environment(
             loader=FileSystemLoader(searchpath=str(template_dir)),
-            autoescape=select_autoescape(['jinja2'])
+            autoescape=select_autoescape(["jinja2"]),
         )
         template = env.get_template("cli_template.jinja2")
 
