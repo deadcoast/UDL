@@ -147,3 +147,5 @@ site/
 # package-lock.json
 # yarn.lock
 # poetry.lock
+
+.early.coverage

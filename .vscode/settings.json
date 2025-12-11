@@ -1,7 +1,15 @@
 {
+  "C_Cpp_Runner.debuggerPath": "lldb",
+  "C_Cpp_Runner.debuggerArgs": [
+    "--",
+    "${workspaceFolder}/build/Debug/outDebug"
+  ],
+  "C_Cpp_Runner.debuggerWorkingDir": "${workspaceFolder}",
+  "C_Cpp_Runner.debuggerEnv": {
+    "LD_LIBRARY_PATH": "${workspaceFolder}/build/Debug"
+  },
   "C_Cpp_Runner.cCompilerPath": "clang",
   "C_Cpp_Runner.cppCompilerPath": "clang++",
-  "C_Cpp_Runner.debuggerPath": "lldb",
   "C_Cpp_Runner.cStandard": "",
   "C_Cpp_Runner.cppStandard": "",
   "C_Cpp_Runner.msvcBatchPath": "",

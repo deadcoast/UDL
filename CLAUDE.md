@@ -276,7 +276,7 @@ Follow PEP 8 and project-specific `.cursorrules` (JSON format in CTX).
 - Interfaces for data structures, types for unions
 - JSDoc comments for public APIs
 
-### Rust Projects (sandbag)
+### Rust Projects Code Style (sandbag)
 
 **Key conventions:**
 
