@@ -30,7 +30,7 @@ export function compileToTrace(doc: TextDocument): string {
       if (args) {
         lines.push("#==TRACE:FUNCTION");
         lines.push(">trace::FUNCTION:");
-        lines.push(`    name:"break_gate"`);
+        lines.push('    name:"break_gate"');
         if (args["agent"]) lines.push(`    agent:${args["agent"]}`);
         if (args["gate"]) lines.push(`    gate:${args["gate"]}`);
         if (args["by_user"]) lines.push(`    by_user:${args["by_user"]}`);
