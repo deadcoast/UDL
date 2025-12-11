@@ -1,6 +1,6 @@
 {
-  "name": "gate-pattern",
-  "displayName": "Gate Pattern Development Environment",
+  "name": "@udl/gate-pattern-1.1",
+  "displayName": "Gate Pattern Development Environment (v1.1)",
   "description": "Full LSP, syntax highlighting, traces, ELATTICE visualization, and ceremonial effects for the `gate` language.",
   "version": "1.1.0",
   "publisher": "deadcoast",
