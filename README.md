@@ -8,13 +8,15 @@
 
 ## 🎯 Overview
 
-UDL is a polyglot monorepo containing 30+ independent projects focused on:
+UDL is a polyglot monorepo containing 33 independent projects focused on:
 
 - 🔤 **Domain-Specific Languages (DSLs)** - Custom language implementations
 - 🛠️ **Developer Tools** - CLI utilities, linters, and code generators
 - 📝 **Syntax Highlighters** - Editor extensions and language support
 - 🎮 **Applications** - Full-featured applications built with custom languages
 - 📚 **Libraries** - Reusable components and utilities
+
+**Status:** ✅ Production Ready | 🔄 CI/CD Operational | 📦 33 Projects | 🌐 4 Languages
 
 ## 🚀 Quick Start
 
@@ -72,27 +74,47 @@ UDL/
 
 ## 🎨 Featured Projects
 
-### Languages
+### Languages (8 projects)
 
-- **[axe-syntax](projects/languages/axe-syntax)** - CLI menu builder with custom notation
-- **[gate](projects/languages/gate)** - Pattern language with LSP support
-- **[f8syntax](projects/languages/f8syntax)** - F8 language system with execution engine
+- **[axe-syntax](projects/languages/axe-Syntax)** - CLI menu builder with custom notation (Python)
+- **[gate](projects/languages/gate)** - Pattern language with LSP support v1.0 (@udl/gate-pattern)
+- **[gateppattern-1.1](projects/languages/gateppattern-1.1)** - Pattern language v1.1 (@udl/gate-pattern-1.1)
+- **[f8syntax](projects/languages/f8Syntax)** - F8 language system with execution engine
 - **[1az](projects/languages/1az)** - VSCode extension for .1az language
+- **[DrRx](projects/languages/DrRx)** - Schema-based DSL
+- **[hoc](projects/languages/hoc)** - Language tooling
+- **[remedysyntax](projects/languages/remedysyntax)** - Syntax support
 
-### Tools
+### Tools (9 projects)
 
-- **[CTX](projects/tools/ctx)** - CTX-CARD format generator for codebase documentation
+- **[CTX](projects/tools/CTX)** - CTX-CARD format generator for codebase documentation (Python)
 - **[sandbag](projects/tools/sandbag)** - Intelligent linter configuration manager (Rust)
 - **[ctx-card](projects/tools/ctx-card)** - AST-based codebase documentation
+- **[FINK](projects/tools/FINK)** - Developer utility
+- **[robo_md](projects/tools/robo_md)** - Markdown automation
+- **[BARRELMAN](projects/tools/BARRELMAN)** - Development tool
+- **[JETSON](projects/tools/JETSON)** - Utility tool
+- **[hunt_ascii](projects/tools/hunt_ascii)** - ASCII utilities
+- **[ASCII-hunt](projects/tools/ASCII-hunt)** - ASCII tooling
 
-### Applications
+### Applications (3 projects)
 
 - **[black-milk](projects/applications/black-milk)** - Hacking game with custom DSL/VM (Godot)
-- **[StrawberryMause](projects/applications/strawberrymause)** - Mouse event recording/playback
+- **[StrawberryMause](projects/applications/StrawberryMause)** - Mouse event recording/playback (TypeScript/Electron)
+- **[ASCII-String-UI-Editor](projects/applications/ASCII-String-UI-Editor)** - Terminal UI editor and renderer
 
-### Extensions
+### Extensions (1 project)
 
-- **[camo-obsidian](projects/extensions/camo-obsidian)** - Obsidian plugin for camouflaged codeblocks
+- **[camo-obsidian](projects/extensions/camo-obsidian)** - Obsidian plugin for camouflaged codeblocks (TypeScript)
+
+### Libraries (3 projects)
+
+- **[milkDocs](projects/libraries/milkDocs)** - Documentation library (Python)
+- Plus 2 additional libraries
+
+### Experimental (9 projects)
+
+WIP and research projects including mecha_development, motleyBard, CLAY, PACER, canon, and more
 
 ## 🔧 Development
 
@@ -161,10 +183,15 @@ mkdir -p projects/tools/my-project
 
 ## 📚 Documentation
 
+### Core Documentation
 - **[CLAUDE.md](CLAUDE.md)** - Guide for AI-assisted development
-- **[MONOREPO_ARCHITECTURE.md](MONOREPO_ARCHITECTURE.md)** - Architecture design and patterns
-- **[MIGRATION_PLAN.md](MIGRATION_PLAN.md)** - Migration strategy and history
-- **[docs/](docs/)** - Comprehensive documentation
+- **[README.md](README.md)** - You are here
+
+### Extended Documentation (docs/)
+- **[MONOREPO-STATUS.md](docs/MONOREPO-STATUS.md)** - Current state and recent updates
+- **[MONOREPO_ARCHITECTURE.md](docs/MONOREPO_ARCHITECTURE.md)** - Architecture design and patterns
+- **[MIGRATION_SUCCESS.md](docs/MIGRATION_SUCCESS.md)** - Migration completion summary
+- **[MIGRATION_PLAN.md](docs/MIGRATION_PLAN.md)** - Original migration strategy
 
 ### Project-Specific Docs
 
@@ -250,12 +277,26 @@ Check each project's README for its current status.
 
 ## 🌟 Highlights
 
-- **30+ Projects** in a unified monorepo
+- **33 Projects** in a unified monorepo with full git history
 - **Polyglot** - TypeScript, Python, Rust, GDScript
 - **Smart Caching** - TurboRepo for lightning-fast builds
-- **Type Safe** - Strong typing across all TypeScript projects
+- **Scoped Packages** - @udl/* namespace for TypeScript packages
+- **Modern CI/CD** - GitHub Actions with change detection
+- **Multi-Version Testing** - Python 3.8-3.12, Node 18-20, Rust stable/beta
 - **Well Documented** - Comprehensive docs for AI and humans
-- **Active Development** - Continuously improved and maintained
+- **Production Ready** - Fully operational build system
+
+## 📈 Recent Updates
+
+### December 11, 2025
+- ✅ Fixed package naming conflicts (gate projects now use @udl scope)
+- ✅ Resolved CI/CD issues (PNPM version mismatch, git submodule errors)
+- ✅ Added tsconfig.json for camo-obsidian
+- ✅ Verified build system (2/3 TypeScript projects building successfully)
+- ✅ Updated all CI workflows for GitHub Actions compatibility
+- ✅ Organized documentation structure
+
+See [MONOREPO-STATUS.md](docs/MONOREPO-STATUS.md) for detailed status and updates.
 
 ---
 

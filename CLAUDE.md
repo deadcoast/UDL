@@ -4,31 +4,38 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Overview
 
-UDL (Universal Development Languages) is a polyglot monorepo containing 30+ independent projects focused on domain-specific languages (DSLs), syntax highlighters, developer tools, and experimental language systems. Each subdirectory is a self-contained project with its own build system, dependencies, and architecture.
+UDL (Universal Development Languages) is a polyglot monorepo containing 33 independent projects focused on domain-specific languages (DSLs), syntax highlighters, developer tools, and experimental language systems. Each subdirectory is a self-contained project with its own build system, dependencies, and architecture.
+
+**Current Status:** Production Ready - All build systems operational, CI/CD configured, 33 projects migrated with full history preserved.
+
+**Package Naming:** TypeScript packages use `@udl/` scope (e.g., `@udl/gate-pattern`, `@udl/gate-pattern-1.1`)
 
 ## Repository Structure
 
 The repo contains three primary categories of projects:
 
-**DSLs and Language Tools:**
+**DSLs and Language Tools (8 projects):**
 
 - `axe-Syntax/` - Python CLI menu builder using axe:Syntax notation with Textual TUI
 - `CTX/` - CTX-CARD format generator for codebase documentation (Python, AST-based)
-- `gate/` and `gateppattern-1.1/` - LSP-based pattern language implementations (TypeScript)
+- `gate/` (v1.0, @udl/gate-pattern) - LSP-based pattern language implementation (TypeScript)
+- `gateppattern-1.1/` (v1.1, @udl/gate-pattern-1.1) - Enhanced pattern language (TypeScript)
 - `f8Syntax/` - F8 language system with execution and metrics (TypeScript)
 - `1az/` - VSCode extension for .1az language support
 - `DrRx/` - Schema-based DSL with validation
+- `hoc/`, `remedysyntax/` - Additional language tooling
 
 **Godot/Game Development:**
 
 - `black-milk/` - Bitburner-inspired hacking game (GDScript/C#/JS) with custom DSL/VM architecture
 - `StrawberryMause/` - Mouse event recording/playback system with grid-based timeline
 
-**Tools and Extensions:**
+**Tools and Extensions (10 projects):**
 
 - `sandbag/` - Intelligent linter configuration manager (Rust) using Bayesian inference
 - `camo-obsidian/` - Obsidian plugin for camouflaged codeblocks (TypeScript)
 - `ASCII-String-UI-Editor/` - Terminal UI editor and renderer
+- `FINK/`, `robo_md/`, `BARRELMAN/`, `JETSON/`, `hunt_ascii/`, `ASCII-hunt/`, `ctx-card/` - Various developer utilities and tools
 
 ## Primary Languages
 
@@ -368,3 +375,34 @@ Projects are organized alphabetically but fall into conceptual clusters:
 - Obsidian: camo-obsidian
 
 Legacy/deprecated work is in `.depreciated/` directory.
+
+## Documentation Structure
+
+**Root Level (Essential):**
+- `CLAUDE.md` - This file, AI assistant instructions
+- `README.md` - Main repository documentation
+
+**docs/ Directory (Detailed Documentation):**
+- `MONOREPO-STATUS.md` - Current status, recent updates, and known issues
+- `MONOREPO_ARCHITECTURE.md` - Architecture design and technical decisions
+- `MIGRATION_SUCCESS.md` - Migration completion summary
+- `MIGRATION_PLAN.md` - Original migration strategy
+
+## Recent Infrastructure Updates
+
+**Package Naming (December 2025):**
+- Resolved package name conflicts by implementing `@udl/` scoped packages
+- `gate` → `@udl/gate-pattern` (v1.0.0)
+- `gateppattern-1.1` → `@udl/gate-pattern-1.1` (v1.1.0)
+- Future TypeScript packages should use `@udl/` scope
+
+**CI/CD Fixes (December 2025):**
+- Fixed PNPM version mismatch: all workflows now use exact version `8.15.1`
+- Fixed git submodule errors: added `submodules: false` to all checkout actions
+- All GitHub Actions workflows now operational
+
+**Build System (December 2025):**
+- TurboRepo + PNPM workspace fully operational
+- Build verification: 2/3 TypeScript projects building successfully
+- Added tsconfig.json for camo-obsidian (projects/extensions/camo-obsidian/tsconfig.json)
+- Build command: `pnpm run build --filter="./projects/**"`
