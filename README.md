@@ -282,7 +282,7 @@ Check each project's README for its current status.
 - **33 Projects** in a unified monorepo with full git history
 - **Polyglot** - TypeScript, Python, Rust, GDScript
 - **Smart Caching** - TurboRepo for lightning-fast builds
-- **Scoped Packages** - @udl/* namespace for TypeScript packages
+- **Scoped Packages** - @udl/\* namespace for TypeScript packages
 - **Modern CI/CD** - GitHub Actions with change detection
 - **Multi-Version Testing** - Python 3.8-3.12, Node 18-20, Rust stable/beta
 - **Well Documented** - Comprehensive docs for AI and humans

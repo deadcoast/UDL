@@ -49,6 +49,7 @@ EOF
 ### Using Shared Packages
 
 #### In TypeScript Projects
+
 ```json
 {
   "dependencies": {
@@ -58,6 +59,7 @@ EOF
 ```
 
 #### In Python Projects
+
 ```toml
 [project.dependencies]
 udl-my-shared-lib = {path = "../../shared/packages/my-shared-lib", develop = true}
@@ -83,6 +85,7 @@ configs/
 Projects can extend these base configurations:
 
 **TypeScript:**
+
 ```json
 {
   "extends": "../../shared/configs/tsconfig.base.json"
@@ -90,6 +93,7 @@ Projects can extend these base configurations:
 ```
 
 **Python:**
+
 ```toml
 [tool.black]
 extend = "../../shared/configs/pyproject.toml"
@@ -115,7 +119,7 @@ assets/
 
 ```typescript
 // In a TypeScript project
-import logo from '../../shared/assets/branding/logos/udl-logo.svg';
+import logo from "../../shared/assets/branding/logos/udl-logo.svg";
 ```
 
 ```python
@@ -128,6 +132,7 @@ ASSETS_PATH = Path(__file__).parent.parent / "shared" / "assets"
 ### When to Share
 
 Create shared resources when:
+
 - Code is used by 2+ projects
 - Configuration should be consistent across projects
 - Assets are reused in multiple places
@@ -136,6 +141,7 @@ Create shared resources when:
 ### When NOT to Share
 
 Keep resources local when:
+
 - Only one project uses it
 - Projects have different requirements
 - Coupling would be problematic

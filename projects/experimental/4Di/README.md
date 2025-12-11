@@ -12,21 +12,25 @@
 ## The Four Dimensions
 
 ### 1. Structural Dimension
+
 - **What:** Code organization and architecture
 - **Analysis:** Classes, modules, functions, dependencies
 - **Visualization:** Graph networks, tree structures
 
 ### 2. Behavioral Dimension
+
 - **What:** Runtime behavior and execution paths
 - **Analysis:** Call graphs, data flow, state machines
 - **Visualization:** Execution traces, flow diagrams
 
 ### 3. Temporal Dimension
+
 - **What:** Evolution over time
 - **Analysis:** Git history, code churn, pattern emergence
 - **Visualization:** Timelines, heat maps, evolution graphs
 
 ### 4. Contextual Dimension
+
 - **What:** External factors and relationships
 - **Analysis:** Dependencies, usage patterns, environment
 - **Visualization:** Context maps, relationship diagrams
@@ -47,6 +51,7 @@ Exploring representation methods and analysis techniques for multi-dimensional c
 ## Concepts
 
 ### 4D Code Space
+
 ```
 Code(x, y, z, t, c)
 where:
@@ -56,6 +61,7 @@ where:
 ```
 
 ### Multi-Dimensional Queries
+
 ```
 # Find functions that:
 # - Are structurally complex (x, y, z)

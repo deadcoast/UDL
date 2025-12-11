@@ -5,6 +5,7 @@ Work-in-progress and research projects exploring new ideas, experimental languag
 ## ⚠️ Important Notice
 
 Projects in this directory are **experimental** and may:
+
 - Have incomplete or changing APIs
 - Lack comprehensive documentation
 - Contain experimental features
@@ -16,6 +17,7 @@ Projects in this directory are **experimental** and may:
 ## Overview
 
 The experimental directory serves as an incubator for:
+
 - New language concepts and DSL designs
 - Proof-of-concept implementations
 - Research projects
@@ -33,6 +35,7 @@ The experimental directory serves as an incubator for:
 Framework for developing and testing mechanical language constructs.
 
 **Focus Areas:**
+
 - Language design patterns
 - DSL construction utilities
 - Parser generation experiments
@@ -50,6 +53,7 @@ Framework for developing and testing mechanical language constructs.
 Experimental language implementation exploring mechanical programming concepts.
 
 **Features:**
+
 - Novel syntax constructs
 - Experimental parser
 - VM prototype
@@ -65,6 +69,7 @@ Experimental language implementation exploring mechanical programming concepts.
 Canonical language representation and transformation toolkit.
 
 **Features:**
+
 - Language canonicalization
 - Syntax transformation
 - Format standardization
@@ -82,6 +87,7 @@ Canonical language representation and transformation toolkit.
 Performance analysis and code evaluation research project.
 
 **Features:**
+
 - Code performance analysis
 - Benchmarking utilities
 - Profiling tools
@@ -99,6 +105,7 @@ Performance analysis and code evaluation research project.
 Experimental framework exploring composable language abstractions.
 
 **Focus Areas:**
+
 - Language composition
 - Abstraction layers
 - Modular language design
@@ -114,6 +121,7 @@ Experimental framework exploring composable language abstractions.
 Experimental code generation and transformation system.
 
 **Features:**
+
 - Template-based code generation
 - Multi-language output
 - Pattern-driven transformation
@@ -129,6 +137,7 @@ Experimental code generation and transformation system.
 Experimental utility framework for rapid prototyping.
 
 **Features:**
+
 - Quick prototyping tools
 - Utility generators
 - Development helpers
@@ -144,6 +153,7 @@ Experimental utility framework for rapid prototyping.
 Four-dimensional code analysis and visualization experiment.
 
 **Features:**
+
 - Multi-dimensional code analysis
 - Visualization experiments
 - Novel representation methods
@@ -159,6 +169,7 @@ Four-dimensional code analysis and visualization experiment.
 Template for creating new UDL projects with standardized structure.
 
 **Contents:**
+
 - Project structure templates
 - Configuration templates
 - Boilerplate code
@@ -266,25 +277,28 @@ Experimental projects can graduate to stable categories when they meet these cri
 5. Move to appropriate category
 6. Update all documentation
 
-**Recent Graduations:** *(None yet - this category is new)*
+**Recent Graduations:** _(None yet - this category is new)_
 
 ## Research Areas
 
 Current experimental focus areas:
 
 ### Language Design
+
 - Novel syntax patterns
 - DSL construction methodologies
 - Parser generation techniques
 - Language composition strategies
 
 ### Code Analysis
+
 - Multi-dimensional code representation
 - Performance analysis tools
 - Pattern recognition
 - Code transformation
 
 ### Development Tools
+
 - Code generation systems
 - Project templating
 - Rapid prototyping frameworks
@@ -301,6 +315,7 @@ Experimental projects have more relaxed contribution requirements:
 - **Exploration** - Try new ideas freely
 
 However:
+
 - Keep a README explaining what you're exploring
 - Document interesting findings
 - Share learnings with other projects
@@ -309,6 +324,7 @@ However:
 ## Archiving Projects
 
 Experimental projects may be archived if:
+
 - Experiment concluded (successful or not)
 - Concept disproven
 - Superseded by better approach
@@ -338,16 +354,16 @@ Archived projects move to `.archive/experimental/` with a summary of findings.
 
 ## Quick Reference
 
-| Project | Type | Language | Focus Area |
-|---------|------|----------|------------|
-| mecha_development | Framework | Mixed | Language Development |
-| mecha_lang | DSL | Mixed | Language Implementation |
-| canon | Tool | Mixed | Language Canonicalization |
-| PACER | Tool | Python | Performance Analysis |
-| CLAY | Framework | Mixed | Language Composition |
-| motleyBard | Tool | Python | Code Generation |
-| JEFRY | Framework | Mixed | Rapid Prototyping |
-| 4Di | Tool/Lang | Mixed | Multi-dimensional Analysis |
-| udl-directory-template | Template | N/A | Project Scaffolding |
+| Project                | Type      | Language | Focus Area                 |
+| ---------------------- | --------- | -------- | -------------------------- |
+| mecha_development      | Framework | Mixed    | Language Development       |
+| mecha_lang             | DSL       | Mixed    | Language Implementation    |
+| canon                  | Tool      | Mixed    | Language Canonicalization  |
+| PACER                  | Tool      | Python   | Performance Analysis       |
+| CLAY                   | Framework | Mixed    | Language Composition       |
+| motleyBard             | Tool      | Python   | Code Generation            |
+| JEFRY                  | Framework | Mixed    | Rapid Prototyping          |
+| 4Di                    | Tool/Lang | Mixed    | Multi-dimensional Analysis |
+| udl-directory-template | Template  | N/A      | Project Scaffolding        |
 
 **Note:** All projects are experimental and subject to significant changes. Check individual project READMEs for current status.
