@@ -1,0 +1,30 @@
+[workspace]
+resolver = "2"
+
+members = [
+    "projects/tools/sandbag",
+    # Add other Rust projects here as they are migrated
+]
+
+# Shared dependencies across Rust workspace
+[workspace.dependencies]
+anyhow = "1.0"
+thiserror = "1.0"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tokio = { version = "1.0", features = ["full"] }
+
+# Workspace-wide configuration
+[profile.dev]
+opt-level = 0
+debug = true
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true
+
+[profile.release-with-debug]
+inherits = "release"
+strip = false

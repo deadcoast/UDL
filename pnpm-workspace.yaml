@@ -1,0 +1,24 @@
+packages:
+  # Language implementations
+  - 'projects/languages/*'
+
+  # Developer tools
+  - 'projects/tools/*'
+
+  # Editor extensions
+  - 'projects/extensions/*'
+
+  # Full applications
+  - 'projects/applications/*'
+
+  # Reusable libraries
+  - 'projects/libraries/*'
+
+  # Experimental/WIP projects
+  - 'projects/experimental/*'
+
+  # Shared packages
+  - 'shared/packages/*'
+
+  # Examples
+  - 'examples/*'

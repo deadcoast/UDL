@@ -1,0 +1,46 @@
+{
+  "name": "udl-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Universal Development Languages - A polyglot monorepo for DSLs, language tools, and developer utilities",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/deadcoast/UDL.git"
+  },
+  "author": "deadcoast",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "packageManager": "pnpm@8.15.1",
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "test": "turbo run test",
+    "lint": "turbo run lint",
+    "format": "turbo run format",
+    "clean": "turbo run clean && rm -rf node_modules",
+    "check": "turbo run check",
+    "typecheck": "turbo run typecheck",
+    "bootstrap": "./tooling/scripts/bootstrap.sh",
+    "udl": "node tooling/dev-tools/cli.js"
+  },
+  "devDependencies": {
+    "turbo": "^1.11.0",
+    "@types/node": "^20.10.0",
+    "prettier": "^3.1.0",
+    "eslint": "^8.55.0",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0"
+  },
+  "workspaces": [
+    "projects/languages/*",
+    "projects/tools/*",
+    "projects/extensions/*",
+    "projects/applications/*",
+    "projects/libraries/*",
+    "projects/experimental/*",
+    "shared/packages/*"
+  ]
+}
