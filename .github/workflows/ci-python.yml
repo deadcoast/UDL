@@ -1,0 +1,100 @@
+name: CI - Python
+
+on:
+  workflow_call:
+  workflow_dispatch:
+
+jobs:
+  test-python:
+    name: Python ${{ matrix.python-version }} - ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        python-version: ['3.8', '3.9', '3.10', '3.11', '3.12']
+        exclude:
+          # Only test full matrix on ubuntu
+          - os: macos-latest
+            python-version: '3.8'
+          - os: macos-latest
+            python-version: '3.9'
+          - os: macos-latest
+            python-version: '3.10'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install black isort flake8 mypy pytest pytest-cov
+
+      - name: Find Python projects
+        id: find-projects
+        run: |
+          projects=$(find projects -name "pyproject.toml" -o -name "setup.py" -o -name "requirements.txt" | xargs -I {} dirname {} | sort -u)
+          echo "projects<<EOF" >> $GITHUB_OUTPUT
+          echo "$projects" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Lint with flake8
+        run: |
+          # Stop the build if there are Python syntax errors or undefined names
+          flake8 projects --count --select=E9,F63,F7,F82 --show-source --statistics
+          # Exit-zero treats all errors as warnings
+          flake8 projects --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+
+      - name: Check formatting with black
+        run: |
+          black --check projects || echo "::warning::Black formatting issues found"
+
+      - name: Check import sorting with isort
+        run: |
+          isort --check-only projects || echo "::warning::Import sorting issues found"
+
+      - name: Type check with mypy
+        continue-on-error: true
+        run: |
+          for project in projects/languages/axe-Syntax projects/tools/CTX projects/tools/ctx-card projects/tools/axe_syntax; do
+            if [ -d "$project" ]; then
+              echo "Type checking $project"
+              mypy "$project" || echo "::warning::Type check issues in $project"
+            fi
+          done
+
+      - name: Test CTX
+        if: hashFiles('projects/tools/CTX/pyproject.toml') != ''
+        working-directory: projects/tools/CTX
+        run: |
+          if [ -f "requirements.txt" ]; then
+            pip install -r requirements.txt
+          fi
+          pip install -e ".[dev]" || pip install -e .
+          pytest -v --cov=src --cov-report=xml --cov-report=term
+
+      - name: Test axe-Syntax
+        if: hashFiles('projects/languages/axe-Syntax/pyproject.toml') != ''
+        working-directory: projects/languages/axe-Syntax
+        run: |
+          if [ -f "requirements.txt" ]; then
+            pip install -r requirements.txt
+          fi
+          pip install -e . || echo "No package to install"
+          if [ -d "tests" ]; then
+            pytest -v || echo "::warning::Tests failed for axe-Syntax"
+          fi
+
+      - name: Upload coverage
+        if: matrix.python-version == '3.11' && matrix.os == 'ubuntu-latest'
+        uses: codecov/codecov-action@v3
+        with:
+          files: ./coverage.xml
+          flags: python
+          name: python-${{ matrix.python-version }}

@@ -1,0 +1,128 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+      - '*/v*.*.*'  # Project-specific versions like sandbag/v1.0.0
+
+jobs:
+  detect-project:
+    name: Detect Project from Tag
+    runs-on: ubuntu-latest
+    outputs:
+      project: ${{ steps.parse.outputs.project }}
+      version: ${{ steps.parse.outputs.version }}
+    steps:
+      - name: Parse tag
+        id: parse
+        run: |
+          TAG="${{ github.ref_name }}"
+          if [[ $TAG == *"/"* ]]; then
+            PROJECT=$(echo $TAG | cut -d'/' -f1)
+            VERSION=$(echo $TAG | cut -d'/' -f2)
+          else
+            PROJECT="monorepo"
+            VERSION=$TAG
+          fi
+          echo "project=$PROJECT" >> $GITHUB_OUTPUT
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "Releasing: $PROJECT @ $VERSION"
+
+  release-python:
+    name: Release Python Package
+    needs: detect-project
+    if: |
+      needs.detect-project.outputs.project == 'CTX' ||
+      needs.detect-project.outputs.project == 'ctx-card' ||
+      needs.detect-project.outputs.project == 'axe-syntax'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install build tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install build twine
+
+      - name: Build package
+        working-directory: projects/*/${{ needs.detect-project.outputs.project }}
+        run: python -m build
+
+      - name: Publish to PyPI
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
+        working-directory: projects/*/${{ needs.detect-project.outputs.project }}
+        run: twine upload dist/*
+
+  release-rust:
+    name: Release Rust Crate
+    needs: detect-project
+    if: needs.detect-project.outputs.project == 'sandbag'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Build
+        working-directory: projects/tools/${{ needs.detect-project.outputs.project }}
+        run: cargo build --release
+
+      - name: Publish to crates.io
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
+        working-directory: projects/tools/${{ needs.detect-project.outputs.project }}
+        run: cargo publish
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: target/release/sandbag*
+          draft: false
+          prerelease: false
+
+  release-npm:
+    name: Release NPM Package
+    needs: detect-project
+    if: |
+      needs.detect-project.outputs.project == 'gate' ||
+      needs.detect-project.outputs.project == 'camo-obsidian' ||
+      needs.detect-project.outputs.project == 'f8Syntax'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        working-directory: projects/*/${{ needs.detect-project.outputs.project }}
+        run: pnpm build
+
+      - name: Publish to NPM
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        working-directory: projects/*/${{ needs.detect-project.outputs.project }}
+        run: pnpm publish --no-git-checks

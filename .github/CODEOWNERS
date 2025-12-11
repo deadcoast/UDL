@@ -1,0 +1,37 @@
+# UDL Monorepo - Code Owners
+# These owners will be requested for review when someone opens a pull request.
+
+# Global owners (fallback)
+* @deadcoast
+
+# Monorepo infrastructure
+/.github/ @deadcoast
+/tooling/ @deadcoast
+/shared/ @deadcoast
+*.md @deadcoast
+package.json @deadcoast
+pnpm-workspace.yaml @deadcoast
+turbo.json @deadcoast
+Cargo.toml @deadcoast
+pyproject.toml @deadcoast
+
+# Languages
+/projects/languages/ @deadcoast
+
+# Tools
+/projects/tools/sandbag/ @deadcoast
+/projects/tools/CTX/ @deadcoast
+/projects/tools/ctx-card/ @deadcoast
+
+# Extensions
+/projects/extensions/camo-obsidian/ @deadcoast
+
+# Applications
+/projects/applications/black-milk/ @deadcoast
+/projects/applications/StrawberryMause/ @deadcoast
+
+# Libraries
+/projects/libraries/ @deadcoast
+
+# Experimental
+/projects/experimental/ @deadcoast
