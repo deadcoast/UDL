@@ -273,9 +273,9 @@ Check each project's README for its current status.
 
 ## 🔗 Links
 
-- **GitHub**: https://github.com/deadcoast/UDL
+- **GitHub**: <https://github.com/deadcoast/UDL>
 - **Documentation**: [docs/](docs/)
-- **Issues**: https://github.com/deadcoast/UDL/issues
+- **Issues**: <https://github.com/deadcoast/UDL/issues>
 
 ## 🌟 Highlights
 

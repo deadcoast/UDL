@@ -1,7 +1,7 @@
 # UDL Monorepo - Current Status
 
 **Last Updated:** December 11, 2025
-**Repository:** https://github.com/deadcoast/UDL
+[UDL repository](https://github.com/deadcoast/UDL)
 **Status:** ✅ Production Ready
 
 ## 📊 Current State
@@ -21,6 +21,7 @@
 #### Package Naming Resolution
 
 **Issue:** Duplicate package name `"gate-pattern"` in both gate projects
+
 **Fix:** Implemented scoped naming convention:
 
 - `projects/languages/gate/package.json` → `@udl/gate-pattern`
@@ -50,6 +51,7 @@
 #### TypeScript Configuration
 
 **Issue:** camo-obsidian missing tsconfig.json, causing build failures
+
 **Fix:** Created tsconfig.json with:
 
 - ES2018 + DOM library support
@@ -259,7 +261,7 @@ cargo test
 
 ### Submodule Warnings (Expected)
 
-```
+```text
 warning: adding embedded git repository: projects/tools/sandbag
 ```
 
@@ -333,9 +335,9 @@ Some projects don't have automated builds yet:
 
 ### Links
 
-- **Repository:** https://github.com/deadcoast/UDL
-- **Actions:** https://github.com/deadcoast/UDL/actions
-- **Issues:** https://github.com/deadcoast/UDL/issues
+- [UDL repository](https://github.com/deadcoast/UDL)
+- [Actions](https://github.com/deadcoast/UDL/actions)
+- [Issues](https://github.com/deadcoast/UDL/issues)
 
 ---
 

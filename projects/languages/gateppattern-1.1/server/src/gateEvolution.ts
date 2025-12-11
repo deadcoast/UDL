@@ -16,7 +16,7 @@ export function evaluateEvolutionReport(doc: TextDocument): string {
     "#==TRACE:EVOLUTION",
     ">trace::EVOLUTION:",
     `    potential:"${potential.toFixed(2)}"`,
-    `    arc:"ASCENT"`,
-    `    note:"Heuristic evolution estimate based on titles, echoes, and fusion hints"`,
+    '    arc:"ASCENT"',
+    '    note:"Heuristic evolution estimate based on titles, echoes, and fusion hints"',
   ].join("\n");
 }
