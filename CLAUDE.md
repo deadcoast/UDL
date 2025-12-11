@@ -370,7 +370,7 @@ Follow PEP 8 and project-specific `.cursorrules` (JSON format in CTX).
 - Benchmarks in `benches/` directory
 - Use `cargo test --release` for accurate performance tests
 
-## Working with Specific Projects
+## Project-Specific Development
 
 When working on a project:
 
