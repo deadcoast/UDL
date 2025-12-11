@@ -184,10 +184,12 @@ mkdir -p projects/tools/my-project
 ## 📚 Documentation
 
 ### Core Documentation
+
 - **[CLAUDE.md](CLAUDE.md)** - Guide for AI-assisted development
 - **[README.md](README.md)** - You are here
 
 ### Extended Documentation (docs/)
+
 - **[MONOREPO-STATUS.md](docs/MONOREPO-STATUS.md)** - Current state and recent updates
 - **[MONOREPO_ARCHITECTURE.md](docs/MONOREPO_ARCHITECTURE.md)** - Architecture design and patterns
 - **[MIGRATION_SUCCESS.md](docs/MIGRATION_SUCCESS.md)** - Migration completion summary
@@ -280,7 +282,7 @@ Check each project's README for its current status.
 - **33 Projects** in a unified monorepo with full git history
 - **Polyglot** - TypeScript, Python, Rust, GDScript
 - **Smart Caching** - TurboRepo for lightning-fast builds
-- **Scoped Packages** - @udl/* namespace for TypeScript packages
+- **Scoped Packages** - @udl/\* namespace for TypeScript packages
 - **Modern CI/CD** - GitHub Actions with change detection
 - **Multi-Version Testing** - Python 3.8-3.12, Node 18-20, Rust stable/beta
 - **Well Documented** - Comprehensive docs for AI and humans
@@ -289,6 +291,7 @@ Check each project's README for its current status.
 ## 📈 Recent Updates
 
 ### December 11, 2025
+
 - ✅ Fixed package naming conflicts (gate projects now use @udl scope)
 - ✅ Resolved CI/CD issues (PNPM version mismatch, git submodule errors)
 - ✅ Added tsconfig.json for camo-obsidian
