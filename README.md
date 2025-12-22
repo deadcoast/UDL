@@ -6,19 +6,19 @@
 [![Turborepo](https://img.shields.io/badge/built%20with-Turborepo-blueviolet)](https://turbo.build/)
 [![Monorepo](https://img.shields.io/badge/monorepo-pnpm-orange)](https://pnpm.io/)
 
-## 🎯 Overview
+## Overview
 
 UDL is a polyglot monorepo containing 33 independent projects focused on:
 
-- 🔤 **Domain-Specific Languages (DSLs)** - Custom language implementations
-- 🛠️ **Developer Tools** - CLI utilities, linters, and code generators
-- 📝 **Syntax Highlighters** - Editor extensions and language support
-- 🎮 **Applications** - Full-featured applications built with custom languages
-- 📚 **Libraries** - Reusable components and utilities
+- **Domain-Specific Languages (DSLs)** - Custom language implementations
+- **Developer Tools** - CLI utilities, linters, and code generators
+- **Syntax Highlighters** - Editor extensions and language support
+- **Applications** - Full-featured applications built with custom languages
+- **Libraries** - Reusable components and utilities
 
-**Status:** ✅ Production Ready | 🔄 CI/CD Operational | 📦 33 Projects | 🌐 4 Languages
+**Status:** Early Access | CI/CD Operational | 33 Projects | 4 Languages
 
-## 🚀 Quick Start
+## Quick Start
 
 ```bash
 # Clone the repository
@@ -35,7 +35,7 @@ pnpm build
 pnpm test
 ```
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 UDL/
@@ -56,7 +56,7 @@ UDL/
 └── examples/            # Cross-project examples
 ```
 
-## 🏗️ Technology Stack
+## Technology Stack
 
 ### Languages & Runtimes
 
@@ -72,7 +72,7 @@ UDL/
 - **Cargo Workspaces** - Rust project management
 - **Poetry/pip** - Python dependency management
 
-## 🎨 Featured Projects
+## Featured Projects
 
 ### Languages (8 projects)
 
@@ -116,7 +116,7 @@ UDL/
 
 WIP and research projects including mecha_development, motleyBard, CLAY, PACER, canon, and more
 
-## 🔧 Development
+## Development
 
 ### Prerequisites
 
@@ -181,7 +181,7 @@ pnpm udl create --name my-project --type tool --lang typescript
 mkdir -p projects/tools/my-project
 ```
 
-## 📚 Documentation
+## Documentation
 
 ### Core Documentation
 
@@ -204,7 +204,7 @@ Each project maintains its own README with detailed information:
 - API documentation
 - Examples
 
-## 🧪 Testing
+## Testing
 
 ```bash
 # Run all tests
@@ -222,7 +222,7 @@ cargo test                # Rust projects
 npm test                  # TypeScript projects
 ```
 
-## 📦 Publishing
+## Publishing
 
 Individual projects can be published independently:
 
@@ -241,7 +241,7 @@ cd projects/tools/sandbag
 cargo publish
 ```
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Please see:
 
@@ -261,23 +261,23 @@ Contributions are welcome! Please see:
 
 MIT License - see individual projects for specific licensing information.
 
-## 🎯 Project Status
+## Project Status
 
 This monorepo is actively maintained and continuously evolving. Individual projects may have different maturity levels:
 
-- ✅ **Stable** - Production-ready
-- 🚧 **Beta** - Feature-complete, testing
-- 🔬 **Experimental** - Early development, API may change
+- **Stable** - Production-ready
+- **Beta** - Feature-complete, testing
+- **Experimental** - Early development, API may change
 
 Check each project's README for its current status.
 
-## 🔗 Links
+## Links
 
 - **GitHub**: <https://github.com/deadcoast/UDL>
 - **Documentation**: [docs/](docs/)
 - **Issues**: <https://github.com/deadcoast/UDL/issues>
 
-## 🌟 Highlights
+## Highlights
 
 - **33 Projects** in a unified monorepo with full git history
 - **Polyglot** - TypeScript, Python, Rust, GDScript
@@ -288,7 +288,7 @@ Check each project's README for its current status.
 - **Well Documented** - Comprehensive docs for AI and humans
 - **Production Ready** - Fully operational build system
 
-## 📈 Recent Updates
+## Recent Updates
 
 ### December 11, 2025
 
@@ -303,4 +303,4 @@ See [MONOREPO-STATUS.md](docs/MONOREPO-STATUS.md) for detailed status and update
 
 ---
 
-Built with ❤️ by [deadcoast](https://github.com/deadcoast)
+deadcoast UDL designs [deadcoast](https://github.com/deadcoast)
