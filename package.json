@@ -27,7 +27,7 @@
     "udl": "node tooling/dev-tools/cli.js"
   },
   "devDependencies": {
-    "turbo": "^1.11.0",
+    "turbo": "^2.7.2",
     "@types/node": "^25.0.0",
     "prettier": "^3.1.0",
     "eslint": "^8.55.0",
